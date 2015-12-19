@@ -5,8 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Programming is like sex">
-    <title>標籤: C# - Programming is like sex</title>
+    <meta name="generator" content="Programming is like Sex">
+    <title>標籤: C# - Programming is like Sex</title>
     <meta name="author" content="max Lin">
     
     
@@ -14,12 +14,12 @@
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Programming is like sex">
+<meta property="og:title" content="Programming is like Sex">
 <meta property="og:url" content="http://yoursite.com/tags/C/index.html">
-<meta property="og:site_name" content="Programming is like sex">
+<meta property="og:site_name" content="Programming is like Sex">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Programming is like sex">
+<meta name="twitter:title" content="Programming is like Sex">
 <meta name="twitter:description">
     
     
@@ -49,7 +49,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Programming is like sex</a>
+        <a class="header-title-link" href="/ ">Programming is like Sex</a>
     </h1>
     
         
@@ -109,7 +109,7 @@
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link "
-                         href="/tags"
+                         href="/all-tags"
                         
                     >
                 
@@ -121,7 +121,7 @@
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link "
-                         href="/archives"
+                         href="/all-archives"
                         
                     >
                 
@@ -170,7 +170,7 @@
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
-                    <span class="sidebar-button-desc">Atom</span>
+                    <span class="sidebar-button-desc">RSS</span>
                 </a>
         </li>
         
@@ -212,9 +212,8 @@
             
                 <div class="postShorten-content" itemprop="articleBody">
                     <h1 id="1_及时释放资源">1 及时释放资源</h1><p>CLR托管环境扮演了垃圾回收的角色，所以你不需要显式释放已创建对象所占用的内存。但这不意味着你可以忽略所有的使用过的对象。许多对象封装了其他类型的系统资源（例如，磁盘文件，数据连接，网络端口）。保持这些资源的使用状态会急剧的耗尽系统的资源，削弱性能并且最终导致程序出错。当你打开一个文件、网络端口或者数据连接时，当你不再使用这些资源时，应该尽快显式释放这些资源。<br>另外针对资源的操作，一般需要增加异常捕获处理（Try..Catch），这时别忘记在finally中进行资源释放，以确保在捕获异常时也可以正常释放资源。</p>
-<h1 id="2_正确停止多线程">2 正确停止多线程</h1><pre><code>FileStream fs = <span class="keyword">File</span>.<span class="keyword">Open</span>(…);
-Try<span class="list">{…}</span> Finally<span class="list">{ fs.Close;}</span>
-</code></pre><p>假设如上代码在工作线程中，已经进行到finally里面，这个时候UI线程调用了该线程的Abort()方法，则很有可能fs.Close还没有执行的时候，工作线程跳出finally代码块了。这样你的fs就永远不会被Close了。<br>大多数情况下，finally会永远被被执行，但不包括调用Thread.Abort所引发的ThreadAbortException异常，鉴于此理由，不建议使用Abort。<br>要正确停止线程，不在于调用者采用了什么行为(不要直接使用Thread.Abort())，而更多依赖于工作线程是否能主动响应调用者的停止请求。<br>大体机制是，如果线程需要被停止，那么线程自身就应该负责给调用者开放Cancel的接口。</p>
+<h1 id="2_正确停止多线程">2 正确停止多线程</h1><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FileStream fs = <span class="keyword">File</span>.<span class="keyword">Open</span>(…);</span><br><span class="line">Try<span class="list">&#123;…&#125;</span> Finally<span class="list">&#123; fs.Close;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>假设如上代码在工作线程中，已经进行到finally里面，这个时候UI线程调用了该线程的Abort()方法，则很有可能fs.Close还没有执行的时候，工作线程跳出finally代码块了。这样你的fs就永远不会被Close了。<br>大多数情况下，finally会永远被被执行，但不包括调用Thread.Abort所引发的ThreadAbortException异常，鉴于此理由，不建议使用Abort。<br>要正确停止线程，不在于调用者采用了什么行为(不要直接使用Thread.Abort())，而更多依赖于工作线程是否能主动响应调用者的停止请求。<br>大体机制是，如果线程需要被停止，那么线程自身就应该负责给调用者开放Cancel的接口。</p>
 <h1 id="3_类型转换相关">3 类型转换相关</h1><ul>
 <li>如果从数据库中读取某个值，有数据时是int类型，没有数据的话获取到的是null，类型强转则会异常。所以一般很少用强转，用的话也必须做一个异常捕获，避免程序异常。</li>
 <li>在强转不好的情况下，我们建议使用TryParse方法，该方法已经对Parse方法进行了异常处理。</li>
@@ -294,6 +293,12 @@ Try<span class="list">{…}</span> Finally<span class="list">{ fs.Close;}</span>
 
             </h5>
         
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                shenzhen
+            </h5>
         
     </div>
 </div>
