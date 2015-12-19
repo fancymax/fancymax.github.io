@@ -1,87 +1,216 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="null">
+    
 <head>
-  <meta charset="utf-8">
-  
-  <title>Hi,I&#39;m max Lin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hi,I'm max Lin">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Programming is like sex">
+    <title>Programming is like sex</title>
+    <meta name="author" content="max Lin">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Programming is like sex">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hi,I'm max Lin">
+<meta property="og:site_name" content="Programming is like sex">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hi,I'm max Lin">
+<meta name="twitter:title" content="Programming is like sex">
 <meta name="twitter:description">
-  
-    <link rel="alternative" href="/atom.xml" title="Hi,I&#39;m max Lin" type="application/atom+xml">
-  
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
+    
+    
+    
+        <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/me.jpeg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
 </head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="overlay"></div>
-  <div id="header-outer" class="outer">
-    <div id="profile_img">
-      <img id="circle_img" src="http://7xpbra.com1.z0.glb.clouddn.com/me.jpeg" />
-    </div>
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hi,I&#39;m max Lin</a>
-      </h1>
-      
-    </div>
-    <div id="header-menu">
-      <nav id="main-nav">
-        <ul>
-        
-          <li><a href="/"><i class="fa fa-home icon-setting"></i></a></li>
-        
-          <li><a href="/archives"><i class="fa fa-archive icon-setting"></i></a></li>
-        
-          <li><a href="/about"><i class="fa fa-user icon-setting"></i></a></li>
-        
-        
-          <li><a href="/atom.xml"><i class="fa fa-rss %> icon-setting"></i></a></li>
-        
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-C-典型缺陷" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/19/C-典型缺陷/" class="article-date">
-  <time datetime="2015-12-19T07:57:18.000Z" itemprop="datePublished">2015-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/19/C-典型缺陷/">C#典型缺陷</a>
-    </h1>
-  
 
-      </header>
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1_及时释放资源">1 及时释放资源</h1><p>CLR托管环境扮演了垃圾回收的角色，所以你不需要显式释放已创建对象所占用的内存。但这不意味着你可以忽略所有的使用过的对象。许多对象封装了其他类型的系统资源（例如，磁盘文件，数据连接，网络端口）。保持这些资源的使用状态会急剧的耗尽系统的资源，削弱性能并且最终导致程序出错。当你打开一个文件、网络端口或者数据连接时，当你不再使用这些资源时，应该尽快显式释放这些资源。<br>另外针对资源的操作，一般需要增加异常捕获处理（Try..Catch），这时别忘记在finally中进行资源释放，以确保在捕获异常时也可以正常释放资源。</p>
+        
+            
+        
+    
+
+<header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Programming is like sex</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="/#about">
+        
+        
+            <img class="header-picture" src="http://7xpbra.com1.z0.glb.clouddn.com/me.jpeg"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="1">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://7xpbra.com1.z0.glb.clouddn.com/me.jpeg"/>
+            </a>
+            <span class="sidebar-profile-name">max Lin</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首頁</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分類</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">標籤</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">所有文章</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜尋</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">關於</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">Atom</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/12/19/C-典型缺陷/">
+                            C#典型缺陷
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sat Dec 19 2015 15:57:18 GMT+0800">
+	
+		    Dec 19, 2015
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="1_及时释放资源">1 及时释放资源</h1><p>CLR托管环境扮演了垃圾回收的角色，所以你不需要显式释放已创建对象所占用的内存。但这不意味着你可以忽略所有的使用过的对象。许多对象封装了其他类型的系统资源（例如，磁盘文件，数据连接，网络端口）。保持这些资源的使用状态会急剧的耗尽系统的资源，削弱性能并且最终导致程序出错。当你打开一个文件、网络端口或者数据连接时，当你不再使用这些资源时，应该尽快显式释放这些资源。<br>另外针对资源的操作，一般需要增加异常捕获处理（Try..Catch），这时别忘记在finally中进行资源释放，以确保在捕获异常时也可以正常释放资源。</p>
 <h1 id="2_正确停止多线程">2 正确停止多线程</h1><pre><code>FileStream fs = <span class="keyword">File</span>.<span class="keyword">Open</span>(…);
 Try<span class="list">{…}</span> Finally<span class="list">{ fs.Close;}</span>
 </code></pre><p>假设如上代码在工作线程中，已经进行到finally里面，这个时候UI线程调用了该线程的Abort()方法，则很有可能fs.Close还没有执行的时候，工作线程跳出finally代码块了。这样你的fs就永远不会被Close了。<br>大多数情况下，finally会永远被被执行，但不包括调用Thread.Abort所引发的ThreadAbortException异常，鉴于此理由，不建议使用Abort。<br>要正确停止线程，不在于调用者采用了什么行为(不要直接使用Thread.Abort())，而更多依赖于工作线程是否能主动响应调用者的停止请求。<br>大体机制是，如果线程需要被停止，那么线程自身就应该负责给调用者开放Cancel的接口。</p>
@@ -99,44 +228,47 @@ Try<span class="list">{…}</span> Finally<span class="list">{ fs.Close;}</span>
 <h1 id="7_C#编译目标平台问题">7 C#编译目标平台问题</h1><p>当程序依赖的dll的编译的目标平台是X86，则程序本身的编译目标平台也必须是X86(而不是默认选项Any CPU)，否则64位电脑将无法运行。</p>
 <h1 id="8_跨线程访问控件">8 跨线程访问控件</h1><p>在开发界面程序时，会遇到比较耗时的操作，为了程序的友好性，我们一般会在任务线程中执行耗时操作，并将执行信息显示在主UI线程。<br>假如直接在任务线程中操作主UI线程中的控件，这样极易出现异常，报“不能在其他线程中修改创建控件线程的值”，如果设置了禁止编译器对跨线程访问做检查，就不会报错，但是会出现无法预知的问题。此时建议采用委托或匿名委托的方式实现。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/19/C-典型缺陷/" data-id="ciictv1z200008e2dqbntodbt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+                    
+                        
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/27/hello-world/" class="article-date">
-  <time datetime="2015-07-27T14:08:06.000Z" itemprop="datePublished">2015-07-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+                    
+                    
+                        <p>
+                            <a href="/2015/12/19/C-典型缺陷/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/27/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
+    </article>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/07/27/hello-world/">
+                            Hello World
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Mon Jul 27 2015 22:08:06 GMT+0800">
+	
+		    Jul 27, 2015
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -146,45 +278,82 @@ Try<span class="list">{…}</span> Finally<span class="list">{ fs.Close;}</span>
 <h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/27/hello-world/" data-id="ciictv1zq00038e2dnlpag5l1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+                    
+                        
 
-
-  
-  
-</section>
+                    
+                    
+                        <p>
+                            <a href="/2015/07/27/hello-world/#post-footer" class="postShorten-excerpt_link link">
+                                留言與分享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
         
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 max Lin<br>
-      <a href="https://github.com/ken8203/hexo-theme-alberta" target="_blank">Alberta</a> by <a href="http://jaychung.tw" target="_blank">jaychung</a>. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Thank <a href="http://subtlepatterns.com/" target="_blank">Subtlepatterns</a>
-    </div>
-  </div>
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">第 1 頁 共 1 頁</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2015 max Lin. All Rights Reserved.
+    </span>
 </footer>
+
+            </div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://7xpbra.com1.z0.glb.clouddn.com/me.jpeg"/>
+        
+            <h4 id="about-card-name">max Lin</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
     </div>
-    
-    
+</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="//imsky.github.io/holder/holder.js"></script>
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
-
-  </div>
-</body>
 </html>
