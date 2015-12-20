@@ -3,9 +3,9 @@
   <title><![CDATA[Programming is like Sex]]></title>
   
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
+  <link href="http://fancymax.github.io/"/>
   <updated>2015-12-20T03:13:33.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://fancymax.github.io/</id>
   
   <author>
     <name><![CDATA[max Lin]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[12306forMac 开发日记-上]]></title>
-    <link href="http://yoursite.com/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/"/>
-    <id>http://yoursite.com/2015/12/20/开发日记-上/</id>
+    <link href="http://fancymax.github.io/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/"/>
+    <id>http://fancymax.github.io/2015/12/20/开发日记-上/</id>
     <published>2015-12-20T02:37:22.000Z</published>
     <updated>2015-12-20T03:13:33.000Z</updated>
     <content type="html"><![CDATA[<p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
@@ -66,14 +66,14 @@
     
     </summary>
     
-      <category term="Cocoa" scheme="http://yoursite.com/tags/Cocoa/"/>
+      <category term="Cocoa" scheme="http://fancymax.github.io/tags/Cocoa/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[浅谈WPF中的MVVM框架--MVVMFoundation]]></title>
-    <link href="http://yoursite.com/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/"/>
-    <id>http://yoursite.com/2014/04/19/浅谈WPF中的MVVM框架-MVVMFoundation/</id>
+    <link href="http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/"/>
+    <id>http://fancymax.github.io/2014/04/19/浅谈WPF中的MVVM框架-MVVMFoundation/</id>
     <published>2014-04-19T14:22:25.000Z</published>
     <updated>2015-12-20T02:37:43.000Z</updated>
     <content type="html"><![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
@@ -197,14 +197,14 @@
     
     </summary>
     
-      <category term="WPF,MVVM" scheme="http://yoursite.com/tags/WPF-MVVM/"/>
+      <category term="WPF,MVVM" scheme="http://fancymax.github.io/tags/WPF-MVVM/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[成长与感悟--工作两年半]]></title>
-    <link href="http://yoursite.com/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/"/>
-    <id>http://yoursite.com/2013/12/19/成长与感悟-工作两年半/</id>
+    <link href="http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/"/>
+    <id>http://fancymax.github.io/2013/12/19/成长与感悟-工作两年半/</id>
     <published>2013-12-19T14:19:18.000Z</published>
     <updated>2015-12-19T14:20:32.000Z</updated>
     <content type="html"><![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
@@ -250,14 +250,14 @@
     
     </summary>
     
-      <category term="成长与感悟" scheme="http://yoursite.com/tags/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
+      <category term="成长与感悟" scheme="http://fancymax.github.io/tags/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Delphi常用快捷键]]></title>
-    <link href="http://yoursite.com/2012/12/19/Delphi%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://yoursite.com/2012/12/19/Delphi常用快捷键/</id>
+    <link href="http://fancymax.github.io/2012/12/19/Delphi%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://fancymax.github.io/2012/12/19/Delphi常用快捷键/</id>
     <published>2012-12-19T14:26:49.000Z</published>
     <updated>2015-12-19T14:30:51.000Z</updated>
     <content type="html"><![CDATA[<p>delphi是我学编程时的入门语言，用过一年多的时光，个人对它还是挺喜欢的。现在用的少了，一些快捷键和语法也有些遗忘了，这里对delphi的快捷键做个总结，留个纪念。嘿嘿，不知道还有多少人还用着这门语言？<br><a id="more"></a></p>
@@ -283,14 +283,14 @@
     
     </summary>
     
-      <category term="Dephi" scheme="http://yoursite.com/tags/Dephi/"/>
+      <category term="Dephi" scheme="http://fancymax.github.io/tags/Dephi/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[成长与感悟--工作一年半]]></title>
-    <link href="http://yoursite.com/2012/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%8D%8A/"/>
-    <id>http://yoursite.com/2012/12/19/成长与感悟-工作一年半/</id>
+    <link href="http://fancymax.github.io/2012/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%8D%8A/"/>
+    <id>http://fancymax.github.io/2012/12/19/成长与感悟-工作一年半/</id>
     <published>2012-12-19T14:13:36.000Z</published>
     <updated>2015-12-19T14:16:31.000Z</updated>
     <content type="html"><![CDATA[<p>2012年年底写的总结，拿出来和大家分享一下。<br><a id="more"></a></p>
@@ -322,7 +322,7 @@
     
     </summary>
     
-      <category term="成长与感悟" scheme="http://yoursite.com/tags/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
+      <category term="成长与感悟" scheme="http://fancymax.github.io/tags/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   
