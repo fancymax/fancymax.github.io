@@ -7,7 +7,7 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="/atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sun, 20 Dec 2015 03:13:33 GMT</pubDate>
+    <pubDate>Sun, 20 Dec 2015 04:03:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -22,7 +22,7 @@
       <content:encoded><![CDATA[<p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
 <a id="more"></a>
 <p>最早是因为女朋友，她家是湖南的。从深圳到湖南那票叫一个难买。<br>去年别人介绍 买了一款心蓝的订票软件（可惜没有 Mac 版的）,装在我的虚拟机上，刷票刷了两个月总算买到回湖南的两张高铁票。<br>我的 Mac基本上开着虚拟机开了两个月没停，挺心疼的。另外女朋友用macbook基本没法开虚拟机，而我实在不想为了这个搞个双系统。 所以就想搞个 Mac 版的订票软件，借鉴一下心蓝的一些功能。</p>
-<h1 id="Mac版的定位">Mac版的定位</h1><p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控 60 天，基本上 90%可以买到票。 </p>
+<h1 id="Mac版的定位">Mac版的定位</h1><p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控 60 天，基本上 90%可以买到票。<br>这是我在<a href="http://www.v2ex.com/t/243795" target="_blank" rel="external">v2ex上做的调查</a>，可以看出这东西还是挺多人需要滴。</p>
 <h1 id="准备工作">准备工作</h1><p>如何开始呢，这里着重列出自己学习过程中感觉比较有用的东西供大家参考。</p>
 <ul>
 <li><p>关于Mac<br>苹果开发，最好就是买个Mac，Mac的型号不少，我主要推荐以下两款：</p>
