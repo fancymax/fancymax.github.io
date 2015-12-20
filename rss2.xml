@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[Programming is like Sex]]></title>
-  
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://fancymax.github.io/"/>
-  <updated>2015-12-20T03:13:33.000Z</updated>
-  <id>http://fancymax.github.io/</id>
-  
-  <author>
-    <name><![CDATA[max Lin]]></name>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title><![CDATA[Programming is like Sex]]></title>
+    <link>http://fancymax.github.io/</link>
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    <description></description>
+    <pubDate>Sun, 20 Dec 2015 03:13:33 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[12306forMac 开发日记-上]]></title>
-    <link href="http://fancymax.github.io/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/"/>
-    <id>http://fancymax.github.io/2015/12/20/开发日记-上/</id>
-    <published>2015-12-20T02:37:22.000Z</published>
-    <updated>2015-12-20T03:13:33.000Z</updated>
-    <content type="html"><![CDATA[<p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
+    <item>
+      <title><![CDATA[12306forMac 开发日记-上]]></title>
+      <link>http://fancymax.github.io/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/</link>
+      <guid>http://fancymax.github.io/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/</guid>
+      <pubDate>Sun, 20 Dec 2015 02:37:22 GMT</pubDate>
+      <description>
+      <![CDATA[<p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
 <a id="more"></a>
 <p>最早是因为女朋友，她家是湖南的。从深圳到湖南那票叫一个难买。<br>去年别人介绍 买了一款心蓝的订票软件（可惜没有 Mac 版的）,装在我的虚拟机上，刷票刷了两个月总算买到回湖南的两张高铁票。<br>我的 Mac基本上开着虚拟机开了两个月没停，挺心疼的。另外女朋友用macbook基本没法开虚拟机，而我实在不想为了这个搞个双系统。 所以就想搞个 Mac 版的订票软件，借鉴一下心蓝的一些功能。</p>
 <h1 id="Mac版的定位">Mac版的定位</h1><p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控 60 天，基本上 90%可以买到票。 </p>
@@ -60,23 +59,22 @@
 <p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg" alt=""></p>
 <p>回头想想这三个月进步还挺大，基本熟悉了Swift、Objective-c、以及Cocoa API，对订票的流程也混熟了。还有好多想法，但是总觉得时间太不够用了，只能用业余的时间来弄弄。</p>
 <p>不管怎么说还是要继续努力，争取早日完成。我的目标是上架Mac Appstore，并达到10000用户量。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>]]>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/#disqus_thread</comments>
+    </item>
     
-    </summary>
-    
-      <category term="Cocoa" scheme="http://fancymax.github.io/tags/Cocoa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[浅谈WPF中的MVVM框架--MVVMFoundation]]></title>
-    <link href="http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/"/>
-    <id>http://fancymax.github.io/2014/04/19/浅谈WPF中的MVVM框架-MVVMFoundation/</id>
-    <published>2014-04-19T14:22:25.000Z</published>
-    <updated>2015-12-20T02:37:43.000Z</updated>
-    <content type="html"><![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
+    <item>
+      <title><![CDATA[浅谈WPF中的MVVM框架--MVVMFoundation]]></title>
+      <link>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/</link>
+      <guid>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/</guid>
+      <pubDate>Sat, 19 Apr 2014 14:22:25 GMT</pubDate>
+      <description>
+      <![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
+<p><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" width = "550" height = "400" alt="what is WPF" align=center /></p>
+<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。</p>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
 <p><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" width="550" height="400" alt="what is WPF" align="center"></p>
 <p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。</p>
 <a id="more"></a>
@@ -189,25 +187,21 @@
 </code></pre></li>
 </ol>
 <p>以上就是MVVMFoundation框架的主要使用方法，感兴趣的人可以用用看～欢迎留言交流心得～</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
-<p><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" width = "550" height = "400" alt="what is WPF" align=center /></p>
-<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。</p>]]>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/#disqus_thread</comments>
+    </item>
     
-    </summary>
-    
-      <category term="WPF,MVVM" scheme="http://fancymax.github.io/tags/WPF-MVVM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[成长与感悟--工作两年半]]></title>
-    <link href="http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/"/>
-    <id>http://fancymax.github.io/2013/12/19/成长与感悟-工作两年半/</id>
-    <published>2013-12-19T14:19:18.000Z</published>
-    <updated>2015-12-19T14:20:32.000Z</updated>
-    <content type="html"><![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
+    <item>
+      <title><![CDATA[成长与感悟--工作两年半]]></title>
+      <link>http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/</link>
+      <guid>http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/</guid>
+      <pubDate>Thu, 19 Dec 2013 14:19:18 GMT</pubDate>
+      <description>
+      <![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
+<p>以下是我在项目过程中的一些总结和思考，欢迎拍砖~</p>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
 <p>以下是我在项目过程中的一些总结和思考，欢迎拍砖~</p>
 <a id="more"></a>
 <h2 id="直接跳进深水区">直接跳进深水区</h2><p>这是学习新事物的一种最直接，也最冒险的方法。<br>选择一项新技术，比如F#，基于实际的时间表，在真实的项目中使用它。这会带来压力，但如果运用得当，将特别有效率。</p>
@@ -243,24 +237,20 @@
 <blockquote>
 <p>无论怎样学习技术是一种态度，无论你在什么公司、位于何种职位、从事何种技术，学习前辈的先进方法，永远是一条最快的提升捷径。站在巨人的肩膀上，迎接世界的挑战。</p>
 </blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
-<p>以下是我在项目过程中的一些总结和思考，欢迎拍砖~</p>]]>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/#disqus_thread</comments>
+    </item>
     
-    </summary>
-    
-      <category term="成长与感悟" scheme="http://fancymax.github.io/tags/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Delphi常用快捷键]]></title>
-    <link href="http://fancymax.github.io/2012/12/19/Delphi%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://fancymax.github.io/2012/12/19/Delphi常用快捷键/</id>
-    <published>2012-12-19T14:26:49.000Z</published>
-    <updated>2015-12-19T14:30:51.000Z</updated>
-    <content type="html"><![CDATA[<p>delphi是我学编程时的入门语言，用过一年多的时光，个人对它还是挺喜欢的。现在用的少了，一些快捷键和语法也有些遗忘了，这里对delphi的快捷键做个总结，留个纪念。嘿嘿，不知道还有多少人还用着这门语言？<br><a id="more"></a></p>
+    <item>
+      <title><![CDATA[Delphi常用快捷键]]></title>
+      <link>http://fancymax.github.io/2012/12/19/Delphi%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <guid>http://fancymax.github.io/2012/12/19/Delphi%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <pubDate>Wed, 19 Dec 2012 14:26:49 GMT</pubDate>
+      <description>
+      <![CDATA[<p>delphi是我学编程时的入门语言，用过一年多的时光，个人对它还是挺喜欢的。现在用的少了，一些快捷键和语法也有些遗忘了，这里对delphi的快捷键做个总结，留个纪念。嘿嘿，不知道还有多少人还用着这门语言？<br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>delphi是我学编程时的入门语言，用过一年多的时光，个人对它还是挺喜欢的。现在用的少了，一些快捷键和语法也有些遗忘了，这里对delphi的快捷键做个总结，留个纪念。嘿嘿，不知道还有多少人还用着这门语言？<br><a id="more"></a></p>
 <h1 id="代码标记和切换_Ctrl+Shift+NUM_、_Ctrl+NUM">代码标记和切换   Ctrl+Shift+NUM 、  Ctrl+NUM</h1><ul>
 <li><p>Ctrl+Shift+NUM 在光标行设置最多九个临时标志号，对临时切换非常有用。<br>行的左边将出现一本书，封面有NUM，再按一次取消设置。</p>
 </li>
@@ -277,23 +267,20 @@
 <p>F8  StepOver </p>
 <p>F7  TraceInto</p>
 <p>F11,F12切换Editor,InSpector,FormDesigner.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>delphi是我学编程时的入门语言，用过一年多的时光，个人对它还是挺喜欢的。现在用的少了，一些快捷键和语法也有些遗忘了，这里对delphi的快捷键做个总结，留个纪念。嘿嘿，不知道还有多少人还用着这门语言？<br>]]>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2012/12/19/Delphi%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/#disqus_thread</comments>
+    </item>
     
-    </summary>
-    
-      <category term="Dephi" scheme="http://fancymax.github.io/tags/Dephi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[成长与感悟--工作一年半]]></title>
-    <link href="http://fancymax.github.io/2012/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%8D%8A/"/>
-    <id>http://fancymax.github.io/2012/12/19/成长与感悟-工作一年半/</id>
-    <published>2012-12-19T14:13:36.000Z</published>
-    <updated>2015-12-19T14:16:31.000Z</updated>
-    <content type="html"><![CDATA[<p>2012年年底写的总结，拿出来和大家分享一下。<br><a id="more"></a></p>
+    <item>
+      <title><![CDATA[成长与感悟--工作一年半]]></title>
+      <link>http://fancymax.github.io/2012/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%8D%8A/</link>
+      <guid>http://fancymax.github.io/2012/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%8D%8A/</guid>
+      <pubDate>Wed, 19 Dec 2012 14:13:36 GMT</pubDate>
+      <description>
+      <![CDATA[<p>2012年年底写的总结，拿出来和大家分享一下。<br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>2012年年底写的总结，拿出来和大家分享一下。<br><a id="more"></a></p>
 <h2 id="从找工作说起">从找工作说起</h2><p>本人自动化专业出身，本科毕业的时候，大部分同学都进了电厂做运行或检修，而我算是个另类。</p>
 <p>主因是在大三的时候做了几个嵌入式项目，发现自己对编程很感兴趣，于是毅然决然想当个程序猿。毕业的时候凭着C语言和单片机的一点基础，找到了一家做行业软件的公司，感觉还蛮幸运的。</p>
 <h2 id="入职初期">入职初期</h2><p>真正进入到部门大概是2011年八月中旬的样子。刚开始工作的时候座位排在部门经理和一位老员工中间倍感压力山大。</p>
@@ -316,14 +303,9 @@
 <p>这时候要有诚意，表现出互利共赢的态度，描述问题要清楚，对第三方装置有疑问，首先要确认不是自己错了，然后需要找好证据，比如要用以太网抓包工具收集底层报文的证据，而不要使用程序中的调试信息。</p>
 <p>诚恳的态度永远是最好的沟通方法。当然也会遇到完全不买帐的第三方厂家，这时候就需要寻求帮助，找相关人员协助，不要自己一个人闷头痛苦。</p>
 <h2 id="后记">后记</h2><p>现在想来特别羡慕当时的工作状态，感觉每天都在进步。这种状态或许再也找不回来了，又或者等我换家公司的时候能体会到？</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>2012年年底写的总结，拿出来和大家分享一下。<br>]]>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2012/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%B9%B4%E5%8D%8A/#disqus_thread</comments>
+    </item>
     
-    </summary>
-    
-      <category term="成长与感悟" scheme="http://fancymax.github.io/tags/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
-    
-  </entry>
-  
-</feed>
+  </channel>
+</rss>
