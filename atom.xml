@@ -5,7 +5,7 @@
   <channel>
     <title><![CDATA[Programming is like Sex]]></title>
     <link>http://fancymax.github.io/</link>
-    <atom:link href="/atom.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
     <pubDate>Sun, 20 Dec 2015 04:03:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
