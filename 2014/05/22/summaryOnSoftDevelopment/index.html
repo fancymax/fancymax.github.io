@@ -6,27 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Programming is like Sex">
-    <title>12306forMac 开发日记-上 - Programming is like Sex</title>
+    <title>敏捷开发培训总结 - Programming is like Sex</title>
     <meta name="author" content="max Lin">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
+    <meta name="description" content="前段时间参加了两天敏捷开发管理培训，收获挺大，在这里做一下总结。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="12306forMac 开发日记-上">
-<meta property="og:url" content="http://fancymax.github.io/2015/12/20/开发日记-上/index.html">
+<meta property="og:title" content="敏捷开发培训总结">
+<meta property="og:url" content="http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/index.html">
 <meta property="og:site_name" content="Programming is like Sex">
-<meta property="og:description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201511/708791-20151111174224009-881586110.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213943631-952430701.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213951724-2135344988.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213959131-1473971103.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg">
-<meta property="og:updated_time" content="2015-12-20T04:03:31.000Z">
+<meta property="og:description" content="前段时间参加了两天敏捷开发管理培训，收获挺大，在这里做一下总结。">
+<meta property="og:updated_time" content="2015-12-22T06:14:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="12306forMac 开发日记-上">
-<meta name="twitter:description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
+<meta name="twitter:title" content="敏捷开发培训总结">
+<meta name="twitter:description" content="前段时间参加了两天敏捷开发管理培训，收获挺大，在这里做一下总结。">
     
     
     
@@ -172,13 +167,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            12306forMac 开发日记-上
+            敏捷开发培训总结
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sun Dec 20 2015 10:37:22 GMT+0800">
+    <time itemprop="datePublished" content="Thu May 22 2014 14:08:18 GMT+0800">
 	
-		    Dec 20, 2015
+		    May 22, 2014
     	
     </time>
     
@@ -187,46 +182,94 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
+            <p>前段时间参加了两天敏捷开发管理培训，收获挺大，在这里做一下总结。</p>
 <a id="more"></a>
-<p>最早是因为女朋友，她家是湖南的。从深圳到湖南那票叫一个难买。<br>去年别人介绍 买了一款心蓝的订票软件（可惜没有 Mac 版的）,装在我的虚拟机上，刷票刷了两个月总算买到回湖南的两张高铁票。<br>我的 Mac基本上开着虚拟机开了两个月没停，挺心疼的。另外女朋友用macbook基本没法开虚拟机，而我实在不想为了这个搞个双系统。 所以就想搞个 Mac 版的订票软件，借鉴一下心蓝的一些功能。</p>
-<h1 id="Mac版的定位">Mac版的定位</h1><p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控 60 天，基本上 90%可以买到票。<br>这是我在<a href="http://www.v2ex.com/t/243795" target="_blank" rel="external">v2ex上做的调查</a>，可以看出这东西还是挺多人需要滴。</p>
-<h1 id="准备工作">准备工作</h1><p>如何开始呢，这里着重列出自己学习过程中感觉比较有用的东西供大家参考。</p>
+<h2 id="理解敏捷">理解敏捷</h2><p>整个培训过程中一直穿插着敏捷软件开发的原则进行讲解，这里摘录给我感触最深的几个：</p>
 <ul>
-<li><p>关于Mac<br>苹果开发，最好就是买个Mac，Mac的型号不少，我主要推荐以下两款：</p>
+<li>我们最重要的目标，是通过持续不断地及早交付有价值的软件使客户满意，经常地交付可工作的软件，相隔几星期或一两个月，倾向于较短的周期。</li>
+<li>业务人员和开发人员必须相互合作，项目中的每一天都不例外。</li>
+<li>团队定期反思如何能提高成效，并依此调整自身的举止表现。</li>
+<li>激发个体的斗志，以他们为核心搭建项目。提供所需的环境和支援，辅以信任，从而达成目标。</li>
+</ul>
+<p>敏捷流派主要有两个：Scrum 和 极限编程。Scrum侧重项目协作流程，极限编程侧重提高编程效率的技术实践。两者应该相辅相成。这里着重讲讲Scrum。</p>
+<h2 id="团队与角色">团队与角色</h2><p>Scrum中有Product Owner、Team、Scrum Master三类角色。一个好的Scrum团队以下特点：</p>
 <ul>
-<li>预算够就直接买Macbook Pro 15寸(推荐16G内存)，大概12~15K左右，屏幕大性能高，便携性好，跑个虚拟机里面再开VS都是小意思。</li>
-<li>如果预算不够，可以考虑买Mac mini主机(8G内存+SSD或Fushion Drive)，差不多5~6k，需要外接一个显示器。</li>
+<li>通常5~9人；</li>
+<li>跨职能，跨模块人员构成；</li>
+<li>成员应全职投入；</li>
+<li>团队自组织管理；</li>
+<li>迭代内保持团队成员稳定。</li>
 </ul>
-</li>
-<li><p>关于工具</p>
+<p>做好一个Product Owner要点如下：</p>
 <ul>
-<li>Dash<br>这个绝对是神器,超级好用的离线文档搜索工具。免费版有8秒的搜索等待。<br><img src="http://images2015.cnblogs.com/blog/708791/201511/708791-20151111174224009-881586110.png" alt=""></li>
-<li>科学上网<br>这个不用我多说，我推荐用土行孙，大家自己上网搜吧。</li>
+<li>定义产品功能；</li>
+<li>定义产品发布的日期和功能；</li>
+<li>对产品的投入产出比负责；</li>
+<li>根据市场情况对需求排列优先级；</li>
+<li>如果需要，在每个迭代合理调整产品特性及其优先级；</li>
+<li>介绍或拒绝开发团队的工作成果。</li>
 </ul>
-</li>
-<li><p>相关书籍</p>
+<p>Scrum Master要引导团队自己去找答案，而不是做一个发号司令的人，做好一个Scrum Master要点如下：</p>
 <ul>
-<li><p>OS X Human Interface Guidelines<br>在iBook 上可以找到，介绍OS X的界面设计规范。</p>
-</li>
-<li><p>The swift Programming language<br>同样在iBook上可以搜索到，主要就是介绍Swift语言，可以先通篇浏览一遍，后续遇到问题再去查。同时配合Dash查Cocoa的API，Perfect。</p>
-</li>
-<li><p>Cocoa Programming for Mac OS X(5th)<br>第五版以上，里面用的是Swift讲解，介绍的例子通俗易懂，全书的例子做一遍下来，开发简单的OS X程序不成问题。</p>
-</li>
+<li>Scrum正常运作的守护者；</li>
+<li>激发团队创造力；</li>
+<li>改善开发团队的外部环境；</li>
+<li>辅导团队提升运作效率；</li>
+<li>排除团队遇到的困难；</li>
+<li>保持团队紧密合作；</li>
 </ul>
-</li>
-</ul>
-<h1 id="开发进度">开发进度</h1><p>经过三四个月的时间，总算是在mac上实现了订票的功能。最花时间的是两方面：</p>
+<p>Team就是团队中的开发、测试或ui设计人员。</p>
+<h2 id="需求管理">需求管理</h2><p>Scrum通过编写用户故事来管理需求，好的用户故事的原则如下：</p>
 <ul>
-<li>一是12306的接口，各种坑，老是被封IP导致调试困难。</li>
-<li>另外一个就是Cocoa，写界面相当麻烦，而且是现学现卖，一路过来特别折腾。</li>
+<li>Independent独立的；</li>
+<li>Negotiable：可讨论的；</li>
+<li>Valuable：对用户或客户有价值的；</li>
+<li>Estimatable：可估计的；</li>
+<li>Small：小的；</li>
+<li>Testable：可测试的。</li>
 </ul>
-<p>下面我做的一些界面截图，留个纪念。<br><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213943631-952430701.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213951724-2135344988.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213959131-1473971103.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg" alt=""></p>
-<p>回头想想这三个月进步还挺大，基本熟悉了Swift、Objective-c、以及Cocoa API，对订票的流程也混熟了。还有好多想法，但是总觉得时间太不够用了，只能用业余的时间来弄弄。</p>
-<p>不管怎么说还是要继续努力，争取早日完成。我的目标是上架Mac Appstore，并达到10000用户量。</p>
+<p>之后要进行工作量估算，Product Owner(业务人员)必须在场梳理需求，每个项目成员针对用户故事的疑问向Product Owner提问，所有人弄清楚需求后开始。</p>
+<p>大家先找一个参照需求，确定它的工作量，然后其他的需求就按照这个参照需求来估计，这种相对估计法确保每个人估计出来的工作量是一致的。</p>
+<p>使用扑克牌，大家同时给出需求的估计值（而不是轮流进行），估值最高和最低的必须分别给出原因，这样做的好处让大家都独立思考。通过多轮估值让所有人了解需求，并估算出一个较为合理的工作量。</p>
+<h2 id="Scrum中的各项活动">Scrum中的各项活动</h2><p>简单来说，划分如下</p>
+<p>项目计划|<br>Sprint0|<br>Sprint1|<br>Sprint2|<br>Sprint3|<br>项目总结|</p>
+<p>按一个迭代周期来说，主要划分如下：迭代计划和评审一般要占用两个小时，而站立会议一般15分钟。</p>
+<p>迭代计划1|<br>迭代计划2|<br>站立会议|<br>…|<br>站立会议|<br>迭代评审|<br>迭代回顾|</p>
+<p>Spint0要做一些准备活动，如高层的业务流程图、初始的用户故事列表、测试策略、发布计划、团队建设、技术架构的选择、设计UI的风格等。</p>
+<h3 id="站立会议">站立会议</h3><p>晨会的要点：</p>
+<ul>
+<li>轮流发言，持Token者才可以发言；</li>
+<li>不讨论深入细节；</li>
+<li>不是对领导汇报，让团队中每个人都了解你的发言；</li>
+<li>不能单独讨论，自发的有序的进行发言；</li>
+<li>时间在15分钟以内。</li>
+</ul>
+<p>站立晨会的三个经典问题：昨天我完成了哪些工作；明天我打算做什么；完成我的目标是否存在什么障碍。<br>站立晨会的目的不是为了让大家都回答那三个问题，而是让团队围绕这三个问题，制定当天的工作计划并暴露问题。</p>
+<h3 id="迭代验收和回顾">迭代验收和回顾</h3><p>迭代验收会议，通过演示可工作的软件检查需求是否满足客户要求；迭代验收的好处：</p>
+<ul>
+<li>通过演示可工作的软件来确认项目的进度，具有真实性；</li>
+<li>能尽早获得用户对产品的反馈，使产品更贴近客户需求。</li>
+<li>收集反馈。</li>
+</ul>
+<p>迭代回顾会议，目的是分享好的经验和发现改进点，促进团队不断进步，迭代回顾的好处：</p>
+<ul>
+<li>激励团队成员；</li>
+<li>帮助团队挖掘优秀经验并继承；</li>
+<li>避免团队犯重复的错误；</li>
+<li>营造团队自主改进的氛围。</li>
+</ul>
+<h2 id="利用敏捷改进现有工作">利用敏捷改进现有工作</h2><p>即使不使用敏捷方式开发，也可以利用它的一些好的想法和实践可以用来提升目前的工作效率。</p>
+<ul>
+<li>比如敏捷开发中如何调动团队积极性，让每个人看到的是团队目标，而不是个人目标。</li>
+<li>比如经常地交付可工作的软件：以此提高软件开发的质量和可交付性。</li>
+<li>比如借鉴敏捷中设定Sprint(冲刺)的开发过程，调动开发人员的积极性以及明确每个开发阶段的目的性。</li>
+</ul>
+<h2 id="其他问题">其他问题</h2><ul>
+<li>需求文档 或者 使用说明文档 写了100多页，但是写完之后基本没人看，这样的问题应该很普遍，该如何解决？<br>把Word文档迁移到Wiki上，大文档切细分成一个个独立的Wiki页面，Wiki可以统计页面的访问次数，有了足够的数据支撑之后就可以把访问次数少的页面去掉，以此来精简文档，这样留下来的文档内容就是真正有用的。</li>
+</ul>
+<ul>
+<li>业务部门的需求太多而且每个都非常紧急，怎么处理？<br>业务部门拉一个人对需求按价值进行排序；需求收集例行化，主动收集，需求有一定的清晰度；回顾哪些需求不重要，做为武器。</li>
+</ul>
 
             
                 
@@ -239,7 +282,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">標籤</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Cocoa/">Cocoa</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Process/">Process</a>
 
             </div>
         
@@ -248,7 +291,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/20/开发日记-上/"  data-tooltip="12306forMac 开发日记-上">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -256,7 +299,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/05/22/summaryOnSoftDevelopment/" data-tooltip="敏捷开发培训总结">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/04/20/talkAboutPM/" data-tooltip="浅谈研发项目经理">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -271,17 +314,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -325,7 +368,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/20/开发日记-上/"  data-tooltip="12306forMac 开发日记-上">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -333,7 +376,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/05/22/summaryOnSoftDevelopment/" data-tooltip="敏捷开发培训总结">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/04/20/talkAboutPM/" data-tooltip="浅谈研发项目经理">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -348,17 +391,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -384,17 +427,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
