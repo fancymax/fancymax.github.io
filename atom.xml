@@ -64,6 +64,33 @@
     </item>
     
     <item>
+      <title><![CDATA[AutoCompleteTextField for OS X(Swift)]]></title>
+      <link>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/</link>
+      <guid>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/</guid>
+      <pubDate>Mon, 24 Aug 2015 08:08:15 GMT</pubDate>
+      <description>
+      <![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。</p>
+<h2 id="Demo">Demo</h2><p>我做的<a href="https://github.com/fancymax/AutoCompleteTextField">Demo</a>通过这个控件实现类似12306上选择站点时的智能提示，功能上支持 全拼、简拼、汉字，效果如下：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/AutoCompleteTextfield.jpg" alt="demo"><br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。</p>
+<h2 id="Demo">Demo</h2><p>我做的<a href="https://github.com/fancymax/AutoCompleteTextField" target="_blank" rel="external">Demo</a>通过这个控件实现类似12306上选择站点时的智能提示，功能上支持 全拼、简拼、汉字，效果如下：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/AutoCompleteTextfield.jpg" alt="demo"><br><a id="more"></a></p>
+<h2 id="原理和收获：">原理和收获：</h2><p>原理也比较简单：</p>
+<ol>
+<li>捕捉用户的 keyup 事件来增加智能提示逻辑。</li>
+<li>识别用户按下的键值，弹出 popover ，给出智能提示，比如用户按下 s h ，则给出提示 “上海”</li>
+<li>当用户按下 enter 键，则把提示值输出到 TextField 的显示框上。</li>
+</ol>
+<p>通过实现这个控件，可以学到什么？</p>
+<ol>
+<li>了解 Cocoa 控件体系的继承层级。</li>
+<li>了解 Cocoa 中的 delegate 模式(主程序与 AutoCompleteTextField 之间通过 delegate 模式解除耦合)。</li>
+</ol>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title><![CDATA[敏捷开发培训总结]]></title>
       <link>http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/</link>
       <guid>http://fancymax.github.io/2014/05/22/summaryOnSoftDevelopment/</guid>
