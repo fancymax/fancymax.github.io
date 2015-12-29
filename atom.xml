@@ -7,8 +7,27 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sun, 20 Dec 2015 04:03:31 GMT</pubDate>
+    <pubDate>Tue, 29 Dec 2015 12:31:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[我的2015]]></title>
+      <link>http://fancymax.github.io/2015/12/29/my2015/</link>
+      <guid>http://fancymax.github.io/2015/12/29/my2015/</guid>
+      <pubDate>Tue, 29 Dec 2015 12:30:05 GMT</pubDate>
+      <description>
+      <![CDATA[<p>年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。<br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。<br><a id="more"></a><br>记忆中的关键词有：欢乐谷跨年、陈奕迅演唱会、香港代购、去女朋友家过年、穿越东西冲、去香港的南丫岛、五一长假、买房装修搬家、玩PS4、开发12306ForMac。</p>
+<p>总的感觉自己这一年过的还是比较滋润的。<br>尤其是前半年玩的比较多，印象最深的就是五一请了9天假和女友去了一趟成都和重庆玩了九寨沟、峨眉山等地。虽然只有短短的9天，但是感觉好像放了长长的一个寒假一样，特别的放松，同时也加深了女友的感情。</p>
+<p>后半年相对就平淡和辛苦一些，主要原因就是折腾着买房了，同时还有一堆装修搬家的事情，越是在这种时候越是能体现出有女朋友的好处了。<br>在我们马上要搬入新家的前一个月，前房东通知我必须要搬走，而且没得商量，不得已我们只能再找个房子住一个月，当时真是别提多闹心了。不过还好有个人可以一起承担，郁闷减半。</p>
+<p>经过两个多月的努力新房总算搞定，顺利入住。现在再去想想以前那些租房住的痛苦回忆，恍若隔世一般。</p>
+<p>另外，今年开始计划着做一些个人作品，比如12306ForMac，它是一款针对Mac的火车票抢票客户端，目前完成了50%左右。<br>同时为了方便后期的产品的推广和维护，我开通了fancywt.cn这个博客，当然我也会把平常的一些想法和感悟总结在这里。</p>
+<p>2015是个充满回忆的一年，期待我的2016更加精彩。</p>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2015/12/29/my2015/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[12306forMac 开发日记-上]]></title>

@@ -6,27 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Programming is like Sex">
-    <title>12306forMac 开发日记-上 - Programming is like Sex</title>
+    <title>我的2015 - Programming is like Sex</title>
     <meta name="author" content="max Lin">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
+    <meta name="description" content="年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="12306forMac 开发日记-上">
-<meta property="og:url" content="http://fancymax.github.io/2015/12/20/开发日记-上/index.html">
+<meta property="og:title" content="我的2015">
+<meta property="og:url" content="http://fancymax.github.io/2015/12/29/my2015/index.html">
 <meta property="og:site_name" content="Programming is like Sex">
-<meta property="og:description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201511/708791-20151111174224009-881586110.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213943631-952430701.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213951724-2135344988.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213959131-1473971103.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg">
-<meta property="og:updated_time" content="2015-12-20T04:03:31.000Z">
+<meta property="og:description" content="年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。">
+<meta property="og:updated_time" content="2015-12-29T12:31:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="12306forMac 开发日记-上">
-<meta name="twitter:description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
+<meta name="twitter:title" content="我的2015">
+<meta name="twitter:description" content="年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。">
     
     
     
@@ -183,13 +178,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            12306forMac 开发日记-上
+            我的2015
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Sun Dec 20 2015 10:37:22 GMT+0800">
+    <time itemprop="datePublished" content="Tue Dec 29 2015 20:30:05 GMT+0800">
 	
-		    12月 20, 2015
+		    12月 29, 2015
     	
     </time>
     
@@ -198,46 +193,12 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
-<a id="more"></a>
-<p>最早是因为女朋友，她家是湖南的。从深圳到湖南那票叫一个难买。<br>去年别人介绍 买了一款心蓝的订票软件（可惜没有 Mac 版的）,装在我的虚拟机上，刷票刷了两个月总算买到回湖南的两张高铁票。<br>我的 Mac基本上开着虚拟机开了两个月没停，挺心疼的。另外女朋友用macbook基本没法开虚拟机，而我实在不想为了这个搞个双系统。 所以就想搞个 Mac 版的订票软件，借鉴一下心蓝的一些功能。</p>
-<h1 id="Mac版的定位">Mac版的定位</h1><p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控 60 天，基本上 90%可以买到票。<br>这是我在<a href="http://www.v2ex.com/t/243795" target="_blank" rel="external">v2ex上做的调查</a>，可以看出这东西还是挺多人需要滴。</p>
-<h1 id="准备工作">准备工作</h1><p>如何开始呢，这里着重列出自己学习过程中感觉比较有用的东西供大家参考。</p>
-<ul>
-<li><p>关于Mac<br>苹果开发，最好就是买个Mac，Mac的型号不少，我主要推荐以下两款：</p>
-<ul>
-<li>预算够就直接买Macbook Pro 15寸(推荐16G内存)，大概12~15K左右，屏幕大性能高，便携性好，跑个虚拟机里面再开VS都是小意思。</li>
-<li>如果预算不够，可以考虑买Mac mini主机(8G内存+SSD或Fushion Drive)，差不多5~6k，需要外接一个显示器。</li>
-</ul>
-</li>
-<li><p>关于工具</p>
-<ul>
-<li>Dash<br>这个绝对是神器,超级好用的离线文档搜索工具。免费版有8秒的搜索等待。<br><img src="http://images2015.cnblogs.com/blog/708791/201511/708791-20151111174224009-881586110.png" alt=""></li>
-<li>科学上网<br>这个不用我多说，我推荐用土行孙，大家自己上网搜吧。</li>
-</ul>
-</li>
-<li><p>相关书籍</p>
-<ul>
-<li><p>OS X Human Interface Guidelines<br>在iBook 上可以找到，介绍OS X的界面设计规范。</p>
-</li>
-<li><p>The swift Programming language<br>同样在iBook上可以搜索到，主要就是介绍Swift语言，可以先通篇浏览一遍，后续遇到问题再去查。同时配合Dash查Cocoa的API，Perfect。</p>
-</li>
-<li><p>Cocoa Programming for Mac OS X(5th)<br>第五版以上，里面用的是Swift讲解，介绍的例子通俗易懂，全书的例子做一遍下来，开发简单的OS X程序不成问题。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="开发进度">开发进度</h1><p>经过三四个月的时间，总算是在mac上实现了订票的功能。最花时间的是两方面：</p>
-<ul>
-<li>一是12306的接口，各种坑，老是被封IP导致调试困难。</li>
-<li>另外一个就是Cocoa，写界面相当麻烦，而且是现学现卖，一路过来特别折腾。</li>
-</ul>
-<p>下面我做的一些界面截图，留个纪念。<br><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213943631-952430701.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213951724-2135344988.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213959131-1473971103.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg" alt=""></p>
-<p>回头想想这三个月进步还挺大，基本熟悉了Swift、Objective-c、以及Cocoa API，对订票的流程也混熟了。还有好多想法，但是总觉得时间太不够用了，只能用业余的时间来弄弄。</p>
-<p>不管怎么说还是要继续努力，争取早日完成。我的目标是上架Mac Appstore，并达到10000用户量。</p>
+            <p>年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。<br><a id="more"></a><br>记忆中的关键词有：欢乐谷跨年、陈奕迅演唱会、香港代购、去女朋友家过年、穿越东西冲、去香港的南丫岛、五一长假、买房装修搬家、玩PS4、开发12306ForMac。</p>
+<p>总的感觉自己这一年过的还是比较滋润的。<br>尤其是前半年玩的比较多，印象最深的就是五一请了9天假和女友去了一趟成都和重庆玩了九寨沟、峨眉山等地。虽然只有短短的9天，但是感觉好像放了长长的一个寒假一样，特别的放松，同时也加深了女友的感情。</p>
+<p>后半年相对就平淡和辛苦一些，主要原因就是折腾着买房了，同时还有一堆装修搬家的事情，越是在这种时候越是能体现出有女朋友的好处了。<br>在我们马上要搬入新家的前一个月，前房东通知我必须要搬走，而且没得商量，不得已我们只能再找个房子住一个月，当时真是别提多闹心了。不过还好有个人可以一起承担，郁闷减半。</p>
+<p>经过两个多月的努力新房总算搞定，顺利入住。现在再去想想以前那些租房住的痛苦回忆，恍若隔世一般。</p>
+<p>另外，今年开始计划着做一些个人作品，比如12306ForMac，它是一款针对Mac的火车票抢票客户端，目前完成了50%左右。<br>同时为了方便后期的产品的推广和维护，我开通了fancywt.cn这个博客，当然我也会把平常的一些想法和感悟总结在这里。</p>
+<p>2015是个充满回忆的一年，期待我的2016更加精彩。</p>
 
             
                 
@@ -250,7 +211,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Cocoa/">Cocoa</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/成长与感悟/">成长与感悟</a>
 
             </div>
         
@@ -259,7 +220,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/29/my2015/"  data-tooltip="我的2015">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -267,7 +228,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/24/autocompletetextfield-for-os-x/" data-tooltip="AutoCompleteTextField for OS X(Swift)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/20/开发日记-上/" data-tooltip="12306forMac 开发日记-上">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -282,17 +243,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -316,8 +277,8 @@
 
         
             
-                <div class="ds-thread" data-thread-key="2015/12/20/开发日记-上/"
-     data-title="12306forMac 开发日记-上" data-url="http://fancymax.github.io/2015/12/20/开发日记-上/">
+                <div class="ds-thread" data-thread-key="2015/12/29/my2015/"
+     data-title="我的2015" data-url="http://fancymax.github.io/2015/12/29/my2015/">
 </div>
 
             
@@ -341,7 +302,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/29/my2015/"  data-tooltip="我的2015">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -349,7 +310,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/24/autocompletetextfield-for-os-x/" data-tooltip="AutoCompleteTextField for OS X(Swift)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/20/开发日记-上/" data-tooltip="12306forMac 开发日记-上">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -364,17 +325,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -400,17 +361,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/20/开发日记-上/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/29/my2015/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
