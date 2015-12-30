@@ -7,8 +7,30 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Tue, 29 Dec 2015 12:31:39 GMT</pubDate>
+    <pubDate>Wed, 30 Dec 2015 10:59:34 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[LunarCalendar for OS X(Swift)]]></title>
+      <link>http://fancymax.github.io/2015/12/30/lunarCalendar/</link>
+      <guid>http://fancymax.github.io/2015/12/30/lunarCalendar/</guid>
+      <pubDate>Wed, 30 Dec 2015 10:58:00 GMT</pubDate>
+      <description>
+      <![CDATA[<p>Pure Native and Write by Swift<br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>Pure Native and Write by Swift<br><a id="more"></a><br>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/LunarCalendar.jpg" alt="demo"></p>
+<p>Github:<br><a href="https://github.com/fancymax/LunarCalendar" target="_blank" rel="external">https://github.com/fancymax/LunarCalendar</a></p>
+<p>Something to learn:</p>
+<ul>
+<li>Autolayout</li>
+<li>How to Create a new Cocoa UserControl by ViewController</li>
+<li>How to convert Solar Calendar to Lunar Calendar</li>
+<li>How to draw line or circle in Cocoa</li>
+</ul>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2015/12/30/lunarCalendar/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[我的2015]]></title>
@@ -88,12 +110,11 @@
       <guid>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/</guid>
       <pubDate>Mon, 24 Aug 2015 08:08:15 GMT</pubDate>
       <description>
-      <![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。</p>
-<h2 id="Demo">Demo</h2><p>我做的<a href="https://github.com/fancymax/AutoCompleteTextField">Demo</a>通过这个控件实现类似12306上选择站点时的智能提示，功能上支持 全拼、简拼、汉字，效果如下：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/AutoCompleteTextfield.jpg" alt="demo"><br>]]>
+      <![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。<br>]]>
       
       </description>
-      <content:encoded><![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。</p>
-<h2 id="Demo">Demo</h2><p>我做的<a href="https://github.com/fancymax/AutoCompleteTextField" target="_blank" rel="external">Demo</a>通过这个控件实现类似12306上选择站点时的智能提示，功能上支持 全拼、简拼、汉字，效果如下：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/AutoCompleteTextfield.jpg" alt="demo"><br><a id="more"></a></p>
+      <content:encoded><![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。<br><a id="more"></a></p>
+<h2 id="Demo">Demo</h2><p>我做的<a href="https://github.com/fancymax/AutoCompleteTextField" target="_blank" rel="external">Demo</a>通过这个控件实现类似12306上选择站点时的智能提示，功能上支持 全拼、简拼、汉字，效果如下：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/AutoCompleteTextfield.jpg" alt="demo"></p>
 <h2 id="原理和收获：">原理和收获：</h2><p>原理也比较简单：</p>
 <ol>
 <li>捕捉用户的 keyup 事件来增加智能提示逻辑。</li>
@@ -276,15 +297,10 @@
       <guid>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/</guid>
       <pubDate>Sat, 19 Apr 2014 14:22:25 GMT</pubDate>
       <description>
-      <![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
-<p><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" width = "550" height = "400" alt="what is WPF" align=center /></p>
-<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。</p>]]>
+      <![CDATA[<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。<br>]]>
       
       </description>
-      <content:encoded><![CDATA[<p>先科普一下：什么是WPF，请看下图</p>
-<p><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" width="550" height="400" alt="what is WPF" align="center"></p>
-<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。</p>
-<a id="more"></a>
+      <content:encoded><![CDATA[<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。<br><a id="more"></a><br>什么是WPF，请看下图<br><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" alt="what is WPF" align="center"></p>
 <h1 id="什么是MVVM模式">什么是MVVM模式</h1><p>简单来说它是一种高级的UI设计模式。据我所知目前还运用在一些js框架中，比如<strong>AngularJS</strong>。其他的UI设计模式还包括MVC、MVP，个人觉得最强大的还是MVVM。</p>
 <p>MVVM主体框架如下图：</p>
 <p><img src="http://images.cnitblog.com/blog2015/708791/201504/201225530274012.jpg" width="500" height="400" alt="what is MVVM" align="center"></p>
