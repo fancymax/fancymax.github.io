@@ -7,8 +7,28 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Wed, 30 Dec 2015 10:59:34 GMT</pubDate>
+    <pubDate>Thu, 31 Dec 2015 09:08:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[12306PicSelect for OS X(Swift)]]></title>
+      <link>http://fancymax.github.io/2015/12/31/12306PicSelect/</link>
+      <guid>http://fancymax.github.io/2015/12/31/12306PicSelect/</guid>
+      <pubDate>Thu, 31 Dec 2015 08:59:27 GMT</pubDate>
+      <description>
+      <![CDATA[<p>用于解析 12306 图片验证码位置的控件，可以很方便的集成到你的程序中。<br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>用于解析 12306 图片验证码位置的控件，可以很方便的集成到你的程序中。<br><a id="more"></a><br>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/SelectImageDemo.jpg" alt="demo"></p>
+<p>Github:<br><a href="https://github.com/fancymax/12306PicSelect" target="_blank" rel="external">https://github.com/fancymax/12306PicSelect</a></p>
+<p>Something to learn:</p>
+<ul>
+<li>How to Creat a UserControl by inheritted a NSControl</li>
+<li>How to handle with Mouse Clicked Event</li>
+</ul>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2015/12/31/12306PicSelect/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[LunarCalendar for OS X(Swift)]]></title>
