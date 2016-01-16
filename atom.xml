@@ -7,14 +7,14 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sat, 16 Jan 2016 06:22:11 GMT</pubDate>
+    <pubDate>Sat, 16 Jan 2016 06:45:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title><![CDATA[OS X(Swift) Tutorial-1]]></title>
-      <link>http://fancymax.github.io/2016/01/13/X-Swift/</link>
-      <guid>http://fancymax.github.io/2016/01/13/X-Swift/</guid>
-      <pubDate>Wed, 13 Jan 2016 06:50:23 GMT</pubDate>
+      <link>http://fancymax.github.io/2016/01/16/X-Swift/</link>
+      <guid>http://fancymax.github.io/2016/01/16/X-Swift/</guid>
+      <pubDate>Sat, 16 Jan 2016 06:50:23 GMT</pubDate>
       <description>
       <![CDATA[<p>国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。<br>]]>
       
@@ -42,7 +42,7 @@
 <p>至此我们就完成了由模版程序向MVC程序架构方向的转化，后续的界面绘制和程序逻辑编写分别在MainWindowController.xib和MainWindowController.swift中编写即可。</p>
 <p>最后放一个的示例程序<a href="https://github.com/fancymax/Cocoa-Learning/tree/master/1.RandomPassword" target="_blank" rel="external">Cocoa Learning-RandomPassword</a>，大家可以拿来参考一下。</p>
 ]]></content:encoded>
-      <comments>http://fancymax.github.io/2016/01/13/X-Swift/#disqus_thread</comments>
+      <comments>http://fancymax.github.io/2016/01/16/X-Swift/#disqus_thread</comments>
     </item>
     
     <item>
