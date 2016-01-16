@@ -20,7 +20,7 @@
 <meta property="og:description" content="微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。">
 <meta property="og:image" content="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg">
 <meta property="og:image" content="http://images.cnitblog.com/blog2015/708791/201504/201225530274012.jpg">
-<meta property="og:updated_time" content="2015-12-30T11:04:48.000Z">
+<meta property="og:updated_time" content="2016-01-14T04:15:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈WPF中的MVVM框架--MVVMFoundation">
 <meta name="twitter:description" content="微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。">
@@ -251,76 +251,41 @@
 <h1 id="ObservableObject">ObservableObject</h1><p>实现ViewModel中的属性改变通知到绑定的控件的方法，相当于是所有Viewmodel的基类。</p>
 <ol>
 <li><p>使用时调用OnPropertyChange方法，则后台数据变化即可通知界面刷新</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">string</span> UserName
-{
-    <span class="keyword">get</span> { <span class="keyword">return</span> <span class="keyword">this</span>.user.UserName; }
-    <span class="keyword">set</span>
-    {
-        <span class="keyword">this</span>.user.UserName = <span class="keyword">value</span>;
-        OnPropertyChanged(<span class="string">"UserName"</span>);
-    }
-}
-</code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> UserName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="keyword">this</span>.user.UserName; &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.user.UserName = <span class="keyword">value</span>;</span><br><span class="line">	    OnPropertyChanged(<span class="string">"UserName"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>属性在View界面的绑定</p>
-<pre><code>&lt;<span class="keyword">TextBox</span> <span class="keyword">Text</span>=<span class="string">"{Binding UserName}"</span> /&gt;
-</code></pre></li>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">TextBox</span> <span class="keyword">Text</span>=<span class="string">"&#123;Binding UserName&#125;"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h1 id="RelayCommand">RelayCommand</h1><p>用于在ViewModel中定义View中绑定的命令，代替了以前Winform的Click事件。</p>
 <ol>
 <li><p>在ViewModel中定义Command</p>
-<pre><code><span class="keyword">public</span> ICommand BrowseImageCommand
-{
-<span class="keyword">get</span> { <span class="keyword">return</span> <span class="keyword">new</span> ICommand(BrowseImage); }
-}
-
-<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BrowseImage</span>(<span class="params"></span>)
-</span>{
-   ...
-}
-</code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ICommand BrowseImageCommand</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> ICommand(BrowseImage); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BrowseImage</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>在View中的按钮关联此Command</p>
-<pre><code>&lt;Button <span class="variable">Content=</span><span class="string">"浏览..."</span> <span class="variable">Command=</span><span class="string">"{Binding BrowseImageCommand}"</span>/&gt;
-</code></pre></li>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button <span class="variable">Content=</span><span class="string">"浏览..."</span> <span class="variable">Command=</span><span class="string">"&#123;Binding BrowseImageCommand&#125;"</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h1 id="Messenger">Messenger</h1><p>可用于ViewModel之间的信息传递，可以用于ViewModel和View之间的信息传递。</p>
 <ol>
 <li><p>定义信息传输类</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ViewModelCommunication</span>
-{
-    <span class="function"><span class="keyword">static</span> <span class="title">ViewModelCommunication</span>(<span class="params"></span>)
-    </span>{
-        Messaging = <span class="keyword">new</span> Messenger();
-    }
-
-    <span class="keyword">public</span> <span class="keyword">static</span> Messenger Messaging { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> DataIDInChanged { <span class="keyword">get</span> { <span class="keyword">return</span> <span class="string">"DataIDInChanged"</span>; } }
-}
-</code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ViewModelCommunication</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="title">ViewModelCommunication</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        Messaging = <span class="keyword">new</span> Messenger();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Messenger Messaging &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> DataIDInChanged &#123; <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="string">"DataIDInChanged"</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>在需要通知的类中注册要通知的信息</p>
-<pre><code>ViewModelCommunication.Messaging.Register<span class="params">(ViewModelCommunication.DataIDInChanged,<span class="params">(Action&lt;string&gt;)</span><span class="params">(param =&gt; SetLastSelectedDataID<span class="params">(param)</span>)</span>)</span>; 
-</code></pre></li>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ViewModelCommunication.Messaging.Register<span class="params">(ViewModelCommunication.DataIDInChanged,</span><br><span class="line">        <span class="params">(Action&lt;string&gt;)</span><span class="params">(param =&gt; SetLastSelectedDataID<span class="params">(param)</span>)</span>)</span>;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>当对应的消息出现时，通知已经注册的类</p>
-<pre><code><span class="tag">ViewModelCommunication</span><span class="class">.Messaging</span><span class="class">.NotifyColleagues</span>(<span class="tag">ViewModelCommunication</span><span class="class">.DataIDInChanged</span>, <span class="tag">DataID</span><span class="class">.ToString</span>()); 
-</code></pre></li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ViewModelCommunication</span><span class="class">.Messaging</span><span class="class">.NotifyColleagues</span>(<span class="tag">ViewModelCommunication</span><span class="class">.DataIDInChanged</span>, </span><br><span class="line">        <span class="tag">DataID</span><span class="class">.ToString</span>());</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h1 id="PropertyObserver">PropertyObserver</h1><p>主要用于对对象的属性监听，属性变更后可触发已注册的回调函数。</p>
 <ol>
 <li><p>注册要监听对象的属性及回调函数</p>
-<pre><code>PropertyObserver&lt;UserInfoViewModel&gt; userInfoAfterObserver;
-<span class="function"><span class="keyword">public</span> <span class="title">MainWindowViewModel</span><span class="params">()</span>
-</span>{
-    UserInfoBefore = <span class="keyword">new</span> UserInfoViewModel();
-    userInfoAfterObserver = <span class="keyword">new</span> PropertyObserver&lt;UserInfoViewModel&gt;(UserInfoAfter)
-        .RegisterHandler(UserInfo =&gt; UserInfo.Age, <span class="keyword">this</span>.AgeChangedCallback);
-}
-</code></pre></li>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PropertyObserver&lt;UserInfoViewModel&gt; userInfoAfterObserver;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MainWindowViewModel</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    UserInfoBefore = <span class="keyword">new</span> UserInfoViewModel();</span><br><span class="line">    userInfoAfterObserver = <span class="keyword">new</span> PropertyObserver&lt;UserInfoViewModel&gt;(UserInfoAfter)</span><br><span class="line">        .RegisterHandler(UserInfo =&gt; UserInfo.Age, <span class="keyword">this</span>.AgeChangedCallback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>实现回调函数</p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">AgeChangedCallback</span><span class="params">(UserInfoViewModel userInfo)</span>
-</span>{
-    MessageBox.Show(<span class="string">"Property Age changed"</span>); 
-}
-</code></pre></li>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">AgeChangedCallback</span><span class="params">(UserInfoViewModel userInfo)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    MessageBox.Show(<span class="string">"Property Age changed"</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>以上就是MVVMFoundation框架的主要使用方法，感兴趣的人可以用用看～欢迎留言交流心得～</p>
 

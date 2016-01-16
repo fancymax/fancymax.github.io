@@ -7,25 +7,68 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Tue, 12 Jan 2016 12:11:07 GMT</pubDate>
+    <pubDate>Sat, 16 Jan 2016 06:22:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title><![CDATA[最新OS X编程入门指南]]></title>
+      <title><![CDATA[OS X(Swift) Tutorial-1]]></title>
+      <link>http://fancymax.github.io/2016/01/13/X-Swift/</link>
+      <guid>http://fancymax.github.io/2016/01/13/X-Swift/</guid>
+      <pubDate>Wed, 13 Jan 2016 06:50:23 GMT</pubDate>
+      <description>
+      <![CDATA[<p>国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。<br>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。<br><a id="more"></a></p>
+<h1 id="万事开头难">万事开头难</h1><p>学习一个新东西尤其如此。一个不好的开端很有可能导致整个学习计划的失败并且短时间内不会重新拾起。我自己就是一个典型案例。</p>
+<p>第一次尝试学习OS X编程是在很早之前，当时出于好奇心的驱使买了一本《Objective-C编程》开始学，在某次坐火车回家的路上就把这本书通读了一遍，自认为看懂了Objective－C基于消息发送的设计理念，自信心爆棚，直接开始写我的<strong>第一个Cocoa应用</strong>,写的过程让我直接崩溃了。XCode、Cocoa、Objective-C没一个熟悉的，那种沮丧的感觉至今都还记得。那次挫败导致我的学习计划停滞了很长时间。</p>
+<p>现在回头来看，当初失败的原因主要有三个：</p>
+<ol>
+<li>缺乏具体的目标，一旦遇到挫折就容易放弃了。所以我的建议是事先规划一个目标，比如我当初为了解决手动批量提交程序到svn的痛苦，学习用python写了一个自动提交的脚本，那个过程进步就很快。</li>
+<li>缺乏趁手的工具，其实就是<strong>磨刀不负砍柴功</strong>这个道理，关于工具可以参考我前一篇博客。</li>
+<li>缺乏靠谱的教程，这第一本书的作用就如同第一印象，如果这个基础没打好之后也很难提起兴趣去学了。</li>
+</ol>
+<h1 id="第一个Cocoa程序">第一个Cocoa程序</h1><p>在开始第一个程序之前，或许你应该先花一个小时熟悉了一下<a href="https://www.youtube.com/watch?v=t7xUvFs3cPI" target="_blank" rel="external">Swift的基本语法</a>和<a href="https://www.youtube.com/watch?v=I-VXHK4e8bs" target="_blank" rel="external">XCode的基本操作</a>。下面我们来创建一个最简单的Cocoa程序模版，选择OS X-&gt;Cocoa Application-&gt;Swift-&gt;输入project name。</p>
+<p>在Swift2.0中用了<a href="http://stackoverflow.com/questions/27469436/what-is-use-of-nsapplicationmain-in-swift-programming-project-in-xcode" target="_blank" rel="external">@NSApplicationMain来简化程序的入口函数定义不用写main函数</a>。所以程序的主要逻辑写在AppDelegate.swift中，而程序的界面定义在MainMenu.xib中(包括主窗体和菜单)。</p>
+<p>我门第一个Cocoa程序要做的事就是为后面开个好头，所以一开始我们就应用MVC模式来改造程序模版，</p>
+<ul>
+<li>第一步先创建一个MainWindowController.swift和MainWindowController.xib;</li>
+<li>然后把MainMenu.xib中的主窗体删除，主窗体转移到MainWindowController.xib中;</li>
+<li>最后就是要修改AppDelegate.swift中的代码，把整个功能串起来;</li>
+</ul>
+<p>原始模版代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">NSApplicationMain</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppDelegate</span>: <span class="title">NSObject</span>, <span class="title">NSApplicationDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="preprocessor">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> window: <span class="type">NSWindow</span>!</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationDidFinishLaunching</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Insert code here to initialize your application</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Insert code here to tear down your application</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改后的代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">NSApplicationMain</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppDelegate</span>: <span class="title">NSObject</span>, <span class="title">NSApplicationDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> mainWindowController:<span class="type">MainWindowController</span>?</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationDidFinishLaunching</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> mainController = <span class="type">MainWindowController</span>()</span><br><span class="line">        mainController.showWindow(<span class="keyword">self</span>)</span><br><span class="line">        <span class="keyword">self</span>.mainWindowController = mainController</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Insert code here to tear down your application</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MainWindowController.swift的代码如下：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">MainWindowController</span>: <span class="type">NSWindowController</span> &#123;</span><br><span class="line">    </span><br><span class="line">    override <span class="keyword">var</span> windowNibName:<span class="type">String</span>?&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"MainWindowController"</span> //这里要和<span class="type">MainWindowController</span>.xib的名称对应</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override func windowDidLoad() &#123;</span><br><span class="line">        super.windowDidLoad()</span><br><span class="line">        // <span class="type">Implement</span> this <span class="keyword">method</span> to handle <span class="type">any</span> initialization after your window controller's window has been loaded <span class="keyword">from</span> its nib file.</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>至此我们就完成了由模版程序向MVC程序架构方向的转化，后续的界面绘制和程序逻辑编写分别在MainWindowController.xib和MainWindowController.swift中编写即可。</p>
+<p>最后放一个的示例程序<a href="https://github.com/fancymax/Cocoa-Learning/tree/master/1.RandomPassword" target="_blank" rel="external">Cocoa Learning-RandomPassword</a>，大家可以拿来参考一下。</p>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2016/01/13/X-Swift/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[最新OS X编程入门参考资料]]></title>
       <link>http://fancymax.github.io/2015/12/31/OS-X-learning/</link>
       <guid>http://fancymax.github.io/2015/12/31/OS-X-learning/</guid>
       <pubDate>Thu, 31 Dec 2015 13:10:45 GMT</pubDate>
       <description>
-      <![CDATA[<p>iOS的开发特别火爆，OS X的却很冷淡，所以研究它的人绝对是真爱～😄新手常常觉得OS X的开发难以入门，原因是资料特别少，包括当初的我在内。所以我整理了一些入门必备的工具 或 资源，希望对大家有所帮助。<br>]]>
+      <![CDATA[<p>iOS的开发特别火爆，OS X的却很冷淡。新手常常觉得OS X的开发难以入门，原因是资料特别少，包括当初的我在内。所以我整理了一些入门必备的工具 或 资源，希望对大家有所帮助。<br>]]>
       
       </description>
-      <content:encoded><![CDATA[<p>iOS的开发特别火爆，OS X的却很冷淡，所以研究它的人绝对是真爱～😄新手常常觉得OS X的开发难以入门，原因是资料特别少，包括当初的我在内。所以我整理了一些入门必备的工具 或 资源，希望对大家有所帮助。<br><a id="more"></a></p>
-<h1 id="Dash">Dash</h1><p>超级好用的离线文档搜索工具。<br><img src="http://images2015.cnblogs.com/blog/708791/201511/708791-20151111174224009-881586110.png" alt=""></p>
-<h1 id="科学上网">科学上网</h1><p>我推荐用<a href="https://itxs.li" target="_blank" rel="external">土行孙</a>或者<a href="https://getlantern.org" target="_blank" rel="external">lantern</a>。</p>
-<h1 id="UI设计">UI设计</h1><p>OS X Human Interface Guidelines 在iBook 上可以找到，介绍OS X的界面设计规范。</p>
-<h1 id="Swift">Swift</h1><p>The Swift Programming language 同样在iBook上可以搜索到，先通篇浏览，后续遇到问题配合Dash去查。进阶的话可以看看喵神写的<a href="http://www.amazon.cn/Swifter-100个Swift-2-开发必备Tip-王巍/dp/B019CRN7TW/ref=sr_1_2?ie=UTF8&amp;qid=1451567750&amp;sr=8-2&amp;keywords=Swifter" target="_blank" rel="external">Swifter 100 tips</a>。</p>
-<h1 id="Cocoa">Cocoa</h1><p><a href="http://www.amazon.cn/Cocoa-Programming-for-OS-X-The-Big-Nerd-Ranch-Guide-Hillegass-Aaron/dp/0134076958/ref=sr_1_4?ie=UTF8&amp;qid=1451567670&amp;sr=8-4&amp;keywords=Cocoa" target="_blank" rel="external">Cocoa Programming for Mac OS X(5th)</a>第五版以上，里面用的是Swift讲解，介绍的例子通俗易懂，全书的例子做一遍下来，开发简单的OS X程序不成问题。进阶的话有Advanced Mac OS X Programming(2011)和Cocoa® Programming Developer’s Handbook(2010),这两本书都可以下载到。</p>
-<h1 id="自定义控件">自定义控件</h1><p><a href="https://www.cocoacontrols.com" target="_blank" rel="external">cocoacontrols</a>，网站收集了各种iOS和OS X的自定义控件，很有参考意义。</p>
+      <content:encoded><![CDATA[<p>iOS的开发特别火爆，OS X的却很冷淡。新手常常觉得OS X的开发难以入门，原因是资料特别少，包括当初的我在内。所以我整理了一些入门必备的工具 或 资源，希望对大家有所帮助。<br><a id="more"></a></p>
+<ul>
+<li><p>Dash:超级好用的离线文档搜索工具<a href="https://kapeli.com/dash" target="_blank" rel="external">Dash for OS X</a>。</p>
+</li>
+<li><p>科学上网:推荐用<a href="https://itxs.li" target="_blank" rel="external">土行孙</a>或者<a href="https://getlantern.org" target="_blank" rel="external">lantern</a>。</p>
+</li>
+<li><p>UI设计:OS X Human Interface Guidelines在iBook上可以找到，介绍OS X的界面设计规范。</p>
+</li>
+<li><p>Swift:The Swift Programming language同样在iBook上可以搜索到，先通篇浏览，后续遇到问题配合Dash去查。进阶的话可以看看喵神写的<a href="http://www.amazon.cn/Swifter-100个Swift-2-开发必备Tip-王巍/dp/B019CRN7TW/ref=sr_1_2?ie=UTF8&amp;qid=1451567750&amp;sr=8-2&amp;keywords=Swifter" target="_blank" rel="external">Swifter 100 tips</a>。</p>
+</li>
+<li><p>Cocoa:<a href="http://www.amazon.cn/Cocoa-Programming-for-OS-X-The-Big-Nerd-Ranch-Guide-Hillegass-Aaron/dp/0134076958/ref=sr_1_4?ie=UTF8&amp;qid=1451567670&amp;sr=8-4&amp;keywords=Cocoa" target="_blank" rel="external">Cocoa Programming for Mac OS X(5th)</a>第五版以上，里面用的是Swift讲解，介绍的例子通俗易懂，全书的例子做一遍下来，开发简单的OS X程序不成问题。进阶的话有Advanced Mac OS X Programming(2011)和Cocoa® Programming Developer’s Handbook(2010)。</p>
+</li>
+<li><p>自定义控件:<a href="https://www.cocoacontrols.com" target="_blank" rel="external">cocoacontrols</a>，网站收集了各种iOS和OS X的自定义控件，很有参考意义。</p>
+</li>
+</ul>
 ]]></content:encoded>
       <comments>http://fancymax.github.io/2015/12/31/OS-X-learning/#disqus_thread</comments>
     </item>
@@ -378,76 +421,41 @@
 <h1 id="ObservableObject">ObservableObject</h1><p>实现ViewModel中的属性改变通知到绑定的控件的方法，相当于是所有Viewmodel的基类。</p>
 <ol>
 <li><p>使用时调用OnPropertyChange方法，则后台数据变化即可通知界面刷新</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">string</span> UserName
-{
-    <span class="keyword">get</span> { <span class="keyword">return</span> <span class="keyword">this</span>.user.UserName; }
-    <span class="keyword">set</span>
-    {
-        <span class="keyword">this</span>.user.UserName = <span class="keyword">value</span>;
-        OnPropertyChanged(<span class="string">"UserName"</span>);
-    }
-}
-</code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> UserName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="keyword">this</span>.user.UserName; &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.user.UserName = <span class="keyword">value</span>;</span><br><span class="line">	    OnPropertyChanged(<span class="string">"UserName"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>属性在View界面的绑定</p>
-<pre><code>&lt;<span class="keyword">TextBox</span> <span class="keyword">Text</span>=<span class="string">"{Binding UserName}"</span> /&gt;
-</code></pre></li>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">TextBox</span> <span class="keyword">Text</span>=<span class="string">"&#123;Binding UserName&#125;"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h1 id="RelayCommand">RelayCommand</h1><p>用于在ViewModel中定义View中绑定的命令，代替了以前Winform的Click事件。</p>
 <ol>
 <li><p>在ViewModel中定义Command</p>
-<pre><code><span class="keyword">public</span> ICommand BrowseImageCommand
-{
-<span class="keyword">get</span> { <span class="keyword">return</span> <span class="keyword">new</span> ICommand(BrowseImage); }
-}
-
-<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BrowseImage</span>(<span class="params"></span>)
-</span>{
-   ...
-}
-</code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ICommand BrowseImageCommand</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> ICommand(BrowseImage); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BrowseImage</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>在View中的按钮关联此Command</p>
-<pre><code>&lt;Button <span class="variable">Content=</span><span class="string">"浏览..."</span> <span class="variable">Command=</span><span class="string">"{Binding BrowseImageCommand}"</span>/&gt;
-</code></pre></li>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button <span class="variable">Content=</span><span class="string">"浏览..."</span> <span class="variable">Command=</span><span class="string">"&#123;Binding BrowseImageCommand&#125;"</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h1 id="Messenger">Messenger</h1><p>可用于ViewModel之间的信息传递，可以用于ViewModel和View之间的信息传递。</p>
 <ol>
 <li><p>定义信息传输类</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ViewModelCommunication</span>
-{
-    <span class="function"><span class="keyword">static</span> <span class="title">ViewModelCommunication</span>(<span class="params"></span>)
-    </span>{
-        Messaging = <span class="keyword">new</span> Messenger();
-    }
-
-    <span class="keyword">public</span> <span class="keyword">static</span> Messenger Messaging { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> DataIDInChanged { <span class="keyword">get</span> { <span class="keyword">return</span> <span class="string">"DataIDInChanged"</span>; } }
-}
-</code></pre></li>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ViewModelCommunication</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="title">ViewModelCommunication</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        Messaging = <span class="keyword">new</span> Messenger();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Messenger Messaging &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> DataIDInChanged &#123; <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="string">"DataIDInChanged"</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>在需要通知的类中注册要通知的信息</p>
-<pre><code>ViewModelCommunication.Messaging.Register<span class="params">(ViewModelCommunication.DataIDInChanged,<span class="params">(Action&lt;string&gt;)</span><span class="params">(param =&gt; SetLastSelectedDataID<span class="params">(param)</span>)</span>)</span>; 
-</code></pre></li>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ViewModelCommunication.Messaging.Register<span class="params">(ViewModelCommunication.DataIDInChanged,</span><br><span class="line">        <span class="params">(Action&lt;string&gt;)</span><span class="params">(param =&gt; SetLastSelectedDataID<span class="params">(param)</span>)</span>)</span>;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>当对应的消息出现时，通知已经注册的类</p>
-<pre><code><span class="tag">ViewModelCommunication</span><span class="class">.Messaging</span><span class="class">.NotifyColleagues</span>(<span class="tag">ViewModelCommunication</span><span class="class">.DataIDInChanged</span>, <span class="tag">DataID</span><span class="class">.ToString</span>()); 
-</code></pre></li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ViewModelCommunication</span><span class="class">.Messaging</span><span class="class">.NotifyColleagues</span>(<span class="tag">ViewModelCommunication</span><span class="class">.DataIDInChanged</span>, </span><br><span class="line">        <span class="tag">DataID</span><span class="class">.ToString</span>());</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h1 id="PropertyObserver">PropertyObserver</h1><p>主要用于对对象的属性监听，属性变更后可触发已注册的回调函数。</p>
 <ol>
 <li><p>注册要监听对象的属性及回调函数</p>
-<pre><code>PropertyObserver&lt;UserInfoViewModel&gt; userInfoAfterObserver;
-<span class="function"><span class="keyword">public</span> <span class="title">MainWindowViewModel</span><span class="params">()</span>
-</span>{
-    UserInfoBefore = <span class="keyword">new</span> UserInfoViewModel();
-    userInfoAfterObserver = <span class="keyword">new</span> PropertyObserver&lt;UserInfoViewModel&gt;(UserInfoAfter)
-        .RegisterHandler(UserInfo =&gt; UserInfo.Age, <span class="keyword">this</span>.AgeChangedCallback);
-}
-</code></pre></li>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PropertyObserver&lt;UserInfoViewModel&gt; userInfoAfterObserver;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MainWindowViewModel</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    UserInfoBefore = <span class="keyword">new</span> UserInfoViewModel();</span><br><span class="line">    userInfoAfterObserver = <span class="keyword">new</span> PropertyObserver&lt;UserInfoViewModel&gt;(UserInfoAfter)</span><br><span class="line">        .RegisterHandler(UserInfo =&gt; UserInfo.Age, <span class="keyword">this</span>.AgeChangedCallback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>实现回调函数</p>
-<pre><code><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">AgeChangedCallback</span><span class="params">(UserInfoViewModel userInfo)</span>
-</span>{
-    MessageBox.Show(<span class="string">"Property Age changed"</span>); 
-}
-</code></pre></li>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">AgeChangedCallback</span><span class="params">(UserInfoViewModel userInfo)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    MessageBox.Show(<span class="string">"Property Age changed"</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>以上就是MVVMFoundation框架的主要使用方法，感兴趣的人可以用用看～欢迎留言交流心得～</p>
 ]]></content:encoded>

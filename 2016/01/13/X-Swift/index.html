@@ -6,23 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Programming is like Sex">
-    <title>12306PicSelect for OS X(Swift) - Programming is like Sex</title>
+    <title>OS X(Swift) Tutorial-1 - Programming is like Sex</title>
     <meta name="author" content="max Lin">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="用于解析 12306 图片验证码位置的控件，可以很方便的集成到你的程序中。">
+    <meta name="description" content="国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="12306PicSelect for OS X(Swift)">
-<meta property="og:url" content="http://fancymax.github.io/2015/12/31/12306PicSelect/index.html">
+<meta property="og:title" content="OS X(Swift) Tutorial-1">
+<meta property="og:url" content="http://fancymax.github.io/2016/01/13/X-Swift/index.html">
 <meta property="og:site_name" content="Programming is like Sex">
-<meta property="og:description" content="用于解析 12306 图片验证码位置的控件，可以很方便的集成到你的程序中。">
-<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/SelectImageDemo.jpg">
-<meta property="og:updated_time" content="2015-12-31T09:08:22.000Z">
+<meta property="og:description" content="国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。">
+<meta property="og:updated_time" content="2016-01-16T06:22:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="12306PicSelect for OS X(Swift)">
-<meta name="twitter:description" content="用于解析 12306 图片验证码位置的控件，可以很方便的集成到你的程序中。">
+<meta name="twitter:title" content="OS X(Swift) Tutorial-1">
+<meta name="twitter:description" content="国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。">
     
     
     
@@ -197,13 +196,13 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            12306PicSelect for OS X(Swift)
+            OS X(Swift) Tutorial-1
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Thu Dec 31 2015 16:59:27 GMT+0800">
+    <time itemprop="datePublished" content="Wed Jan 13 2016 14:50:23 GMT+0800">
 	
-		    12月 31, 2015
+		    1月 13, 2016
     	
     </time>
     
@@ -212,13 +211,28 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>用于解析 12306 图片验证码位置的控件，可以很方便的集成到你的程序中。<br><a id="more"></a><br>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/SelectImageDemo.jpg" alt="demo"></p>
-<p>Github:<br><a href="https://github.com/fancymax/12306PicSelect" target="_blank" rel="external">https://github.com/fancymax/12306PicSelect</a></p>
-<p>Something to learn:</p>
+            <p>国内针对OS X(Swift)的编程资料比较少，所以我想尝试着写一些从入门到深入的教程，这是第一篇。<br><a id="more"></a></p>
+<h1 id="万事开头难">万事开头难</h1><p>学习一个新东西尤其如此。一个不好的开端很有可能导致整个学习计划的失败并且短时间内不会重新拾起。我自己就是一个典型案例。</p>
+<p>第一次尝试学习OS X编程是在很早之前，当时出于好奇心的驱使买了一本《Objective-C编程》开始学，在某次坐火车回家的路上就把这本书通读了一遍，自认为看懂了Objective－C基于消息发送的设计理念，自信心爆棚，直接开始写我的<strong>第一个Cocoa应用</strong>,写的过程让我直接崩溃了。XCode、Cocoa、Objective-C没一个熟悉的，那种沮丧的感觉至今都还记得。那次挫败导致我的学习计划停滞了很长时间。</p>
+<p>现在回头来看，当初失败的原因主要有三个：</p>
+<ol>
+<li>缺乏具体的目标，一旦遇到挫折就容易放弃了。所以我的建议是事先规划一个目标，比如我当初为了解决手动批量提交程序到svn的痛苦，学习用python写了一个自动提交的脚本，那个过程进步就很快。</li>
+<li>缺乏趁手的工具，其实就是<strong>磨刀不负砍柴功</strong>这个道理，关于工具可以参考我前一篇博客。</li>
+<li>缺乏靠谱的教程，这第一本书的作用就如同第一印象，如果这个基础没打好之后也很难提起兴趣去学了。</li>
+</ol>
+<h1 id="第一个Cocoa程序">第一个Cocoa程序</h1><p>在开始第一个程序之前，或许你应该先花一个小时熟悉了一下<a href="https://www.youtube.com/watch?v=t7xUvFs3cPI" target="_blank" rel="external">Swift的基本语法</a>和<a href="https://www.youtube.com/watch?v=I-VXHK4e8bs" target="_blank" rel="external">XCode的基本操作</a>。下面我们来创建一个最简单的Cocoa程序模版，选择OS X-&gt;Cocoa Application-&gt;Swift-&gt;输入project name。</p>
+<p>在Swift2.0中用了<a href="http://stackoverflow.com/questions/27469436/what-is-use-of-nsapplicationmain-in-swift-programming-project-in-xcode" target="_blank" rel="external">@NSApplicationMain来简化程序的入口函数定义不用写main函数</a>。所以程序的主要逻辑写在AppDelegate.swift中，而程序的界面定义在MainMenu.xib中(包括主窗体和菜单)。</p>
+<p>我门第一个Cocoa程序要做的事就是为后面开个好头，所以一开始我们就应用MVC模式来改造程序模版，</p>
 <ul>
-<li>How to Creat a UserControl by inheritted a NSControl</li>
-<li>How to handle with Mouse Clicked Event</li>
+<li>第一步先创建一个MainWindowController.swift和MainWindowController.xib;</li>
+<li>然后把MainMenu.xib中的主窗体删除，主窗体转移到MainWindowController.xib中;</li>
+<li>最后就是要修改AppDelegate.swift中的代码，把整个功能串起来;</li>
 </ul>
+<p>原始模版代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">NSApplicationMain</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppDelegate</span>: <span class="title">NSObject</span>, <span class="title">NSApplicationDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="preprocessor">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> window: <span class="type">NSWindow</span>!</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationDidFinishLaunching</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Insert code here to initialize your application</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Insert code here to tear down your application</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改后的代码如下：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">NSApplicationMain</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppDelegate</span>: <span class="title">NSObject</span>, <span class="title">NSApplicationDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> mainWindowController:<span class="type">MainWindowController</span>?</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationDidFinishLaunching</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> mainController = <span class="type">MainWindowController</span>()</span><br><span class="line">        mainController.showWindow(<span class="keyword">self</span>)</span><br><span class="line">        <span class="keyword">self</span>.mainWindowController = mainController</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(aNotification: NSNotification)</span></span> &#123;</span><br><span class="line">        <span class="comment">// Insert code here to tear down your application</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MainWindowController.swift的代码如下：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">MainWindowController</span>: <span class="type">NSWindowController</span> &#123;</span><br><span class="line">    </span><br><span class="line">    override <span class="keyword">var</span> windowNibName:<span class="type">String</span>?&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"MainWindowController"</span> //这里要和<span class="type">MainWindowController</span>.xib的名称对应</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override func windowDidLoad() &#123;</span><br><span class="line">        super.windowDidLoad()</span><br><span class="line">        // <span class="type">Implement</span> this <span class="keyword">method</span> to handle <span class="type">any</span> initialization after your window controller's window has been loaded <span class="keyword">from</span> its nib file.</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>至此我们就完成了由模版程序向MVC程序架构方向的转化，后续的界面绘制和程序逻辑编写分别在MainWindowController.xib和MainWindowController.swift中编写即可。</p>
+<p>最后放一个的示例程序<a href="https://github.com/fancymax/Cocoa-Learning/tree/master/1.RandomPassword" target="_blank" rel="external">Cocoa Learning-RandomPassword</a>，大家可以拿来参考一下。</p>
 
             
                 
@@ -240,7 +254,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/31/OS-X-learning/"  data-tooltip="最新OS X编程入门参考资料">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -248,7 +262,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/30/lunarCalendar/" data-tooltip="LunarCalendar for OS X(Swift)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/31/OS-X-learning/" data-tooltip="最新OS X编程入门参考资料">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -263,17 +277,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -297,8 +311,8 @@
 
         
             
-                <div class="ds-thread" data-thread-key="2015/12/31/12306PicSelect/"
-     data-title="12306PicSelect for OS X(Swift)" data-url="http://fancymax.github.io/2015/12/31/12306PicSelect/">
+                <div class="ds-thread" data-thread-key="2016/01/13/X-Swift/"
+     data-title="OS X(Swift) Tutorial-1" data-url="http://fancymax.github.io/2016/01/13/X-Swift/">
 </div>
 
             
@@ -322,7 +336,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/31/OS-X-learning/"  data-tooltip="最新OS X编程入门参考资料">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -330,7 +344,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/30/lunarCalendar/" data-tooltip="LunarCalendar for OS X(Swift)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/31/OS-X-learning/" data-tooltip="最新OS X编程入门参考资料">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -345,17 +359,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -381,17 +395,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2015/12/31/12306PicSelect/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2016/01/13/X-Swift/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
