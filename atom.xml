@@ -7,11 +7,11 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sat, 16 Jan 2016 06:45:10 GMT</pubDate>
+    <pubDate>Mon, 18 Jan 2016 04:17:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title><![CDATA[OS X(Swift) Tutorial-1]]></title>
+      <title><![CDATA[OS X(Swift) Tutorial-First Cocoa Application]]></title>
       <link>http://fancymax.github.io/2016/01/16/X-Swift/</link>
       <guid>http://fancymax.github.io/2016/01/16/X-Swift/</guid>
       <pubDate>Sat, 16 Jan 2016 06:50:23 GMT</pubDate>
