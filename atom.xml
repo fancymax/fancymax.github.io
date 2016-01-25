@@ -7,8 +7,31 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sun, 24 Jan 2016 02:37:36 GMT</pubDate>
+    <pubDate>Mon, 25 Jan 2016 03:36:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[HoverButton for OS X(Swift)]]></title>
+      <link>http://fancymax.github.io/2016/01/25/HoverButton/</link>
+      <guid>http://fancymax.github.io/2016/01/25/HoverButton/</guid>
+      <pubDate>Mon, 25 Jan 2016 03:30:55 GMT</pubDate>
+      <description>
+      <![CDATA[<p>Pure Native and Write by Swift</p>
+<h1 id="Demo">Demo</h1><p>Open the demo to figure out how to use HoverButton in your program.<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/HoverButtonDemo.gif" alt="demo"></p>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p>Pure Native and Write by Swift</p>
+<h1 id="Demo">Demo</h1><p>Open the demo to figure out how to use HoverButton in your program.<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/HoverButtonDemo.gif" alt="demo"></p>
+<a id="more"></a>
+<p>Github:<br><a href="https://github.com/fancymax/HoverButton" target="_blank" rel="external">https://github.com/fancymax/HoverButton</a></p>
+<p>Something to learn:</p>
+<ul>
+<li>How to detect mouse Enter/Leave event in Cocoa.</li>
+<li>How to use CAlayer to draw but not to override drawRect.</li>
+</ul>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2016/01/25/HoverButton/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[iPhone维修记]]></title>
@@ -83,11 +106,12 @@
       <guid>http://fancymax.github.io/2015/12/30/lunarCalendar/</guid>
       <pubDate>Wed, 30 Dec 2015 10:58:00 GMT</pubDate>
       <description>
-      <![CDATA[<p>Pure Native and Write by Swift<br>]]>
+      <![CDATA[<p>Pure Native and Write by Swift</p>
+<p>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/LunarCalendar.jpg" alt="demo"><br>]]>
       
       </description>
-      <content:encoded><![CDATA[<p>Pure Native and Write by Swift<br><a id="more"></a><br>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/LunarCalendar.jpg" alt="demo"></p>
-<p>Github:<br><a href="https://github.com/fancymax/LunarCalendar" target="_blank" rel="external">https://github.com/fancymax/LunarCalendar</a></p>
+      <content:encoded><![CDATA[<p>Pure Native and Write by Swift</p>
+<p>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/LunarCalendar.jpg" alt="demo"><br><a id="more"></a><br>Github:<br><a href="https://github.com/fancymax/LunarCalendar" target="_blank" rel="external">https://github.com/fancymax/LunarCalendar</a></p>
 <p>Something to learn:</p>
 <ul>
 <li>Autolayout</li>
