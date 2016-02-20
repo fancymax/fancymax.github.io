@@ -294,10 +294,9 @@
 
         
             
-                <div class="ds-thread" data-thread-key="2013/09/24/myComputerHistory/"
-     data-title="我的电脑编年史" data-url="http://fancymax.github.io/2013/09/24/myComputerHistory/">
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-
             
         
     </div>
@@ -443,15 +442,18 @@
 <!--SCRIPTS END-->
 
     
-        <script type="text/javascript">
-            var duoshuoQuery = {short_name:'fancywt'};
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://fancymax.github.io/2013/09/24/myComputerHistory/';
+                 this.page.identifier = '2013/09/24/myComputerHistory/';
+             };
             (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0]
-                || document.getElementsByTagName('body')[0]).appendChild(ds);
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'fancywt';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
             })();
         </script>
     
