@@ -7,7 +7,7 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Thu, 24 Mar 2016 12:16:44 GMT</pubDate>
+    <pubDate>Mon, 19 Dec 2016 13:55:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -20,7 +20,6 @@
       
       </description>
       <content:encoded><![CDATA[<p>老友记 又称 六人行，英译称“friend”是一部由David Crane与Marta Kauffman共同创作的美国情景喜剧。该剧于1994年9月22日在NBC播出，于2004年5月6日结束，共播出十季，剧情主要围绕着一众好友在纽约曼哈顿的生活展开。<a id="more"></a></p>
-<p><img src="http://tu.rrsub.com:8014/ftp/2016/0117/e73005936367cab105635ec7aa745234.jpg" alt="demo"></p>
 <blockquote>
 <p>此剧由Bright/Kauffman/Crane Productions联合华纳兄弟电视公司制作。《老友记》最初的三位执行制片人分别为Kevin S. Bright、Marta Kauffman以及David Crane，而在之后的季度中亦陆续加入多位执行制片人。该剧在超过一百个国家播放，而且后续的重播依然有着良好的收视。据估计在美国有5110万人观看了该剧的大结局。</p>
 </blockquote>
@@ -186,29 +185,6 @@
     </item>
     
     <item>
-      <title><![CDATA[LunarCalendar for OS X(Swift)]]></title>
-      <link>http://fancymax.github.io/2015/12/30/lunarCalendar/</link>
-      <guid>http://fancymax.github.io/2015/12/30/lunarCalendar/</guid>
-      <pubDate>Wed, 30 Dec 2015 10:58:00 GMT</pubDate>
-      <description>
-      <![CDATA[<p>Pure Native and Write by Swift</p>
-<p>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/LunarCalendar.jpg" alt="demo"><br>]]>
-      
-      </description>
-      <content:encoded><![CDATA[<p>Pure Native and Write by Swift</p>
-<p>Demo:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/LunarCalendar.jpg" alt="demo"><br><a id="more"></a><br>Github:<br><a href="https://github.com/fancymax/LunarCalendar" target="_blank" rel="external">https://github.com/fancymax/LunarCalendar</a></p>
-<p>Something to learn:</p>
-<ul>
-<li>Autolayout</li>
-<li>How to Create a new Cocoa UserControl by ViewController</li>
-<li>How to convert Solar Calendar to Lunar Calendar</li>
-<li>How to draw line or circle in Cocoa</li>
-</ul>
-]]></content:encoded>
-      <comments>http://fancymax.github.io/2015/12/30/lunarCalendar/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title><![CDATA[我的2015]]></title>
       <link>http://fancymax.github.io/2015/12/29/my2015/</link>
       <guid>http://fancymax.github.io/2015/12/29/my2015/</guid>
@@ -263,32 +239,6 @@
 </ol>
 ]]></content:encoded>
       <comments>http://fancymax.github.io/2015/12/20/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0-%E4%B8%8A/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title><![CDATA[AutoCompleteTextField for OS X(Swift)]]></title>
-      <link>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/</link>
-      <guid>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/</guid>
-      <pubDate>Mon, 24 Aug 2015 08:08:15 GMT</pubDate>
-      <description>
-      <![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。<br>]]>
-      
-      </description>
-      <content:encoded><![CDATA[<p>AutoCompleteTextField是基于NSTextField实现的自动补齐控件。<br><a id="more"></a></p>
-<h2 id="Demo">Demo</h2><p>我做的<a href="https://github.com/fancymax/AutoCompleteTextField" target="_blank" rel="external">Demo</a>通过这个控件实现类似12306上选择站点时的智能提示，功能上支持 全拼、简拼、汉字，效果如下：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/AutoCompleteTextfield.jpg" alt="demo"></p>
-<h2 id="原理和收获：">原理和收获：</h2><p>原理也比较简单：</p>
-<ol>
-<li>捕捉用户的 keyup 事件来增加智能提示逻辑。</li>
-<li>识别用户按下的键值，弹出 popover ，给出智能提示，比如用户按下 s h ，则给出提示 “上海”</li>
-<li>当用户按下 enter 键，则把提示值输出到 TextField 的显示框上。</li>
-</ol>
-<p>通过实现这个控件，可以学到什么？</p>
-<ol>
-<li>了解 Cocoa 控件体系的继承层级。</li>
-<li>了解 Cocoa 中的 delegate 模式(主程序与 AutoCompleteTextField 之间通过 delegate 模式解除耦合)。</li>
-</ol>
-]]></content:encoded>
-      <comments>http://fancymax.github.io/2015/08/24/autocompletetextfield-for-os-x/#disqus_thread</comments>
     </item>
     
     <item>
