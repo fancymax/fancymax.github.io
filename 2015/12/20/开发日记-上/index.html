@@ -6,28 +6,26 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Programming is like Sex">
-    <title>12306forMac 开发日记-上 - Programming is like Sex</title>
+    <title>12306forMac 开发日记 - Programming is like Sex</title>
     <meta name="author" content="max Lin">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
+    <meta name="description" content="先谈谈做 Mac 版的初衷(市面上已经有那么多抢票软件了，为什么还要重新发明轮子？)">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="12306forMac 开发日记-上">
+<meta property="og:title" content="12306forMac 开发日记">
 <meta property="og:url" content="http://fancymax.github.io/2015/12/20/开发日记-上/index.html">
 <meta property="og:site_name" content="Programming is like Sex">
-<meta property="og:description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213943631-952430701.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213951724-2135344988.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213959131-1473971103.jpg">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg">
+<meta property="og:description" content="先谈谈做 Mac 版的初衷(市面上已经有那么多抢票软件了，为什么还要重新发明轮子？)">
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-1st.png">
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-2nd.png">
-<meta property="og:updated_time" content="2016-08-30T15:30:42.000Z">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/201612197793712306_final.png">
+<meta property="og:updated_time" content="2016-12-19T13:53:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="12306forMac 开发日记-上">
-<meta name="twitter:description" content="先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)">
+<meta name="twitter:title" content="12306forMac 开发日记">
+<meta name="twitter:description" content="先谈谈做 Mac 版的初衷(市面上已经有那么多抢票软件了，为什么还要重新发明轮子？)">
     
     
     
@@ -202,7 +200,7 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            12306forMac 开发日记-上
+            12306forMac 开发日记
         </h1>
     
     <div class="post-meta">
@@ -217,29 +215,31 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>先谈谈做 Mac 版的初衷(很多人说市面上已经有那么多抢票软件了，你为什么还要重新发明轮子？)</p>
+            <p>先谈谈做 Mac 版的初衷(市面上已经有那么多抢票软件了，为什么还要重新发明轮子？)</p>
 <a id="more"></a>
-<p>最早是因为女朋友，她家是湖南的。从深圳到湖南那票叫一个难买。<br>去年别人介绍 买了一款心蓝的订票软件（可惜没有 Mac 版的）,装在我的虚拟机上，刷票刷了两个月总算买到回湖南的两张高铁票。<br>我的 Mac基本上开着虚拟机开了两个月没停，挺心疼的。另外女朋友用macbook基本没法开虚拟机，而我实在不想为了这个搞个双系统。 所以就想搞个 Mac 版的订票软件，借鉴一下心蓝的一些功能。</p>
-<h1 id="Mac版的定位">Mac版的定位</h1><p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控 60 天，基本上 90%可以买到票。<br>这是我在<a href="http://www.v2ex.com/t/243795" target="_blank" rel="external">v2ex上做的调查</a>，可以看出这东西还是挺多人需要滴。</p>
-<h1 id="准备工作">准备工作</h1><p>如何开始呢，这里着重列出自己学习过程中感觉比较有用的东西供大家参考。</p>
-<p>苹果开发，最好就是买个Mac，Mac的型号不少，预算够就直接买Macbook Pro 15寸(推荐16G内存)，大概12~15K左右，屏幕大性能高，便携性好，跑个虚拟机里面再开VS都是小意思。</p>
-<p>如果预算不够，可以考虑买Mac mini主机(8G内存+SSD或Fushion Drive)，差不多5~6k，需要外接一个显示器。</p>
-<p>关于工具和书籍<a href="http://fancywt.cn/2015/12/31/OS-X-learning/" target="_blank" rel="external">参考这里</a></p>
-<h1 id="开发进度">开发进度</h1><p>经过三四个月的时间，总算是在mac上实现了订票的功能。最花时间的是两方面：</p>
-<ul>
-<li>一是12306的接口，各种坑，老是被封IP导致调试困难。</li>
-<li>另外一个就是Cocoa，写界面相当麻烦，而且是现学现卖，一路过来特别折腾。</li>
-</ul>
-<p>下面我做的一些界面截图，留个纪念。<br><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213943631-952430701.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213951724-2135344988.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215213959131-1473971103.jpg" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/708791/201512/708791-20151215214005271-1633616139.jpg" alt=""></p>
-<p>回头想想这三个月进步还挺大，基本熟悉了Swift、Objective-c、以及Cocoa API，对订票的流程也混熟了。还有好多想法，但是总觉得时间太不够用了，只能用业余的时间来弄弄。</p>
-<p>翻看了一下，12306ForMac是从2015年7月30开始写的，到现在整整经过了8个月，到目前为止还是个半成品，虽然已经拥有了简单的订票功能，但离可以正式发布还有很大的差距。</p>
-<p>最开始其实是叫Train12306的，就是下面这段注释。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  AppDelegate.swift</span></span><br><span class="line"><span class="comment">//  Train12306</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by fancymax on 15/7/30.</span></span><br></pre></td></tr></table></figure></p>
-<p>大概在去年9月份的时候，我做出了第一个阶段性成果，具备查询余票的功能。就是下面这个简陋的界面。<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-1st.png" alt="demo"><br>这个阶段最重要的就是熟悉了12306的收发接口以及对应的解析方法，当然这一切都是靠抓包分析出来的。另外就是在不熟悉Cocoa控件的情况下，实现了一个AutoCompleteTextField的控件，用来实现出发/到达城市的智能提示(代码已经开源，在我的Github上可以找到)。</p>
-<p>然后在12月份的时候，我第一次成功的用12306ForMac订到了票，完成了从查票-&gt;登录-&gt;订票的一个完整的流程，界面的整体风格也很大变化了，如下所示:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-2nd.png" alt="demo"><br>但是我没能高兴多久，因为12306ForMac的订票成功率不到20%，更可怕的是我根本排查不出为什么有的时候订票成功，有的时候又不成功，这个时候也是做的最灰心的时候，你只能花大量的时间调试别人没有公开的接口，可能只是一个小小的问题导致订票不成功，但是你就是没法知道，只能一遍一遍的对比排查。</p>
-<p>未完待续。</p>
+<p>最早是因为女朋友，她家是湖南的。从深圳到湖南那票叫一个难买。<br>去年别人介绍 买了一款心蓝的订票软件（没有Mac版,装在我的虚拟机上,刷票刷了两个月总算买到回湖南的两张高铁票。 </p>
+<p>于是我就想弄一个Mac版的订票助手,不用开虚拟机,在后台以最小的消耗帮我刷票。</p>
+<p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控60(现在是30)天，基本上 90%可以买到票。</p>
+<p>当然刷票的过程比较累心，因此订票助手要尽量做到不影响大家正常工作，默默的在后台监控余票，等到有票的时候再通知。</p>
+<h1 id="开发心得">开发心得</h1><p>mac开发可以参考<a href="http://fancywt.cn/2015/12/31/OS-X-learning/" target="_blank" rel="external">Cocoa的入门书籍</a>。</p>
+<p>另外由于我用的是12306的网页接口，所以一个趁手的抓包工具就尤为重要了，Mac平台最靠谱的就是Charles。</p>
+<p>最早是15年7月就开始写了，两个月的时间(每天花了半小时)基本实现了订票的功能。有几个痛苦的地方：</p>
+<ol>
+<li>12306的接口，老是变，各种坑。</li>
+<li>Cocoa，写界面有点麻烦, 和WPF比差的有点多。</li>
+<li>界面交互，一开始没重视，导致想一步做一步，最后来回返工。</li>
+</ol>
+<p>开发的过程遇到很多挫折,很多时候都想放弃了，但是自己拉的屎，含着泪也要擦干净，一开始的失误只能用时间来弥补。下面是界面截图，大家可以看出一点一点的进步。</p>
+<ol>
+<li><p>第一版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-1st.png" alt="demo"></p>
+</li>
+<li><p>第二版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-2nd.png" alt="demo"></p>
+</li>
+<li><p>第三版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac.png" alt="demo"></p>
+</li>
+<li><p>第四版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/201612197793712306_final.png" alt="201612197793712306_final.png"></p>
+</li>
+</ol>
 
             
                 
