@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac-2nd.png">
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac.png">
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/201612197793712306_final.png">
-<meta property="og:updated_time" content="2016-12-19T13:53:51.000Z">
+<meta property="og:updated_time" content="2016-12-20T13:52:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12306forMac 开发日记">
 <meta name="twitter:description" content="先谈谈做 Mac 版的初衷(市面上已经有那么多抢票软件了，为什么还要重新发明轮子？)">
@@ -221,13 +221,13 @@
 <p>于是我就想弄一个Mac版的订票助手,不用开虚拟机,在后台以最小的消耗帮我刷票。</p>
 <p>抢票的话我感觉基本看运气和软件关系不是太大，用手机抢完全 OK ，个人认为 Mac 版的功能应该偏重于检票。实时监控60(现在是30)天，基本上 90%可以买到票。</p>
 <p>当然刷票的过程比较累心，因此订票助手要尽量做到不影响大家正常工作，默默的在后台监控余票，等到有票的时候再通知。</p>
-<h1 id="开发心得">开发心得</h1><p>mac开发可以参考<a href="http://fancywt.cn/2015/12/31/OS-X-learning/" target="_blank" rel="external">Cocoa的入门书籍</a>。</p>
+<h1 id="开发心得">开发心得</h1><p>说做就做，我原来是做WPF的，对Cocoa开发并不熟，不过客户端开发大同小异，通过<a href="http://fancywt.cn/2015/12/31/OS-X-learning/" target="_blank" rel="external">Cocoa的入门书籍</a>看上一周基本可以上手。</p>
 <p>另外由于我用的是12306的网页接口，所以一个趁手的抓包工具就尤为重要了，Mac平台最靠谱的就是Charles。</p>
 <p>最早是15年7月就开始写了，两个月的时间(每天花了半小时)基本实现了订票的功能。有几个痛苦的地方：</p>
 <ol>
 <li>12306的接口，老是变，各种坑。</li>
 <li>Cocoa，写界面有点麻烦, 和WPF比差的有点多。</li>
-<li>界面交互，一开始没重视，导致想一步做一步，最后来回返工。</li>
+<li>界面交互，一开始没重视，导致想一步做一步，来回返工。</li>
 </ol>
 <p>开发的过程遇到很多挫折,很多时候都想放弃了，但是自己拉的屎，含着泪也要擦干净，一开始的失误只能用时间来弥补。下面是界面截图，大家可以看出一点一点的进步。</p>
 <ol>
@@ -237,9 +237,15 @@
 </li>
 <li><p>第三版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/12306ForMac.png" alt="demo"></p>
 </li>
-<li><p>第四版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/201612197793712306_final.png" alt="201612197793712306_final.png"></p>
+<li><p>第四版<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/201612197793712306_final.png" alt="201612197793712306_final.png"><br>从第一版到第四版经过了一年的时间，因为第一次写mac上程序，所以一直在一个摸索的过程，不过慢慢的也找到点规律：</p>
+<ol>
+<li>界面配色种类要少，有个主次界面配色，对比要鲜明。</li>
+<li>由于精力有限，界面只能往简洁大方方向发展。</li>
+</ol>
 </li>
 </ol>
+<h1 id="后续想法">后续想法</h1><p>后面会继续完善这个程序，并且一直开源、免费。另外考虑做一个内购的方式的捐赠，大家如果觉得好可以付费支持我。</p>
+<p>软件功能上还是侧重于 订票 和 检票，抢票还是算了，折腾不过。</p>
 
             
                 
