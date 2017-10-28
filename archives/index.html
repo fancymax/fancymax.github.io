@@ -5,8 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Make Complex Simple">
-    <title>归档 - Make Complex Simple</title>
+    <meta name="generator" content="Simplicity + Power = Elegance">
+    <title>归档 - Simplicity + Power = Elegance</title>
     <meta name="author" content="max Lin">
     
     
@@ -14,12 +14,12 @@
     
     <meta name="description">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Make Complex Simple">
+<meta property="og:title" content="Simplicity + Power = Elegance">
 <meta property="og:url" content="http://fancymax.github.io/archives/index.html">
-<meta property="og:site_name" content="Make Complex Simple">
+<meta property="og:site_name" content="Simplicity + Power = Elegance">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Make Complex Simple">
+<meta name="twitter:title" content="Simplicity + Power = Elegance">
 <meta name="twitter:description">
     
     
@@ -60,7 +60,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
-        <a class="header-title-link" href="/ ">Make Complex Simple</a>
+        <a class="header-title-link" href="/ ">Simplicity + Power = Elegance</a>
     </h1>
     
         
@@ -192,6 +192,330 @@
     
 
 <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/10/28/obs/">
+                            开源直播工具OBS研究
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sat Oct 28 2017 19:03:17 GMT+0800">
+	
+		    10月 28, 2017
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="项目简介">项目简介</h1><p>OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。</p>
+<p>旧版的OBS只能支持Windows，目前已经停止开发。作者为了支持Windows/Mac/Linux重写了整个软件，项目地址为<a href="https://github.com/jp9000/obs-studio" target="_blank" rel="external">obs-studio in Github</a>。</p>
+<p>新版的OBS的目标有以下几点：</p>
+<ol>
+<li>Make it multiplatform.(<strong>跨平台支持</strong>)</li>
+<li>Separate the application from the core, allowing custom application of the core if desired, and easier extending of the user interface.(<strong>模块化、易扩展</strong>)</li>
+<li>Simplify complex systems to not only make it easier to use, but easier to maintain.(<strong>简化系统，使其易用易维护</strong>)</li>
+<li>Make a better/cleaner code base, use better coding standards, use standard libraries where possible (not just STL and C standard library, but also things like ffmpeg as well), and improve maintainability of the project as a whole.(<strong>尽量利用其他开源软件成果</strong>)</li>
+<li>Implement a new API-independent shader/effect system allowing better and easier shaders usage and customization without having to duplicate shader code.(<strong>实现独立于API的shader/effect系统</strong>)</li>
+<li>Better device support.  (<strong>更好的支持有录屏需求的设备</strong>)</li>
+</ol>
+<p>OBS项目的语言分布：</p>
+<ol>
+<li>C: 57.6%</li>
+<li>C++: 36.3%</li>
+<li>Objective-C/Objective-C++: 4%</li>
+<li>others: 3%</li>
+</ol>
+<p>OBS代码主要包含这些部分：</p>
+<ol>
+<li>libobs: 核心代码，定义项目框架以及核心API，主要用C语言编写。</li>
+<li>UI: 界面代码，采用C++的QT框架，开发出适用三大平台的界面。</li>
+<li>plugins: 插件代码，可独立编译成dll(windows平台)或so(*nix平台)，包含Source(录屏输入源)、Output、Service(各种流播服务)等全部被定义为插件。</li>
+<li>libobs-d3d11: 基于D3D的图形子系统，主要用在Windows系统。</li>
+<li>libobs-opengl: 基于opengl的图形子系统，主要用在*uix系统。</li>
+</ol>
+<h2 id="OBS软件功能概述">OBS软件功能概述</h2><p>OBS项目工程中以场景组的方式呈现给用户,可以自由设置场景、输入源、效果处理，配置直播服务。<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016121483032obs_ui.png" alt="2016121483032obs_ui.png"></p>
+<h3 id="OBS项目工程结构">OBS项目工程结构</h3><p>OBS项目中一个工程结构如下<img src="http://7xpbra.com1.z0.glb.clouddn.com/201612147022obs_project_stucture.png" alt="201612147022obs_project_stucture.png"></p>
+<p>一个场景组包含多个场景，OBS直播的时候是把整个场景流播给用户，那为什么需要多个场景？因为播主在直播时有快速切换场景的需要，所以播主需要在直播前编辑好多个场景(比如纯游戏场景；游戏+头像；解说；休息场景等)，然后直播的过程中可以根据不同的需要快速切换。</p>
+<h3 id="OBS场景的转场">OBS场景的转场</h3><p>OBS中的转场，是场景切换时的动画效果，目前支持 Fade和Switch等多种效果。</p>
+<h3 id="OBS输入源的种类">OBS输入源的种类</h3><p>一个场景可以包含多个输入源，一个直播工具可以支持的输入源种类反应了其强大性。OBS支持 输入源种类如下<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016121460496obs_source_type.png" alt="2016121460496obs_source_type.png"></p>
+<h3 id="OBS输入源的效果设置">OBS输入源的效果设置</h3><p>针对每个输入源可以增加各种滤镜效果,以下列出我觉得最实用的几种：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122283761OBS_Effect.png" alt="2016122283761OBS_Effect.png"></p>
+<ol>
+<li>音频效果：<ol>
+<li>Video Delay: 设置延迟时间，用来处理音视频不同步的的场景。</li>
+<li>Noise Suppression: 噪音抑制</li>
+<li>Gain: 音频增益</li>
+<li>Noise Gate: 噪声门，把小噪音去掉</li>
+</ol>
+</li>
+<li>视频效果:<ol>
+<li>Crop: 就是最实用的Crop，不过OBS里不能用鼠标拖拽来控制Crop区域，略显不便</li>
+<li>Chroma Key: 如果有绿幕背景，可以用来去背景，在摄像头的输入源中最常用。</li>
+<li>Image Mask: 打水印</li>
+<li>Scroll: 滚动效果，在一些浏览器的输入源上最实用。</li>
+</ol>
+</li>
+</ol>
+<h3 id="OBS工作室模式">OBS工作室模式</h3><p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122215478OBS_StdioMode.png" alt="2016122215478OBS_StdioMode.png"><br>左边是预览界面，可以进行编辑。右边是正在直播的界面。中间是把预览界面切到直播界面的各种转场效果。</p>
+<p>一般比较专业的直播都是使用这个模式，可以在预览界面编辑好画面之后再推送到直播画面。</p>
+<h2 id="OBS插件系统">OBS插件系统</h2><p>OBS项目中把除了核心框架以及渲染系统之外的 部件全部抽象成了Module，一个或多个Module最后封装到插件中(以dll或so的形式)，只要把插件放入特定的目录即可被主程序使用。</p>
+<p>Mac版OBS的插件目录在/Applications/OBS.app/Contents/Resources/obs-plugins,其中</p>
+<ol>
+<li>mac-avcapture.so 对应Mac的视频捕获设备</li>
+<li>mac-capture.so 对应屏幕捕获 和 窗口捕获</li>
+<li>mac-syphon.so 对应注入捕获游戏画面</li>
+</ol>
+<h3 id="OBS插件定义">OBS插件定义</h3><p>一个典型的OBS插件代码包含三个部分：</p>
+<ol>
+<li>插件定义 -&gt; plugin-main.c</li>
+<li>编译打包 -&gt; CMakeList.txt</li>
+<li>内部实现代码 -&gt; XX.c/YY.c …</li>
+</ol>
+<p>下面以mac-capture.so插件为例来看看它的插件定义代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;obs-module.h&gt;</span></span><br><span class="line"></span><br><span class="line">OBS_DECLARE_MODULE()</span><br><span class="line">OBS_MODULE_USE_DEFAULT_LOCALE(<span class="string">"mac-capture"</span>, <span class="string">"en-US"</span>) <span class="comment">//多语言支持</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">struct</span> obs_source_info coreaudio_input_capture_info; <span class="comment">//输入源1</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">struct</span> obs_source_info coreaudio_output_capture_info;<span class="comment">//输入源2</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">struct</span> obs_source_info display_capture_info;<span class="comment">//输入源3</span></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">struct</span> obs_source_info window_capture_info;<span class="comment">//输入源4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">obs_module_load</span><span class="params">(<span class="keyword">void</span>)</span> <span class="comment">//注册支持的输入源</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	obs_register_source(&amp;coreaudio_input_capture_info);</span><br><span class="line">	obs_register_source(&amp;coreaudio_output_capture_info);</span><br><span class="line">	obs_register_source(&amp;display_capture_info);</span><br><span class="line">	obs_register_source(&amp;window_capture_info);</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出这个插件定义了四个输入源，这里你可能有个疑问，为什么不是一个插件 对应 一个输入源，因为功能相近的输入源集成到一个插件里可以减少冗余代码。</p>
+<p>所以OBS中插件可以定义为 包含 一个 或 多个 输入(或 输出/编码/服务)模块的动态库代码。<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016121549583obs_module_define.png" alt="2016121549583obs_module_define.png"><br>任意一个开源库比如FFmpeg,经过OBS统一的接口定义封装即可编译成OBS的一个插件为OBS系统所用。</p>
+<h3 id="OBS插件加载流程">OBS插件加载流程</h3><p>插件系统大体都有一个类似的套路，OBS的也不例外。简单来说就是定义插件存放在特定目录，在程序启动时，动态加载所有的插件(存储为对象或一系列函数指针)，存储在字典 或者 链表这样的数据结构里。</p>
+<p>下面来详细分析一下OBS中插件加载流程：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016121573630OBS_import_module-2.png" alt="2016121573630OBS_import_module-2.png"></p>
+<p>然后以mac-capture.so中的display_capture_info，来看看它的结构定义,可以看出它主要定义了id、type、name 以及一些接口API。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> obs_source_info display_capture_info = &#123;</span><br><span class="line">	.id             = <span class="string">"display_capture"</span>,</span><br><span class="line">	.type           = OBS_SOURCE_TYPE_INPUT,</span><br><span class="line">	.get_name       = display_capture_getname,</span><br><span class="line"></span><br><span class="line">	.create         = display_capture_create,</span><br><span class="line">	.destroy        = display_capture_destroy,</span><br><span class="line"></span><br><span class="line">	.output_flags   = OBS_SOURCE_VIDEO | OBS_SOURCE_CUSTOM_DRAW |</span><br><span class="line">	                  OBS_SOURCE_DO_NOT_DUPLICATE,</span><br><span class="line">	.<span class="keyword">video_t</span>ick     = <span class="keyword">display_capture_video_t</span>ick,</span><br><span class="line">	.video_render   = display_capture_video_render,</span><br><span class="line"></span><br><span class="line">	.get_width      = display_capture_getwidth,</span><br><span class="line">	.get_height     = display_capture_getheight,</span><br><span class="line"></span><br><span class="line">	.get_defaults   = display_capture_defaults,</span><br><span class="line">	.get_properties = display_capture_properties,</span><br><span class="line">	.update         = display_capture_update,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其中需要注意一下get_properties这个接口，这个接口是干啥用的？顾名思义是获取模块的属性数据，按我的理解 UI层可以利用这个属性数据来构建这个模块对应的界面，并设置这个模块的属性参数。</p>
+<h3 id="OBS视频处理流程">OBS视频处理流程</h3><h4 id="视频渲染输出流程">视频渲染输出流程</h4><p>OBS视频渲染和输出是系统的核心流程，我们以Mac桌面录制输入，以及ffmpeg输出为例来分析一下整个流程(多路输入 和 多路输出道理也是类似的), 图中为了简单起见忽略了输出编码流程仅包含非编码流程。<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122060378OBS_Video_Render_2.png" alt="2016122060378OBS_Video_Render_2.png"><br>可以看出OBS创建了两个线程，一个用于显示渲染，另一个用于编码输出。<br>渲染部分最终调用的是 输入模块里的渲染代码，而编码输出部分最终也是调用 输出模块的代码。</p>
+<p><strong>另外在渲染线程中 也负责把图形系统的数据 拷贝到 输出数据的缓存中，以便于输出线程进行处理</strong>。</p>
+<h4 id="视频输出数据结构分析">视频输出数据结构分析</h4><p>OBS的核心数据结构定义在libobs/obs-internal.h中 主体结构为obs_core如下图所示(仅保留的主要的数据结构)<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016121631085OBS_CoreVideo-2.jpg" alt="2016121631085OBS_CoreVideo-2.jpg"></p>
+<p>右下方的video(结构为video_output)用在输出模块的raw_video接口进行处理，把 输出数据中的cache转成实际的输出，以下是video_output详细数据结构：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016121665597OBS_Video_detail_2.jpg" alt="2016121665597OBS_Video_detail_2.jpg"></p>
+<h3 id="OBS音频处理流程">OBS音频处理流程</h3><p>OBS音频处理是在一个线程中完成了先渲染后输出的过程。而视频处理则是 分别开了渲染线程 和 输出线程。</p>
+<p>具体流程如下, 在输出函数中在判断是否需要编码，再调用对应的非编码流程 或 编码流程：<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122068454OBS_Audio_Render.png" alt="2016122068454OBS_Audio_Render.png"></p>
+<h1 id="OBS图形系统架构">OBS图形系统架构</h1><p>OBS的图形系统主要负责 场景的渲染、场景的切换、以及各种输入源的音视频效果的处理，属于OBS的核心之一。<br>通过使用软件以及视频渲染流程的分析 得到OBS图形系统的大体的逻辑关系。</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122324058OBS_Graphic_Structure_1.png" alt="2016122324058OBS_Graphic_Structure_1.png"></p>
+<p>针对图形系统主要分析以下三个问题：</p>
+<ol>
+<li>多滤镜叠加的渲染处理。</li>
+<li>滤镜和转场效果的实现与集成。</li>
+<li>图形API的封装。</li>
+</ol>
+<h2 id="单个场景的渲染流程">单个场景的渲染流程</h2><p>场景(Scene)也被封装成输入源(Source)的一种,所以UI层只要把当前的场景取出来，调用它的obs_source_video_render即可。</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011791095OBS_sceneRender.png" alt="2017011791095OBS_sceneRender.png"></p>
+<p>在场景内部会渲染其包含的renderitem(也就是实际的输入源),比如前一个图所展示的游戏录制、桌面录制输入源等。</p>
+<h2 id="多个滤镜叠加的输入源渲染流程">多个滤镜叠加的输入源渲染流程</h2><p>这部分分析了很长时间一直没看懂，主要有两个原因：</p>
+<ol>
+<li>之前不熟悉OpenGl的渲染流程，所以搞不懂滤镜的渲染流程。</li>
+<li>这部分的逻辑比较绕，没分析出多个滤镜是怎么叠加渲染的。</li>
+</ol>
+<p>前段时间花了点时间好好学习了一下OpenGl(仅仅学习和音视频处理相关的章节)，写了一些<a href="https://github.com/fancymax/LearnOpenGL_Mac" target="_blank" rel="external">demo</a>。</p>
+<p>现在再来分析这部分相对轻松一些，简述一下：当渲染带滤镜的输入源时，会先渲染它最后一个滤镜，然后在这个滤镜的渲染代码又会调用渲染前一个滤镜，最后调用第一个滤镜的渲染代码。</p>
+<p>在第一个滤镜的渲染代码里 直接渲染 调用输入源的渲染流程，然后生成texture。</p>
+<p>每个滤镜都在前一个滤镜渲染生成的texture的基础渲染生成新的texture。</p>
+<p>流程图如下：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011799373OBS_filterRender.png" alt="2017011799373OBS_filterRender.png"></p>
+<h2 id="滤镜和转场效果的实现与集成">滤镜和转场效果的实现与集成</h2><p>OBS项目中，滤镜和转场效果都被抽象成插件。</p>
+<p>以Mac版OBS为例:</p>
+<ol>
+<li>所有的滤镜都在obs-filters.so这个插件里;</li>
+<li>所有的转场效果都在obs-transitions.so里;</li>
+</ol>
+<p>滤镜和转场其实分析起来是类似的，所以后续的暂时以滤镜为例来加以说明。</p>
+<p>首先如果滤镜个数太多，拆分到两个插件里是没问题的。不过OBS项目中全部集中在一个插件里。</p>
+<p>每个滤镜其实都被定义成了输入模块，以obs_source_info定义暴露API，以crop_filter为例见如下定义，唯一和普通输入模块不同的是类型定义(.type)。 </p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">struct obs_source_info <span class="variable">crop_filter =</span> &#123;</span><br><span class="line">	.<span class="variable">id                            =</span> <span class="string">"crop_filter"</span>,</span><br><span class="line">	.<span class="variable">type                          =</span> OBS_SOURCE_TYPE_FILTER,</span><br><span class="line">	.<span class="variable">output_flags                  =</span> OBS_SOURCE_VIDEO,</span><br><span class="line">	.<span class="variable">get_name                      =</span> crop_filter_get_name,</span><br><span class="line">	.<span class="variable">create                        =</span> crop_filter_create,</span><br><span class="line">	.<span class="variable">destroy                       =</span> crop_filter_destroy,</span><br><span class="line">	.<span class="variable">update                        =</span> crop_filter_update,</span><br><span class="line">	.<span class="variable">get_properties                =</span> crop_filter_properties,</span><br><span class="line">	.<span class="variable">get_defaults                  =</span> crop_filter_defaults,</span><br><span class="line">	.<span class="variable">video_tick                    =</span> crop_filter_tick,</span><br><span class="line">	.<span class="variable">video_render                  =</span> crop_filter_render,</span><br><span class="line">	.<span class="variable">get_width                     =</span> crop_filter_width,</span><br><span class="line">	.<span class="variable">get_height                    =</span> crop_filter_height</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>细心观察每个滤镜的代码组成发现都是一个套路,主要由两部分组成:</p>
+<ol>
+<li>XXX.c  (C代码，用于暴露API以及例行处理)</li>
+<li>XXX.effect (自定义文件，实际效果处理逻辑)</li>
+</ol>
+<p>关于这个effect留到后续讲解。</p>
+<p>看到这里得出一个结论，OBS项目要增加新的滤镜效果只要编写对应的XXX.c 和 XXX.effect，放到对应的插件以输入模块的API暴露出来，并注册就可以了。</p>
+<h2 id="图形API的封装处理">图形API的封装处理</h2><p>目前OBS系统的图形API包括OpenGl以及d3d11:</p>
+<ol>
+<li>在图形库加载层利用了<a href="https://github.com/Dav1dde/glad" target="_blank" rel="external">Multi-Language GL/GLES/EGL/GLX/WGL Loader-Generator</a>对不同平台加载图形库代码进行了封装。</li>
+<li>在API调用层面也进行了抽象统一，具体可以查看 libobs/graphics/graphics-imports.c的定义。</li>
+<li>自定义了效果描述文件 XXX.effect，这样就不用针对OpenGl和d3d11写两遍Shader。</li>
+</ol>
+<p>我们以chroma-key-filter为例分析一下它的创建流程:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122616450OBS_filter_create.png" alt="2016122616450OBS_filter_create.png"></p>
+<ol>
+<li>其中AddNewFilter是在界面中触发的添加效果的功能。</li>
+<li>ep_parse把xxx.effect配置文件解析成对应的配置结构。</li>
+<li>ep_compile把对应的配置结构解析 效果数据结构。</li>
+</ol>
+<p>effect文件的作用可以参考程序中的注释</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * Effects introduce a means <span class="keyword">of</span> bundling together shader <span class="type">text</span> <span class="keyword">into</span> one</span><br><span class="line"> * <span class="type">file</span> <span class="keyword">with</span> shared functions <span class="keyword">and</span> parameters.  This <span class="keyword">is</span> done because often</span><br><span class="line"> * shaders must be duplicated when you need <span class="keyword">to</span> alter minor aspects <span class="keyword">of</span> <span class="keyword">the</span> code</span><br><span class="line"> * <span class="keyword">that</span> cannot be done via constants.  Effects allow developers <span class="keyword">to</span> easily</span><br><span class="line"> * switch shaders <span class="keyword">and</span> <span class="keyword">set</span> constants <span class="keyword">that</span> can be used <span class="keyword">between</span> shaders.</span><br><span class="line"> *</span><br><span class="line"> * Effects are built via <span class="keyword">the</span> effect parser, <span class="keyword">and</span> shaders are automatically</span><br><span class="line"> * generated <span class="keyword">for</span> each technique's pass.</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<p>effect文件包括这几个部分:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2016122616242effect_file_structure.png" alt="2016122616242effect_file_structure.png"></p>
+<p>pass对应 vertex_shader 和 pixel_shader</p>
+<p>technique 对应一个具体效果的渲染设置，包含多个pass</p>
+<p>effect文件包含多个technique渲染设置、可以共享文件中的参数和函数。</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">SolidVertInOut VSSolid(SolidVertInOut vert<span class="number">_</span><span class="keyword">in</span>)</span><br><span class="line">&#123;</span><br><span class="line">	SolidVertInOut vert<span class="number">_</span><span class="keyword">out</span>;</span><br><span class="line">	vert<span class="number">_</span><span class="keyword">out</span>.pos = mul(float<span class="number">4</span>(vert<span class="number">_</span><span class="keyword">in</span>.pos.xyz, <span class="number">1.0</span>), ViewProj);</span><br><span class="line">	<span class="keyword">return</span> vert<span class="number">_</span><span class="keyword">out</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">float<span class="number">4</span> PSSolid(SolidVertInOut vert<span class="number">_</span><span class="keyword">in</span>) : TARGET</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">technique Solid</span><br><span class="line">&#123;</span><br><span class="line">	pass</span><br><span class="line">	&#123;</span><br><span class="line">		vertex<span class="number">_</span>shader = VSSolid(vert<span class="number">_</span><span class="keyword">in</span>);</span><br><span class="line">		pixel<span class="number">_</span>shader  = PSSolid(vert<span class="number">_</span><span class="keyword">in</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>effect文件支持基本的C语法，支持宏定义和include包含其他文件，由libobs/util中的cf-lexer.c和cf-parser.c提供解析支持。</p>
+<h1 id="支持OBS插件">支持OBS插件</h1><p>OBS的插件是在OBS项目定义的比较宽泛，插件的范畴包括 整个录屏、处理、推流 中的各个功能模块.</p>
+<p>如果我们的软件中可以直接支持OBS插件，就可以节省大量的开发、测试的时间。但由于我们的程序框架和OBS的完全不同，要如何支持OBS项目的插件呢？</p>
+<p>想了两种方法，并尝试分析一下优缺点。</p>
+<h2 id="支持OBS的方法分析">支持OBS的方法分析</h2><h3 id="二进制级别的支持">二进制级别的支持</h3><p>顾名思义，就是把OBS的插件直接放到我们程序的相应目录就可以用。这种方式下维护、更新、新增 OBS插件 代价是最小的。也是我心中理想的支持方式。</p>
+<p>但是以这种方式支持的遇到较大困难。先看OBS项目中的代码的各个模块：</p>
+<ol>
+<li>libobs: 核心代码，定义项目框架以及核心API，主要用C语言编写。</li>
+<li>UI: 界面代码，采用C++的QT框架，开发出适用三大平台的界面。</li>
+<li>plugins: 插件代码，可独立编译成dll(windows平台)或so(*nix平台)，包含Source(录屏输入源)、Output、Service(各种流播服务)等全部被定义为插件。</li>
+<li>libobs-d3d11: 基于D3D的图形子系统，主要用在Windows系统。</li>
+<li>libobs-opengl: 基于opengl的图形子系统，主要用在*uix系统。</li>
+</ol>
+<p>我们想要支持plugins中的插件，</p>
+<p>但是plugins中的插件要依赖libobs，</p>
+<p>而libobs又要依赖libobs-opengl 和 QT界面库。</p>
+<p>也就是除非 我们的项目支持基于OBS项目改写，否则这种支持方式的不太现实。</p>
+<h3 id="代码级别的支持">代码级别的支持</h3><p>这是退而求其次的方式，简单的说就是把OBS的插件代码扣出来，确保其不依赖于libobs，然后集成我们的项目中。这种方式每支持一个插件都存在集成的工作量，也可能会引入Bug，不过不失为一个较为可行的方案。</p>
+<h3 id="OBS项目编译">OBS项目编译</h3><p>尝试了在Mac平台上编译OBS项目，还比较顺利。具体可以参考<a href="https://github.com/jp9000/obs-studio/wiki/Install-Instructions#mac-osx" target="_blank" rel="external">install help</a></p>
+<p>有个小问题，在cmake后报错提示无法找到QT5的cmake模块。需要给cmake指定一下QT5的安装目录，以我的安装目录为例，命令如下：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake .. -DCMAKE_PREFIX_PATH=<span class="regexp">/usr/</span>local<span class="regexp">/Cellar/</span>qt5<span class="regexp">/5.3.1/</span></span><br></pre></td></tr></table></figure></p>
+<p>cmake命令我是不熟悉的，不过看了<a href="http://hahack.com/codes/cmake/" target="_blank" rel="external">这篇文章</a>也基本懂了。</p>
+<p>OBS项目最后的编译结果如下：</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/201702058452OBS_Compile.png" alt="201702058452OBS_Compile.png"></p>
+<p>主要有三个目录：</p>
+<ol>
+<li>bin:  主程序</li>
+<li>data: 国际化资源 以及 视频effect效果资源</li>
+<li>obs-plugin: 插件编译结果</li>
+</ol>
+<p>使用otool -L分析中其中主要动态库和插件(仅以mac-capture为例)的依赖关系如下:</p>
+<p><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017020524659OBS_dependency.png" alt="2017020524659OBS_dependency.png"></p>
+<p>前面在代码层面分析直接二进制支持OBS插件感觉很困难。但这里基于编译后的动态库依赖关系分析好像又有一定可行性。我们把mac-capture.so、libobs.0.dylib、ffmpeg独立出来，去掉OBS主程序和QT等库，自己写代码来调用libobs.0.dylib提供的功能，以此直接支持OBS的插件。</p>
+<p>后续进行完相关的实验，看看到底是否可行，再来补充。</p>
+<h3 id="模块列表">模块列表</h3><p>OBS项目中类型为OBS_SOURCE_TYPE_INPUT是我们可以考虑优先支持的模块。以下是功能说明。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">插件</th>
+<th style="text-align:center">子模块</th>
+<th style="text-align:center">功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mac-capture</td>
+<td style="text-align:center">coreaudio_input_capture</td>
+<td style="text-align:center">音频输入获取</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">coreaudio_output_capture</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">display_capture</td>
+<td style="text-align:center">桌面获取</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">window_capture</td>
+<td style="text-align:center">窗体获取</td>
+</tr>
+<tr>
+<td style="text-align:center">mac-avcapture</td>
+<td style="text-align:center">av_capture</td>
+<td style="text-align:center">摄像头获取</td>
+</tr>
+<tr>
+<td style="text-align:center">mac-syphon</td>
+<td style="text-align:center">syphon</td>
+<td style="text-align:center">程序注入获取界面</td>
+</tr>
+<tr>
+<td style="text-align:center">obs-ffmpeg</td>
+<td style="text-align:center">ffmpeg_source</td>
+<td style="text-align:center">ffmpeg输入源</td>
+</tr>
+<tr>
+<td style="text-align:center">obs-browser</td>
+<td style="text-align:center">browser_source</td>
+<td style="text-align:center">浏览器输入</td>
+</tr>
+<tr>
+<td style="text-align:center">text-freetype2</td>
+<td style="text-align:center">freetype2_source</td>
+<td style="text-align:center">text输入</td>
+</tr>
+<tr>
+<td style="text-align:center">decklink</td>
+<td style="text-align:center">decklink-input</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">image-source</td>
+<td style="text-align:center">image_source</td>
+<td style="text-align:center">图片输入</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">slideshow</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">vlc-video</td>
+<td style="text-align:center">vlc_source</td>
+<td style="text-align:center">vlc输入</td>
+</tr>
+</tbody>
+</table>
+<h1 id="mac-syphon插件分析">mac-syphon插件分析</h1><p>mac-syphon是OBS项目中用于获取游戏画面(仅用于mac平台)的插件，十分重要。下面来分析一下它的实现原理。</p>
+<p>首先mac-syphon是OBS的输入源插件，所以遵循OBS的插件API设定，具体可以查看OBS插件分析章节的介绍。<br>mac-syphon内部其实组合了多个开源项目功能来完成:获取游戏画面，并展示到OBS界面上的功能。</p>
+<p>我们以OBS获取MineCraft这个游戏的画面为例，来看一张总的实现原理图:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/2017010524004OBS_SyphonInject.png" alt="2017010524004OBS_SyphonInject.png"></p>
+<p>简单解释一下这个过程：</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2017010568862OBS_SyphonInject_flow.png" alt="2017010568862OBS_SyphonInject_flow.png"></p>
+<p>注入游戏进程的方法这里用的是Scripting Additions的方式，这是macOS独有的技术，windows上肯定要用其他方式，到时候再单独研究。除了注入方式的区别，其他流程Win和Mac平台应该类似的。</p>
+<p>另外由于注入的函数中替换的是OpenGL的渲染API，所以这个插件支持的游戏必然是使用OpenGL渲染的。假如某个程序或游戏不使用OpenGL则无法注入。</p>
+<h2 id="ScriptingAdditions">ScriptingAdditions</h2><p>ScriptingAdditions就是macOS中Applescript中一个技术，不太好解释，反正它的作用就是帮助注入到游戏进程里，直接上两个文档:</p>
+<ol>
+<li><a href="https://developer.apple.com/library/content/technotes/tn1164/_index.html" target="_blank" rel="external">Scripting Additions for Mac OS X</a></li>
+<li><a href="https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptX/Concepts/osa.html" target="_blank" rel="external">Open Scripting Architecture</a></li>
+</ol>
+<h2 id="mach_override">mach_override</h2><p>这里其实利用了两个项目<a href="https://github.com/rentzsch/jrswizzle" target="_blank" rel="external">jrswizzle</a>和<a href="https://github.com/rentzsch/mach_override" target="_blank" rel="external">mach_override</a>,功能就是把游戏进程中的flushBuffer替换为自己写的flushBufferSyphon，把orig_CGLFlushDrawable替换为CGLFlushDrawableOverride，从而实现把自己写的功能注入到游戏的渲染API中。</p>
+<h2 id="Syphon">Syphon</h2><p><a href="https://github.com/Syphon" target="_blank" rel="external">Syphon</a>项目是一套传输图形画面的Client/Server框架。</p>
+<p>项目还提供了<a href="https://github.com/Syphon/Simple" target="_blank" rel="external">Client/Server Demo</a>可以很方便的测试画面传输的功能。</p>
+<h2 id="Syphon_Inject">Syphon Inject</h2><p><a href="https://github.com/zakk4223/SyphonInject" target="_blank" rel="external">SyphonInject</a>项目组合Syphon的功能以及注入游戏的功能，提供了一个Demo。</p>
+<p>下图中我用Syphon Inject注入到Dota2游戏，然后把界面传送给<a href="https://github.com/Syphon/Simple" target="_blank" rel="external">Client Demo</a>。</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2017010588377SyphonInject_1.png" alt="2017010588377SyphonInject_1.png"></p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2017010548405SyphonInject_2.png" alt="2017010548405SyphonInject_2.png"></p>
+<p><strong>SyphonInject编译注意事项</strong>: SyphonInject项目早期利用mach_inject项目进行注入，后期已经修改为ScriptingAdditions方式注入。最新的代码没有依赖mach_inject，所以可以把mach_inject项目依赖去掉再编译。</p>
+<p>最后OBS项目其实上述项目组合，用插件的API包装成了mac-Syphon插件。</p>
+<h1 id="mac-capture插件分析">mac-capture插件分析</h1><p>mac-capture插件是OBS项目中对应mac平台的 屏幕界面获取、窗口界面获取、输入音频获取、输出音频获取 四大模块的具体实现。</p>
+<p>obs模块的具体结构和API不再列出，详细情况可查看之前的文档，这里着重分析模块内部的功能实现。</p>
+<h2 id="mac-display模块">mac-display模块</h2><p>主要利用<a href="https://developer.apple.com/reference/coregraphics/1655858-quartz_display_services" target="_blank" rel="external">Quartz Display Services</a>获取界面图像数据转换成texuture提供给主程序。</p>
+<p>其中调用CGDisplayStreamCreateWithDispatchQueue接口获取的显示界面图像数据，数据结构是IOSurfaceRef。具体用法可以查看上述Quartz Display Services链接文档。</p>
+<p>主要的实现流程如下图：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011827400OBS_macDisplay.png" alt="2017011827400OBS_macDisplay.png"></p>
+<h2 id="mac-window-capture模块">mac-window-capture模块</h2><p>获取其他程序窗体界面的模块，也是利用了Quartz Display Services。</p>
+<p>使用CGWindowListCreateImage接口，通过windowID把对应程序的界面以 CGImage 的形式返回,直接放到输出的Cache里。</p>
+<p>这里有个疑问，模块没有实现.video_render这个渲染API。可能和模块的output_flags设置的是异步有关。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OBS_SOURCE_ASYNC_VIDEO</span><br></pre></td></tr></table></figure>
+<p>异步的渲染流程可能未放到模块内部实现。</p>
+<h2 id="mac-audio模块">mac-audio模块</h2><p>音频模块包括两个，音频输入模块 和 音频输出模块。</p>
+<p>音频输入设备比如 iMac上自带的外置麦克风；音频输出模块 比如 插入的耳机等。</p>
+<p>由于mac平台限制，无法直接录制 音频输出设备的声音。比如我要录制浏览器上youtube视频的声音，在不借助第三方程序的情况下是做不到。使用OBS也做不到。</p>
+<p>不过利用第三方开源程序soundflower可以解决这个问题。在安装soundflower之后，OBS可以设置 音频输出捕获模块，设备选择soundflower。同时系统声音输出设备 也选择为soundflower。<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011845343OBS_audioOutput.png" alt="2017011845343OBS_audioOutput.png"><br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011866291OBS_audioOutput1.png" alt="2017011866291OBS_audioOutput1.png"></p>
+<p>这样系统的任何程序发出的声音就会先经过soundflower，然后被OBS捕获。</p>
+<p>mac-audio中的音频输入模块 和 输出模块 实现流程基本相同，如下所示：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011826851obs_macAudio.png" alt="2017011826851obs_macAudio.png"></p>
+<p>基本原理是 在初始化模块的时候 使用系统接口AudioObjectAddPropertyListener注册音频的回调函数。然后在回调函数中完成音频渲染以及输出音频数据缓存。</p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2017/10/28/obs/#post-footer" class="postShorten-excerpt_link link">
+                                注释和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
@@ -589,42 +913,6 @@
                     <p>iOS的开发特别火爆，OS X的却很冷淡。新手常常觉得OS X的开发难以入门，原因是资料特别少，包括当初的我在内。所以我整理了一些入门必备的工具 或 资源，希望对大家有所帮助。<br>
                     
                         <a href="/2015/12/31/OS-X-learning/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2015/12/29/my2015/">
-                            我的2015
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Tue Dec 29 2015 20:30:05 GMT+0800">
-	
-		    12月 29, 2015
-    	
-    </time>
-    
-</div>
-            </div>
-            
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>年末最适合像这样，拿杯最喜欢的饮料，调暗灯光，舒舒服服的靠在沙发上，想一想这过去的十二月你都做了什么。<br>
-                    
-                        <a href="/2015/12/29/my2015/" class="postShorten-excerpt_link link">
                             阅读全文
                         </a>
                         

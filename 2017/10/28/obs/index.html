@@ -6,21 +6,54 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Simplicity + Power = Elegance">
-    <title>归档: 2017 - Simplicity + Power = Elegance</title>
+    <title>开源直播工具OBS研究 - Simplicity + Power = Elegance</title>
     <meta name="author" content="max Lin">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description">
+    <meta name="description" content="项目简介OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。
+旧版的OBS只能支持Windows，目前已经停止开发。作者为了支持Windows/Mac/Linux重写了整个软件，项目地址为obs-studio in Github。
+新版的OBS的目标有以下">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Simplicity + Power = Elegance">
-<meta property="og:url" content="http://fancymax.github.io/archives/2017/index.html">
+<meta property="og:title" content="开源直播工具OBS研究">
+<meta property="og:url" content="http://fancymax.github.io/2017/10/28/obs/index.html">
 <meta property="og:site_name" content="Simplicity + Power = Elegance">
-<meta property="og:description">
+<meta property="og:description" content="项目简介OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。
+旧版的OBS只能支持Windows，目前已经停止开发。作者为了支持Windows/Mac/Linux重写了整个软件，项目地址为obs-studio in Github。
+新版的OBS的目标有以下">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016121483032obs_ui.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/201612147022obs_project_stucture.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016121460496obs_source_type.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122283761OBS_Effect.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122215478OBS_StdioMode.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016121549583obs_module_define.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016121573630OBS_import_module-2.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122060378OBS_Video_Render_2.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016121631085OBS_CoreVideo-2.jpg">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016121665597OBS_Video_detail_2.jpg">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122068454OBS_Audio_Render.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122324058OBS_Graphic_Structure_1.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011791095OBS_sceneRender.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011799373OBS_filterRender.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122616450OBS_filter_create.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2016122616242effect_file_structure.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/201702058452OBS_Compile.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017020524659OBS_dependency.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2017010524004OBS_SyphonInject.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2017010568862OBS_SyphonInject_flow.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2017010588377SyphonInject_1.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2017010548405SyphonInject_2.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011827400OBS_macDisplay.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011845343OBS_audioOutput.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011866291OBS_audioOutput1.png">
+<meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011826851obs_macAudio.png">
+<meta property="og:updated_time" content="2017-10-28T11:26:47.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simplicity + Power = Elegance">
-<meta name="twitter:description">
+<meta name="twitter:title" content="开源直播工具OBS研究">
+<meta name="twitter:description" content="项目简介OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。
+旧版的OBS只能支持Windows，目前已经停止开发。作者为了支持Windows/Mac/Linux重写了整个软件，项目地址为obs-studio in Github。
+新版的OBS的目标有以下">
     
     
     
@@ -57,7 +90,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Simplicity + Power = Elegance</a>
@@ -81,7 +114,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="3">
     
         <div class="sidebar-profile">
             <a href="/#about">
@@ -184,27 +217,21 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    
-
-<section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/10/28/obs/">
-                            开源直播工具OBS研究
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            开源直播工具OBS研究
+        </h1>
+    
+    <div class="post-meta">
     <time itemprop="datePublished" content="Sat Oct 28 2017 19:03:17 GMT+0800">
 	
 		    10月 28, 2017
@@ -212,11 +239,11 @@
     </time>
     
 </div>
-            </div>
-            
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="项目简介">项目简介</h1><p>OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。</p>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h1 id="项目简介">项目简介</h1><p>OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。</p>
 <p>旧版的OBS只能支持Windows，目前已经停止开发。作者为了支持Windows/Mac/Linux重写了整个软件，项目地址为<a href="https://github.com/jp9000/obs-studio" target="_blank" rel="external">obs-studio in Github</a>。</p>
 <p>新版的OBS的目标有以下几点：</p>
 <ol>
@@ -500,222 +527,90 @@
 <p>mac-audio中的音频输入模块 和 输出模块 实现流程基本相同，如下所示：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011826851obs_macAudio.png" alt="2017011826851obs_macAudio.png"></p>
 <p>基本原理是 在初始化模块的时候 使用系统接口AudioObjectAddPropertyListener注册音频的回调函数。然后在回调函数中完成音频渲染以及输出音频数据缓存。</p>
 
-                    
-                        
+            
+                
 
-                    
-                    
-                        <p>
-                            <a href="/2017/10/28/obs/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/04/06/book201704/">
-                            写给大家看的设计书
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Thu Apr 06 2017 22:27:48 GMT+0800">
-	
-		    4月 06, 2017
-    	
-    </time>
-    
-</div>
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/OBS/">OBS</a>
+
             </div>
-            
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <ul>
-<li><p>一旦能够说出什么东西的名字，就会很容易注意到它。你就会掌握它，拥有它，使它在你的控制中。</p>
-<ul>
-<li>所以凡事要先掌握概念</li>
-</ul>
-</li>
-<li><p>尽管我在后面将逐个讨论各个原则，不过要记住，它们实际上是相互关联的。只应用某一个原则的情况很少。</p>
-<ul>
-<li>4大设计原则是互相关联的</li>
-</ul>
-</li>
-<li><p>亲密性的思想并不是说所有一切都要更靠近，其真正的含义是：如果某些元素在理解上存在关联，或者相互之间存在某种关系，那么这些元素在视觉上也应当有关联。除此以外，其他孤立的元素或元素组则不应存在亲密性。</p>
-</li>
-<li><p>要有意识地注意你是怎样阅读的，你的视线怎样移动：从哪里开始；沿着怎样的路径；到哪里结束；读完之后，接下来看哪里？整个过程应当是一个合理的过程，有确定的开始，而且要有确定的结束。</p>
-</li>
-<li><p>亲密性的根本目的是实现组织性。</p>
-</li>
-<li><p>利用亲密性原则，还可以使空白（这是设计者们最喜欢的）更美观（也更有条理）。</p>
-</li>
-<li><p>微微眯起眼睛，统计你的眼睛停顿的次数来数一数页面上有多少个元素。如果页面上的项超过3～5个（当然，这取决于具体情况），就要看看哪些孤立的元素可以归在一组建立更近的亲密性，使之成为一个视觉单元。</p>
-</li>
-<li><p>避免一个页面上有太多孤立的元素。</p>
-</li>
-<li><p>请注意你喜欢的那些设计。我敢保证，大多数看来精巧的设计都没有采用居中对齐。我知道，作为一个初学者，要完全摒弃居中对齐会很难，但你必须从一开始就强制自己避开它。通过充分利用亲密性，并结合明确的右对齐或左对齐，你会惊异于设计的改观。</p>
-</li>
-<li><p>我并不是建议你绝对不要居中！只是要留意这种居中对齐的效果，这真的是你想要表达的效果吗？当然，有时候确实如此；例如，大多数婚礼都很庄重、很正式，所以，如果你想用居中方式设计你的结婚喜帖，完全可以在营造喜庆的同时有意这么做。</p>
-</li>
-<li><p>在得到更多培训之前，一定要坚持一个原则：页面上只使用一种文本对齐：所有文本都左对齐，或右对齐，或者全部居中。</p>
-</li>
-<li><p>有时，你可能喜欢在同一个页面上同时使用右对齐和左对齐文本，不过一定要确保让这些文本以某种方式对齐！</p>
-</li>
-<li><p>尽管这些孤立元素在页面上的物理位置可能并不靠近，但是通过适当放置，可以让它们看上去是有联系而且相关的，并且与其他信息统一。</p>
-</li>
-<li><p>可以把重复认为是“一致性”。</p>
-</li>
-<li><p>不过重复还不只是自然的一致，这是一种统一设计各个部分的有意识的行为。</p>
-</li>
-<li><p>如果一个出版物有非常好的一致性，则可以放入一些与众不同的元素，使读者真正注意到你希望他们关注的内容。</p>
-</li>
-<li><p>不要把重复用得太滥，而应当尽量“采用多样性实现统一”。也就是说，如果一个重复元素很明确（如一个圆），那么可以采用多种不同方式重复这个圆，而不是简单地重复同一个圆。</p>
-<ul>
-<li>感觉重复性原则很难应用好</li>
-</ul>
-</li>
-<li><p>重复还会为你的作品带来一种专业性和权威性。它会使读者感觉有人在负责，因为重复显然是一种经过深思熟虑的设计决策。</p>
-</li>
-<li><p>重复并不表示必须重复完全相同的东西。</p>
-</li>
-<li><p>重复可以认为是保持一致性，而且我相信你早已经这样做过。现在，需要把现有的一致性更向前推进一步。</p>
-</li>
-<li><p>要避免太多地重复一个元素，重复太多会让人讨厌。要注意对比的价值</p>
-</li>
-<li><p>要增加有意思的对比，最容易的方法就是实现字体对比（这也是本书第二部分的重点）。不过不要忘记，还可以利用线、颜色、元素之间的间隔、材质等形成对比。</p>
-</li>
-<li><p>在设计原则中，对比最有意思，同时效果也最为显著！只需几个小小的改动，就能把一个普普通通的设计变成一个精美的设计。</p>
-</li>
-<li><p>希望你已经看出，对比对于设计作品来说是何等重要，另外也应该能看出增加对比实际上是何等容易。</p>
-</li>
-<li><p>对比的根本目的有两方面，这两个方面相辅相成，无法分开。一个目的是增强页面的效果，如果一个页面看起来很有意思，往往更有可读性。另一个目的是有助于信息的组织。读者应当能立即了解信息以何种方式组织，以及从一项到另一项的逻辑流程。对比元素不能让读者混淆，也不能错误地强调重点（即本不该是重点的元素）。</p>
-</li>
-<li><p>重要的是：对比一定要强烈。</p>
-</li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/2017/04/06/book201704/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/03/17/12306ForMacV16/">
-                            订票助手12306ForMacV1.6更新
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Fri Mar 17 2017 22:39:55 GMT+0800">
-	
-		    3月 17, 2017
-    	
-    </time>
-    
-</div>
-            </div>
-            
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="支持多日期串行查询">支持多日期串行查询</h2><p><img src="https://ooo.0o0.ooo/2017/03/17/58cbec3120077.png" alt="test"></p>
-<h2 id="查到票后Reminder提醒">查到票后Reminder提醒</h2><p>若查到票时不在电脑旁边，则会通过iPhone提醒</p>
-<p><img src="https://ooo.0o0.ooo/2017/03/17/58cbf3af6f4c4.png" alt="test"></p>
-<p>或者Apple Watch提醒</p>
-<p><img src="https://ooo.0o0.ooo/2017/03/17/58cbedd88996b.png" alt="test"></p>
-<h2 id="改进车次筛选功能">改进车次筛选功能</h2><p><img src="https://ooo.0o0.ooo/2017/03/17/58cbef7d1c82f.png" alt="test"></p>
-<h2 id="日历显示更多节假日">日历显示更多节假日</h2><p><img src="https://ooo.0o0.ooo/2017/03/17/58cbf00a000c7.png" alt="test"></p>
-<h2 id="登录界面快捷键">登录界面快捷键</h2><p>右手用鼠标或触控板选择验证码，左手按Space键确定，非常方便<br><img src="https://ooo.0o0.ooo/2017/03/17/58cbf42df0f20.png" alt="test"></p>
-<h2 id="节假日预售期提醒">节假日预售期提醒</h2><p>可以一键生成 之后一年的节假日 预售期的日历提醒，提前做好买票计划。<br><img src="https://ooo.0o0.ooo/2017/03/17/58cbf165b3d06.png" alt="test"></p>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/2017/03/17/12306ForMacV16/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/06/book201704/" data-tooltip="写给大家看的设计书">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/01/04/2016end/">
-                            2016到2017
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Jan 04 2017 21:38:04 GMT+0800">
-	
-		    1月 04, 2017
-    	
-    </time>
-    
-</div>
-            </div>
-            
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>2016最后一天: 早起爬梧桐山，又从梧桐山门口骑车回家。<br>
-                    
-                        <a href="/2017/01/04/2016end/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
-        
-        
-        <li class="pagination-number">第 1 页 共 1 页</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
 
 
 
@@ -726,6 +621,89 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/04/06/book201704/" data-tooltip="写给大家看的设计书">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2017/10/28/obs/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         
@@ -772,6 +750,23 @@
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://fancymax.github.io/2017/10/28/obs/';
+                 this.page.identifier = '2017/10/28/obs/';
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'fancywt';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
 
 
 
