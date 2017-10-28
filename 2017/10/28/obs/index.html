@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011845343OBS_audioOutput.png">
 <meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011866291OBS_audioOutput1.png">
 <meta property="og:image" content="http://7xqmjb.com1.z0.glb.clouddn.com/2017011826851obs_macAudio.png">
-<meta property="og:updated_time" content="2017-10-28T11:26:47.712Z">
+<meta property="og:updated_time" content="2017-10-28T11:31:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源直播工具OBS研究">
 <meta name="twitter:description" content="项目简介OBS - Free and open source software for live streaming and screen recording(OBS是一款开源的用于录屏直播的工具软件)。
@@ -516,9 +516,7 @@
 <p>主要的实现流程如下图：<br><img src="http://7xqmjb.com1.z0.glb.clouddn.com/2017011827400OBS_macDisplay.png" alt="2017011827400OBS_macDisplay.png"></p>
 <h2 id="mac-window-capture模块">mac-window-capture模块</h2><p>获取其他程序窗体界面的模块，也是利用了Quartz Display Services。</p>
 <p>使用CGWindowListCreateImage接口，通过windowID把对应程序的界面以 CGImage 的形式返回,直接放到输出的Cache里。</p>
-<p>这里有个疑问，模块没有实现.video_render这个渲染API。可能和模块的output_flags设置的是异步有关。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OBS_SOURCE_ASYNC_VIDEO</span><br></pre></td></tr></table></figure>
-<p>异步的渲染流程可能未放到模块内部实现。</p>
+<p>这里有个疑问，模块没有实现.video_render这个渲染API。可能和模块的output_flags设置的是异步有关。<br>OBS_SOURCE_ASYNC_VIDEO异步的渲染流程可能未放到模块内部实现。</p>
 <h2 id="mac-audio模块">mac-audio模块</h2><p>音频模块包括两个，音频输入模块 和 音频输出模块。</p>
 <p>音频输入设备比如 iMac上自带的外置麦克风；音频输出模块 比如 插入的耳机等。</p>
 <p>由于mac平台限制，无法直接录制 音频输出设备的声音。比如我要录制浏览器上youtube视频的声音，在不借助第三方程序的情况下是做不到。使用OBS也做不到。</p>
