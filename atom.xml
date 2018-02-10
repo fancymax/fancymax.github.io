@@ -7,8 +7,34 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sat, 28 Oct 2017 11:31:49 GMT</pubDate>
+    <pubDate>Sat, 10 Feb 2018 13:44:59 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[Live photo导入到Final Cut Pro]]></title>
+      <link>http://fancymax.github.io/2018/02/10/livePhoto/</link>
+      <guid>http://fancymax.github.io/2018/02/10/livePhoto/</guid>
+      <pubDate>Sat, 10 Feb 2018 13:43:08 GMT</pubDate>
+      <description>
+      <![CDATA[<h1 id="Live_photo导入到Final_Cut_Pro">Live photo导入到Final Cut Pro</h1><p>Live photo是近两年来我最喜欢的新特性之一(只能在iPhone 6S/SE上使用)。</p>
+<p>它的功能简单来说就是拍一张照片时]]>
+      </description>
+      <content:encoded><![CDATA[<h1 id="Live_photo导入到Final_Cut_Pro">Live photo导入到Final Cut Pro</h1><p>Live photo是近两年来我最喜欢的新特性之一(只能在iPhone 6S/SE上使用)。</p>
+<p>它的功能简单来说就是拍一张照片时候 顺便 记录拍摄瞬间 1～2秒的视频。这就非常有用了，原因有这么几个：</p>
+<ol>
+<li>有人被拍的时候就喜欢眨眼，有了这个功能就可以在在视频的关键帧中挑一张不眨眼的靓照做为主图像。</li>
+<li>一般拍照的时候 都是 精彩瞬间，所以5、6张live photo完全可以直接组合成一个有趣的视频，而静态图片是做不到的。</li>
+</ol>
+<h2 id="如何生成Live_Photo">如何生成Live Photo</h2><p>其实live photo内容构成很简单，就是 JPG + MOV，即一张高清大图，加上一段720P的视频。</p>
+<p>所以如果你要自己制作一个live photo也很简单，<a href="https://github.com/mzp/LoveLiver" target="_blank" rel="external">LoveLiver</a> 这个开源软件可以选择一个视频，然后把其中一段转换成live photo，并导入到系统的Photos中。</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180208151808958441671.jpg" alt="2"></p>
+<h2 id="Live_Photo导入iMovie/Final_Cut_Pro">Live Photo导入iMovie/Final Cut Pro</h2><p>虽然Live Photo这么好，但是苹果原生的iMovie/Final Cut Pro却不支持直接导入，真是坑爹。</p>
+<p>只能曲线救国，通过系统 原生应用 Image Capture.app(在 spotlight搜索 image即可找到) ，插入手机 连接线，然后选择对应的Live Photo，然后点击 Import，它会下载到指定的文件夹里。</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2018020815180905305502.jpg" alt="1"></p>
+<p>最终Live Photo会导入成 JPG + MOV，还有可能有AAE文件(这是个XML文件，记录着这张照片的修改信息)，然后你把对应MOV文件导入到iMovie/Final Cut Pro就完成任务啦。</p>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2018/02/10/livePhoto/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[开源直播工具OBS研究]]></title>
