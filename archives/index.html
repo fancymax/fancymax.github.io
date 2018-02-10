@@ -253,6 +253,77 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/01/10/imageCaptureCore/">
+                            我是如何管理照片的
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Wed Jan 10 2018 21:50:11 GMT+0800">
+	
+		    1月 10, 2018
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="I_Hired_Myself">I Hired Myself</h2><p><a href="http://atp.fm/episodes/259" target="_blank" rel="external">ATP 259期 I Hired Myself</a> 中Casey 提到他写了一个“Mac App”(其实是个命令行工具)用于管理他的照片流，让他有种I Hired Myself的感觉。我听了之后也很有感触，这也是我选择 当程序员的初衷。</p>
+<h2 id="我的照片流">我的照片流</h2><p>今天谈一谈Mac上导入照片工作流，其中利用到了ImageCaptureCore框架，功能原理如下：</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180203151764086753471.png" alt="1"></p>
+<p>这个框架支持手机 以及 相机的SD卡，一般的应用场景是 </p>
+<ul>
+<li><p>插上相机的SD卡</p>
+</li>
+<li><p>电脑自动检测到且自动打开photos这个Mac上的原生图片工具</p>
+</li>
+<li><p>然后列出SD卡里的所有照片</p>
+<p>​<br>之后，你可以选择 照片 导入到Mac里。photo里还提供了导入后删除的选项。</p>
+</li>
+</ul>
+<p>不知道各位第一次使用的时候什么感想，反正我当时是被惊艳到了。</p>
+<p>至此之后 我就喜欢上了这样的照片管理流程。</p>
+<ul>
+<li>我会定期把 相机 和 手机导入到 Mac里，然后把源文件删除。</li>
+<li>然后定期 对 Mac 进行TimeMachine 备份,这样就同时把照片给备份了。</li>
+<li>然后每次浏览 Mac的照片库的时候 都会标注 为 最喜爱 的照片。</li>
+<li>同时把所有最喜欢的照片 添加到 iCloud photo Sharing里。这样我和女朋友都可以在photo的共享里找到这些照片。</li>
+</ul>
+<p>这样做有很多好处:</p>
+<ul>
+<li>还是使用 5G 的iCloud空间就够了。</li>
+<li>可以定期清理 手机 中大量照片占用的空间。</li>
+<li>照片进行了定期备份。</li>
+<li>相机 和 手机的照片可以统一存放处理。</li>
+<li>在任意设备 都可以获取 自己挑选的最喜欢的照片。</li>
+</ul>
+<h2 id="ImageCaptureCore">ImageCaptureCore</h2><p>下面再来说说ImageCaptureCore, 其实Photos里的那一系列功能都是 通过它实现的。<br>它的主要结构如下，基本上是提供了一个树形结构 方便 你来处理导入 照片。<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180203151764241678581.png" alt="2"><br>大家有兴趣可以下载 苹果的范例程序<a href="https://developer.apple.com/library/content/samplecode/CameraBrowser/Introduction/Intro.html" target="_blank" rel="external">CameraBrowser</a>来研究一下。</p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2018/01/10/imageCaptureCore/#post-footer" class="postShorten-excerpt_link link">
+                                注释和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/10/28/obs/">
                             开源直播工具OBS研究
                         </a>
@@ -903,42 +974,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2016/01/24/iPhone/">
-                            iPhone维修记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Sun Jan 24 2016 10:20:05 GMT+0800">
-	
-		    1月 24, 2016
-    	
-    </time>
-    
-</div>
-            </div>
-            
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>这几周耗费大量时间，精力和金钱的修手机心酸史，有必要总结一下(￣▽￣)<br>
-                    
-                        <a href="/2016/01/24/iPhone/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -950,7 +985,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">第 1 页 共 2 页</li>
+        <li class="pagination-number">第 1 页 共 3 页</li>
     </ul>
 </div>
 
