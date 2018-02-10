@@ -462,6 +462,105 @@
     </item>
     
     <item>
+      <title><![CDATA[macOS命令行小秘笈]]></title>
+      <link>http://fancymax.github.io/2017/06/10/macCommand/</link>
+      <guid>http://fancymax.github.io/2017/06/10/macCommand/</guid>
+      <pubDate>Sat, 10 Jun 2017 14:17:54 GMT</pubDate>
+      <description>
+      <![CDATA[<p>macOS基于Unix系统，日常使用总会用到一些Terminal命令用来提高工作效率，或更好的完成任务。</p>
+<h2 id="开发类">开发类</h2><ul>
+<li>查看<strong>Swift</strong>真正方法：</li>
+</ul>
+<p><code>]]>
+      </description>
+      <content:encoded><![CDATA[<p>macOS基于Unix系统，日常使用总会用到一些Terminal命令用来提高工作效率，或更好的完成任务。</p>
+<h2 id="开发类">开发类</h2><ul>
+<li>查看<strong>Swift</strong>真正方法：</li>
+</ul>
+<p><code>xcrun swift-demangle SYMBOL xxx</code></p>
+<ul>
+<li>检查执行程序或库的依赖以及依赖路径</li>
+</ul>
+<p><code>otool -L  &lt;Path&gt;</code></p>
+<ul>
+<li>动态库<strong>dylib</strong>无法加载的原因调试</li>
+</ul>
+<p><code>printf(dlerror());</code></p>
+<ul>
+<li>检查执行程序或库的导出函数</li>
+</ul>
+<p><code>nm -m &lt;Path&gt;</code></p>
+<ul>
+<li>查看使用了<strong>XPC</strong>的程序</li>
+</ul>
+<p><code>find /Applications/ -name \*.xpc &gt;&gt; xpc.txt</code></p>
+<ul>
+<li>卸载<strong>kext</strong>脚本</li>
+</ul>
+<p><code>sudo kextunload /Library/Extensions/xxx.kext</code></p>
+<p><code>sudo rm -rf /Library/Extensions/xxx.kext</code></p>
+<ul>
+<li>检查程序是否签名</li>
+</ul>
+<p><code>codesign -vvv &lt;Path&gt;/xxx.app</code></p>
+<ul>
+<li>查看<strong>Swift</strong>版本</li>
+</ul>
+<p><code>xcrun swift -version</code></p>
+<ul>
+<li>默认xcode路径以及选择</li>
+</ul>
+<p><code>xcode-select -print-path</code></p>
+<p><code>xcode-select -s /Applications/Xcode.app/Contents/Developer/</code></p>
+<ul>
+<li>Frameworks 的放置位置</li>
+</ul>
+<p>系统的Frameworks放在/System/Library/Frameworks/下;</p>
+<p>一般App的Frameworks就放在App的Bundle里;</p>
+<p>如果需要多个App共享Frameworks则可以放在/Library/Frameworks/下;</p>
+<h2 id="日常使用">日常使用</h2><ul>
+<li>卸载<strong>kext</strong>脚本</li>
+</ul>
+<p><code>sudo kextunload /Library/Extensions/xxx.kext</code></p>
+<p><code>sudo rm -rf /Library/Extensions/xxx.kext</code></p>
+<ul>
+<li>检查程序是否签名</li>
+</ul>
+<p><code>codesign -vvv &lt;Path&gt;/xxx.app</code></p>
+<ul>
+<li><strong>10.12</strong>之后允许第三方App运行命令</li>
+</ul>
+<p><code>sudo spctl --master-disable</code></p>
+<ul>
+<li><strong>Mount DMG</strong></li>
+</ul>
+<p>命令自动挂载DMG包</p>
+<p><code>hdiutil mount &lt;Path&gt;.dmg</code></p>
+<p><code>hdiutil unmount &lt;Path&gt;</code></p>
+<ul>
+<li>重启<strong>FaceTime </strong>摄像头</li>
+</ul>
+<p><code>sudo killall VDCAssistant</code></p>
+<ul>
+<li>开启以太网服务</li>
+</ul>
+<p><code>networksetup  -setnetworkserviceenabled ethernet on</code></p>
+<p><code>networksetup  -setnetworkserviceenabled ethernet off</code></p>
+<ul>
+<li>开启<strong>VPN</strong></li>
+</ul>
+<p><code>scutil --nc start &#39;hkVPN &#39; --user xxx --password yyy —secret zzz</code></p>
+<p><code>scutil --nc stop  &#39;hkVPN &#39;</code></p>
+<ul>
+<li>屏幕共享</li>
+</ul>
+<p>在Finder -&gt; 前往连接服务器 -&gt; 输入</p>
+<p><code>vnc://共享地址</code></p>
+]]></content:encoded>
+      <comments>http://fancymax.github.io/2017/06/10/macCommand/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title><![CDATA[新文新民新世界-梁启超家族]]></title>
       <link>http://fancymax.github.io/2017/05/10/liang/</link>
       <guid>http://fancymax.github.io/2017/05/10/liang/</guid>
@@ -1175,56 +1274,6 @@
 <p>以上就是MVVMFoundation框架的主要使用方法，感兴趣的人可以用用看～欢迎留言交流心得～</p>
 ]]></content:encoded>
       <comments>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title><![CDATA[成长与感悟--工作两年半]]></title>
-      <link>http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/</link>
-      <guid>http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/</guid>
-      <pubDate>Thu, 19 Dec 2013 14:19:18 GMT</pubDate>
-      <description>
-      <![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
-<p>以下是我在项目过程中的一些总结和思考，欢迎拍砖~</p>]]>
-      
-      </description>
-      <content:encoded><![CDATA[<p>13年年初的时候，机缘巧合负责了一个较大的项目。在这之前我都是单枪匹马，这是我第一次负责团队型的项目。记得当时压力很大，从3月~7月我的月平均加班时间超过了90个小时。还好最后功夫不负有心人，项目历时7个月顺利完成并部署，得到了用户的肯定。</p>
-<p>以下是我在项目过程中的一些总结和思考，欢迎拍砖~</p>
-<a id="more"></a>
-<h2 id="直接跳进深水区">直接跳进深水区</h2><p>这是学习新事物的一种最直接，也最冒险的方法。<br>选择一项新技术，比如F#，基于实际的时间表，在真实的项目中使用它。这会带来压力，但如果运用得当，将特别有效率。</p>
-<p>当时我在项目的过程中，直接学习了项目管理和各种要使用的新技术，边学边用，效率奇高无比。当然压力也很大，当时想的是项目做失败就直接离职了。</p>
-<h2 id="做计划的重要性">做计划的重要性</h2><p>以前做小项目的时候没有认识到计划的重要性。然后在做大项目中吃了很多亏，才认识到计划的重要性。</p>
-<p>现在认识到无论是针对日常工作和学习都要有个计划。</p>
-<blockquote>
-<p>比如：以前我要学习一个技术，不管三七二十一马上开始，恨不得一口气吃成胖子；现在的我就会计划几个阶段，每个阶段有个目标。</p>
-</blockquote>
-<h2 id="一次只能做好一件事">一次只能做好一件事</h2><p>当时项目初期时分工不明确，有很多紧急的任务堆积在我身上。当时我明显感觉脑子转不过来，而且多个任务互相影响压力巨大，怎么办？</p>
-<ul>
-<li>我先去寻找问题的解决思路，有了思路解决后续就交给有空余时间的人处理，自己要抽身出来协调项目工作。</li>
-<li>先把简单的实现，后面再集中火力攻克难关。</li>
-</ul>
-<p>另外保证项目组成员一个阶段只做一件事。这样提高了效率，减轻了压力，也加快了项目的进展。</p>
-<h2 id="享受过程">享受过程</h2><p>需要认识到到达目标之前的曲折性。<strong>要有持续改进与提高的心态，而不是想着一开始就做的完美</strong>。<br>否则一开始就要达到完美的目标，最后极可能导致失败。</p>
-<p>当时经常性的会有非常沮丧的心理，总觉得项目要失败，后来总结了以下几点安慰自己：</p>
-<ul>
-<li>接受现实（改变心态，告诉自已，是的我现在是克服不了，我也没有能力处理这个事情）</li>
-<li>将消极的情况变为积极，找到失败的闪光点和机会（虽然的败了，这是成长的机会，让我更了解自已）</li>
-<li>分心，将注意力转向别处，但不是逃避（总是执着于分析每一种感情，想法是有害的，反复思考并不一定对人有帮助，可以先听听音乐，跑跑步，与别人交流交流，回头再来思考，也许有更好的点子）。</li>
-</ul>
-<h2 id="关于坚持">关于坚持</h2><p>如果觉得做不下去了，就硬着头皮坚持做，然后就类似于麻木了，适应了，那种望而却步的感觉会逐渐自动退去。惊人的简单，但事实就是如此，硬着头皮，过了那个情绪上最艰难的时候，也就适应了。当然在坚持的过程中，还需要思考如何改进，如何提高效率（通过读书或向别人学习）。</p>
-<h2 id="关于学习和培养兴趣">关于学习和培养兴趣</h2><p>对未来的一些规划，比如</p>
-<ul>
-<li>学习一门新语言</li>
-<li>掌握一些通用的技术，比如正则表达式、进程间通信、文件存储 </li>
-<li>掌握通用的软件思想，比如设计模式，比如MVC、MVVM </li>
-<li>使用牛逼的编辑器，比如vim</li>
-<li>跟踪技术博客</li>
-</ul>
-<p>借用一句话来结尾：</p>
-<blockquote>
-<p>无论怎样学习技术是一种态度，无论你在什么公司、位于何种职位、从事何种技术，学习前辈的先进方法，永远是一条最快的提升捷径。站在巨人的肩膀上，迎接世界的挑战。</p>
-</blockquote>
-]]></content:encoded>
-      <comments>http://fancymax.github.io/2013/12/19/%E6%88%90%E9%95%BF%E4%B8%8E%E6%84%9F%E6%82%9F-%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%8D%8A/#disqus_thread</comments>
     </item>
     
   </channel>
