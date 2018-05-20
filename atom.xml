@@ -7,8 +7,56 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Sat, 10 Feb 2018 14:03:57 GMT</pubDate>
+    <pubDate>Sun, 20 May 2018 09:45:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[mpv源码学习-1编译调试]]></title>
+      <link>http://fancymax.github.io/2018/05/20/mpv-1/</link>
+      <guid>http://fancymax.github.io/2018/05/20/mpv-1/</guid>
+      <pubDate>Sun, 20 May 2018 09:36:05 GMT</pubDate>
+      <description>
+      <![CDATA[<p>最近对mpv的源码产生了兴趣，打算研究研究。</p>
+<p><a href="https://github.com/mpv-player/mpv" target="_blank" rel="external">mpv</a>是属于一个大型的C语言的跨平台的播放器项目，其代码]]>
+      </description>
+      <content:encoded><![CDATA[<p>最近对mpv的源码产生了兴趣，打算研究研究。</p>
+<p><a href="https://github.com/mpv-player/mpv" target="_blank" rel="external">mpv</a>是属于一个大型的C语言的跨平台的播放器项目，其代码源自MPlayer和mplayer2，是一个历史非常悠久的项目了。</p>
+<p>先来分析一下此项目大致存在的难点：</p>
+<ul>
+<li>针对跨平台的编译处理。</li>
+<li>运用了C语言的奇淫巧技。</li>
+<li>图形学的一些专业知识，主要是编解码、图形渲染等。</li>
+</ul>
+<p>先从github上下载了mpv的源码，然后进行编译，整个过程比较人性化。</p>
+<h2 id="waf编译系统">waf编译系统</h2><p>mpv项目自己定制了一个叫<a href="https://github.com/waf-project/waf" target="_blank" rel="external">waf</a>的编译系统，至于为什么使用waf编译系统在他们的项目文档里有做介绍<a href="https://github.com/mpv-player/mpv/blob/master/DOCS/waf-buildsystem.rst" target="_blank" rel="external">why waf</a>，总结下来大致以下几点：</p>
+<ul>
+<li>编译脚本 在跨平台时比较保持一致的代码，并且尽量减少重复和胶水代码。</li>
+<li>配置(configuration)步骤 和 编译(buid)步骤必须是分离的。</li>
+<li>脚本比较好理解、好修改。(waf使用python编写)</li>
+</ul>
+<h2 id="源码编译">源码编译</h2><p>(本文的编译过程基于Mac)先从github上下载了mpv的源码。</p>
+<p>第一步先跑个脚本下载最新的waf执行文件。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="keyword">bootstrap</span>.py</span><br></pre></td></tr></table></figure>
+<p>第二步跑一下waf的configuration步骤，这个过程会告诉你缺少哪些组件。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./waf configure</span><br></pre></td></tr></table></figure>
+<p>根据第二步的结果，对一些缺少的组件进行安装。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>install libass</span><br><span class="line"><span class="keyword">brew </span>install ffmpeg</span><br></pre></td></tr></table></figure>
+<p>然后 再跑一遍 ./waf configure 就成功生成了config.h，用于最后的编译过程。</p>
+<p>在configure阶段可以使用下列选项，不进行代码优化，便于后续调试。</p>
+<p><code>--disable-optimize</code></p>
+<p>第三部 跑一下build步骤，这样就生成了最终的执行文件了。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./waf</span><br></pre></td></tr></table></figure>
+<p>最后一步 运行一下 安装步骤，就把mpv 放到了 /usr/local/bin/mpv 系统目录。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./waf <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码调试">代码调试</h2><p>安装好mpv之后，就可以先尝试运行一下程序，可以正常的播放视频。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">mpv</span>  xx/xx.mp4</span><br></pre></td></tr></table></figure>
+<p>接下来尝试用lldb来调试一下代码。由于mpv在mac系统上运行，所以代码的入口在 xx/mpv/osdep/macosx_application.m 这个文件。所以先用lldb在这里设置一个断点。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Launch a process for with arguments a.out 1 2 3 without having to supply the args every time</span></span><br><span class="line">lldb -- mpv xx/xx.mp4</span><br><span class="line"></span><br><span class="line"><span class="comment">#enter lldb env then set breakpoint</span></span><br><span class="line">breakpoint <span class="type">set</span> --name cocoa_main</span><br><span class="line"></span><br><span class="line"><span class="comment">#star debug</span></span><br><span class="line">run</span><br><span class="line"></span><br><span class="line"><span class="comment">#运行结果</span></span><br><span class="line">* thread <span class="comment">#1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1</span></span><br><span class="line">    frame <span class="comment">#0: 0x00000001000d711b mpv`cocoa_main(argc=2, argv=0x00007ffeefbff940) at macosx_application.m:338 [opt]</span></span><br><span class="line">   <span class="number">335</span> 	</span><br><span class="line">   <span class="number">336</span> 	<span class="type">int</span> cocoa_main(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span><br><span class="line">   <span class="number">337</span> 	&#123;</span><br><span class="line">-&gt; <span class="number">338</span> 	    @autoreleasepool &#123;</span><br><span class="line">   <span class="number">339</span> 	        application_instantiated = <span class="literal">true</span>;</span><br><span class="line">   <span class="number">340</span> 	        [[<span class="type">EventsResponder</span> sharedInstance] setIsApplication:<span class="type">YES</span>];</span><br><span class="line">   <span class="number">341</span> 	</span><br><span class="line"><span class="type">Target</span> <span class="number">0</span>: (mpv) stopped.</span><br></pre></td></tr></table></figure>
+<p>这之后 就可以一边看代码一边通过调试来理解代码行为了。</p>
+<p>最后再补充几条常用lldb的命令，更多内容可以查看lldb的官方文档。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show the stack backtrace for the current thread</span></span><br><span class="line">thread backtrace</span><br><span class="line"></span><br><span class="line"><span class="comment"># List all breakpoints</span></span><br><span class="line"><span class="built_in">breakpoint</span> list</span><br><span class="line"></span><br><span class="line"><span class="comment"># Delete a breakpoint</span></span><br><span class="line"><span class="built_in">breakpoint</span> <span class="built_in">delete</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">breakpoint</span> disable/enable</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <comments>http://fancymax.github.io/2018/05/20/mpv-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[Live photo导入到Final Cut Pro]]></title>
@@ -1186,94 +1234,6 @@
 <p>先说这么多，未完待续~~</p>
 ]]></content:encoded>
       <comments>http://fancymax.github.io/2014/04/20/talkAboutPM/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title><![CDATA[浅谈WPF中的MVVM框架--MVVMFoundation]]></title>
-      <link>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/</link>
-      <guid>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/</guid>
-      <pubDate>Sat, 19 Apr 2014 14:22:25 GMT</pubDate>
-      <description>
-      <![CDATA[<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。<br>]]>
-      
-      </description>
-      <content:encoded><![CDATA[<p>微软对于WPF技术的构想是很宏大的，可惜普及率不高，不过如果你要做Windows客户端开发的话WPF技术还是值得一学的。<br><a id="more"></a><br>什么是WPF，请看下图<br><img src="http://images.cnitblog.com/blog2015/708791/201504/201140330112092.jpg" alt="what is WPF" align="center"></p>
-<h1 id="什么是MVVM模式">什么是MVVM模式</h1><p>简单来说它是一种高级的UI设计模式。据我所知目前还运用在一些js框架中，比如<strong>AngularJS</strong>。其他的UI设计模式还包括MVC、MVP，个人觉得最强大的还是MVVM。</p>
-<p>MVVM主体框架如下图：</p>
-<p><img src="http://images.cnitblog.com/blog2015/708791/201504/201225530274012.jpg" width="500" height="400" alt="what is MVVM" align="center"></p>
-<blockquote>
-<ul>
-<li>The Model is the entity that represents the business concept; it can be anything from a simple customer entity to a complex stock trade entity .</li>
-<li>The View is the graphical control or set of controls responsible for rendering the Model data on screen .A View can be a WPF window, a Silverlight page, or just an XAML data template control .</li>
-<li>The ViewModel is the magic behind everything .The ViewModel contains the UI logic, the commands, the events, and a reference to the Model .</li>
-<li>In MVVM, the ViewModel is not in charge of updating the data displayed in the UI—thanks to the powerful data-binding engine provided by WPF and Silverlight, the ViewModel doesn’t need to do that .This is because the View is an observer of the ViewModel, so as soon as the ViewModel changes, the UI updates itself .For that to happen, the ViewModel must implement the INotifyPropertyChangedinterface and fire the PropertyChangedevent .</li>
-</ul>
-</blockquote>
-<p>简单翻译一下（不全）</p>
-<blockquote>
-<ul>
-<li>The Model 代表业务逻辑的实体类，可以是一个简单的顾客实体类，也可以是一个复杂的股票交易实体类。</li>
-<li>The View 代表一个用户界面控件 …</li>
-<li>The ViewModel 包括各种逻辑、命令、事件以及实体类的引用。</li>
-</ul>
-</blockquote>
-<h1 id="什么是MVVMFoundation">什么是MVVMFoundation</h1><p><a href="http://mvvmfoundation.codeplex.com" target="_blank" rel="external">MVVMFoundation</a>是一个最简单的MVVM框架，官方介绍如下：</p>
-<blockquote>
-<p>MVVM Foundation is a library of classes that are very useful when building applications based on the Model-View-ViewModel philosophy. The library is small and concentrated on providing only the most indispensable tools needed by most MVVM application developers</p>
-</blockquote>
-<p>MVVMFoundation包含四大模块：</p>
-<ul>
-<li><p>ObservableObject：这里相当于ViewModelBase的概念，每一个ViewModel继承自该类，调用完成之后立即释放，防止内存泄露。</p>
-</li>
-<li><p>RelayCommand接口：封装command的声明，包括execution执行逻辑,可选的can-execute逻辑等。外部只需要实例化并Binding就可以简单使用。</p>
-</li>
-<li><p>Messenger:这里主要用在各种不同的ViewModel之间通信（比如相互关联的ViewModel、主从ViewModel等），当然也可以扩展成ViewModel与View之间进行通信。</p>
-</li>
-<li><p>PropertyObserver：主要是对INotifyPropertyChanged.PropertyChanged进行封装，可以通过其对某个对象的属性变更注册回调函数，当属性变更时便触发回调函数。</p>
-</li>
-</ul>
-<h1 id="ObservableObject">ObservableObject</h1><p>实现ViewModel中的属性改变通知到绑定的控件的方法，相当于是所有Viewmodel的基类。</p>
-<ol>
-<li><p>使用时调用OnPropertyChange方法，则后台数据变化即可通知界面刷新</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> UserName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="keyword">this</span>.user.UserName; &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.user.UserName = <span class="keyword">value</span>;</span><br><span class="line">	    OnPropertyChanged(<span class="string">"UserName"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>属性在View界面的绑定</p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">TextBox</span> <span class="keyword">Text</span>=<span class="string">"&#123;Binding UserName&#125;"</span> /&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="RelayCommand">RelayCommand</h1><p>用于在ViewModel中定义View中绑定的命令，代替了以前Winform的Click事件。</p>
-<ol>
-<li><p>在ViewModel中定义Command</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ICommand BrowseImageCommand</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> ICommand(BrowseImage); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">BrowseImage</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在View中的按钮关联此Command</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button <span class="variable">Content=</span><span class="string">"浏览..."</span> <span class="variable">Command=</span><span class="string">"&#123;Binding BrowseImageCommand&#125;"</span>/&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="Messenger">Messenger</h1><p>可用于ViewModel之间的信息传递，可以用于ViewModel和View之间的信息传递。</p>
-<ol>
-<li><p>定义信息传输类</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ViewModelCommunication</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="title">ViewModelCommunication</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        Messaging = <span class="keyword">new</span> Messenger();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Messenger Messaging &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> DataIDInChanged &#123; <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="string">"DataIDInChanged"</span>; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在需要通知的类中注册要通知的信息</p>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ViewModelCommunication.Messaging.Register<span class="params">(ViewModelCommunication.DataIDInChanged,</span><br><span class="line">        <span class="params">(Action&lt;string&gt;)</span><span class="params">(param =&gt; SetLastSelectedDataID<span class="params">(param)</span>)</span>)</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当对应的消息出现时，通知已经注册的类</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ViewModelCommunication</span><span class="class">.Messaging</span><span class="class">.NotifyColleagues</span>(<span class="tag">ViewModelCommunication</span><span class="class">.DataIDInChanged</span>, </span><br><span class="line">        <span class="tag">DataID</span><span class="class">.ToString</span>());</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="PropertyObserver">PropertyObserver</h1><p>主要用于对对象的属性监听，属性变更后可触发已注册的回调函数。</p>
-<ol>
-<li><p>注册要监听对象的属性及回调函数</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PropertyObserver&lt;UserInfoViewModel&gt; userInfoAfterObserver;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">MainWindowViewModel</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    UserInfoBefore = <span class="keyword">new</span> UserInfoViewModel();</span><br><span class="line">    userInfoAfterObserver = <span class="keyword">new</span> PropertyObserver&lt;UserInfoViewModel&gt;(UserInfoAfter)</span><br><span class="line">        .RegisterHandler(UserInfo =&gt; UserInfo.Age, <span class="keyword">this</span>.AgeChangedCallback);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实现回调函数</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">AgeChangedCallback</span><span class="params">(UserInfoViewModel userInfo)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    MessageBox.Show(<span class="string">"Property Age changed"</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>以上就是MVVMFoundation框架的主要使用方法，感兴趣的人可以用用看～欢迎留言交流心得～</p>
-]]></content:encoded>
-      <comments>http://fancymax.github.io/2014/04/19/%E6%B5%85%E8%B0%88WPF%E4%B8%AD%E7%9A%84MVVM%E6%A1%86%E6%9E%B6-MVVMFoundation/#disqus_thread</comments>
     </item>
     
   </channel>
