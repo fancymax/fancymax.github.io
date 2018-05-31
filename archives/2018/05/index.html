@@ -231,7 +231,7 @@
 <p>假设 k = (m+n)/2，在array1 和 array2 分别找 k/2大的位置的数。</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> array1[k<span class="regexp">/2] &lt; array2[k/2]  /</span><span class="regexp">/则array1中k/</span><span class="number">2</span>之前的数可以排除。</span><br><span class="line"><span class="comment">//反之亦然</span></span><br><span class="line"><span class="comment">//利用这个 排除法 最后缩小范围，找到实际要求的值</span></span><br></pre></td></tr></table></figure>
 <p>举一个简单的实际范例，方便理解：</p>
-<p><img src="https://i.loli.net/2018/05/26/5b0971baf3495.png" alt="example"></p>
+<p><img src="https://i.loli.net/2018/05/31/5b1007af85036.png" alt="example"></p>
 <p>总的思路就是这样，实际代码还需要考虑边界值，最终的代码参考<a href="https://github.com/fancymax/Leetcode_Swift/blob/master/004-median-of-two-sorted-arrays/median-of-two-sorted-arrays.swift" target="_blank" rel="external">swift</a> 。</p>
 <h3 id="O(log(min(m,n)))">O(log(min(m,n)))</h3><p>这是leetcode理论上最优解可以达到的复杂度，思路比较精妙，这里就不做过多解释，具体可以参照<a href="https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/" target="_blank" rel="external">leetcode</a>中的详细解释。</p>
 
