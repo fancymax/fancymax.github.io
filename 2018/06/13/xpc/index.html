@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2017120715126509008638.jpg">
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888929566604.png">
 <meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888996391921.png">
-<meta property="og:updated_time" content="2018-06-13T12:01:43.097Z">
+<meta property="og:updated_time" content="2018-06-13T12:08:13.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS 进程间通信方案探究">
 <meta name="twitter:description" content="macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示
@@ -249,7 +249,7 @@
 <p>当主程序需要调用子程序时 主程序先创建一个 TCP Server，并且把Server的地址和端口 作为参数 调起子程序(NSTask)。</p>
 <p>子程序启动后，获取参数中的TCP地址和端口, 然后创建TCP Client进行连接。然后通过TCP的通信来互相调用。</p>
 <p>至此 通信层的功能和大体框架基本确定了。</p>
-<p>那应用层应该以何种方式呢？是否要定义一个特别的通信规约？</p>
+<p>那应用层应该以何种方式调用呢？是否要定义一个特别的通信规约？</p>
 <p>如果定义了通信规约，那每次别人要使用这套框架的时候还要先熟悉一下规约，这就显得不灵活 和 不易用了。有没有可能借用XPC的思路，直接以Objc消息传递的方式来互相调用呢？借助于Objective-C的runtime，这是可以实现的。我个人XPC的内部实现思路估计也是一样的。</p>
 <p>先复习一下Objc的消息转发流程:</p>
 <p><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888996391921.png" alt=""></p>
