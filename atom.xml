@@ -7,7 +7,7 @@
     <link>http://fancymax.github.io/</link>
     <atom:link href="//atom.xml" rel="self" type="application/rss+xml"/>
     <description></description>
-    <pubDate>Wed, 13 Jun 2018 12:08:13 GMT</pubDate>
+    <pubDate>Wed, 13 Jun 2018 12:11:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -45,12 +45,14 @@
 <p>先复习一下Objc的消息转发流程:</p>
 <p><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888996391921.png" alt=""></p>
 <p>注意最后一步 forwardInvocation 可以获取函数的所有调用参数。</p>
-<p>假如 主程序利用 forwardInvocation 把需要调用的子程序的 函数信息 序列化 通过 Tcp 传递给子程序，子程序 反序列化后再根据函数信息调用对应功能。</p>
 <blockquote>
 <p>-(void)forwardInvocation:(NSInvocation *)anInvocation;</p>
 </blockquote>
-<p>实现对应功能的时候注意一下 NSInvocation 在Swift已经被废弃了，所以相关调用只能使用OC编写。</p>
+<p>假如 主程序利用 forwardInvocation 把需要调用的子程序的 函数信息 序列化 通过 Tcp 传递给子程序，子程序 反序列化后再根据函数信息调用对应功能。这就完成了一个互相调用的过程。</p>
+<blockquote>
+<p>实现对应功能的时候注意一下 NSInvocation 在Swift已经被废弃了，所以相关功能只能使用OC编写。</p>
 <p>另外 NSInvocation 在ARC环境下跑的时候有个坑，可以参考一下 <a href="https://stackoverflow.com/questions/8811498/nsinvocation-and-arc-automatic-reference-counting" target="_blank" rel="external">nsinvocation-and-arc-automatic-reference-counting</a>。</p>
+</blockquote>
 <p>具体的代码就不放上来，大家有兴趣可以按照上述思路 实现一下看看，一方面可以熟悉一下TCP流程，另一方面也可以熟悉 OC的 转发流程，另外实现完这一套之后 也会 对苹果XPC内部实现有一定的了解。</p>
 <p>参考链接:</p>
 <ul>
