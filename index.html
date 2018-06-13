@@ -198,6 +198,86 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/06/13/xpc/">
+                            macOS 进程间通信方案探究
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Wed Jun 13 2018 20:00:23 GMT+0800">
+	
+		    6月 13, 2018
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2017120715126509008638.jpg" alt="IPC"></p>
+<ul>
+<li>第一种也是历史最悠久的是基于POSIX的实现，其中常见的是基于Socket (TCP/IP)的实现。同时这种方案和平台无关。</li>
+<li>第二种基于 底层信号机制，mac系统的内核组件就是使用mach_mag来传递消息。参考</li>
+<li>第三种就是Foundation库里提供的一些类库。github上有个不错的范例实现基于CFMachPort—<a href="https://github.com/Syphon/Simple" target="_blank" rel="external">https://github.com/Syphon/Simple​</a></li>
+</ul>
+<h2 id="XPC方式">XPC方式</h2><p>估计是苹果觉得这些方案，都不够好，要么不够易用，要么不够安全。所以在2011年的时候推出的全新的XPC进程间通信的方案。</p>
+<blockquote>
+<p>The XPC Services API provides a low-level (libSystem) interprocess communication mechanism based on serialized property lists.</p>
+</blockquote>
+<p>这是一套C的API，范例代码可以参考<a href="https://github.com/objcio/issue-14-xpc" target="_blank" rel="external">https://github.com/objcio/issue-14-xpc</a>。</p>
+<p>但是这个技术有一个挺大的局限性，XPC进程只能是一个不带界面的控制台进程。关于 XPC 比较特别的尝试可以看看这个代码: <a href="https://github.com/OpenEmu/OpenEmuXPCCommunicator" target="_blank" rel="external">https://github.com/OpenEmu/OpenEmuXPCCommunicator</a>。</p>
+<p>这可能一般的简单的程序架构是没问题的，但是有些特殊的要求，比如我就要求主程序和子程序都是界面程序 并且可以互相调用，这样子就完全搞不定了，由于XPC这套东西并不开源，所以要实现这种更灵活的互相调用，只能另辟蹊径。</p>
+<p>为了实现这种两个界面程序，主程序和子程序可以互相调用的需求推荐就采取 Socket的方式实现，因为这种最标准的方式和操作系统无关，相比其他方案 不会因为 系统API被废弃而 变得不可用。</p>
+<h2 id="Socket方式">Socket方式</h2><p>一个理想的调用关系大概是这样的:<br><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888929566604.png" alt=""></p>
+<p>子程序放在主程序的程序包内。</p>
+<p>当主程序需要调用子程序时 主程序先创建一个 TCP Server，并且把Server的地址和端口 作为参数 调起子程序(NSTask)。</p>
+<p>子程序启动后，获取参数中的TCP地址和端口, 然后创建TCP Client进行连接。然后通过TCP的通信来互相调用。</p>
+<p>至此 通信层的功能和大体框架基本确定了。</p>
+<p>那应用层应该以何种方式呢？是否要定义一个特别的通信规约？</p>
+<p>如果定义了通信规约，那每次别人要使用这套框架的时候还要先熟悉一下规约，这就显得不灵活 和 不易用了。有没有可能借用XPC的思路，直接以Objc消息传递的方式来互相调用呢？借助于Objective-C的runtime，这是可以实现的。我个人XPC的内部实现思路估计也是一样的。</p>
+<p>先复习一下Objc的消息转发流程:</p>
+<p><img src="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888996391921.png" alt=""></p>
+<p>注意最后一步 forwardInvocation 可以获取函数的所有调用参数。</p>
+<p>假如 主程序利用 forwardInvocation 把需要调用的子程序的 函数信息 序列化 通过 Tcp 传递给子程序，子程序 反序列化后再根据函数信息调用对应功能。</p>
+<blockquote>
+<p>-(void)forwardInvocation:(NSInvocation *)anInvocation;</p>
+</blockquote>
+<p>实现对应功能的时候注意一下 NSInvocation 在Swift已经被废弃了，所以相关调用只能使用OC编写。</p>
+<p>另外 NSInvocation 在ARC环境下跑的时候有个坑，可以参考一下 <a href="https://stackoverflow.com/questions/8811498/nsinvocation-and-arc-automatic-reference-counting" target="_blank" rel="external">nsinvocation-and-arc-automatic-reference-counting</a>。</p>
+<p>具体的代码就不放上来，大家有兴趣可以按照上述思路 实现一下看看，一方面可以熟悉一下TCP流程，另一方面也可以熟悉 OC的 转发流程，另外实现完这一套之后 也会 对苹果XPC内部实现有一定的了解。</p>
+<p>参考链接:</p>
+<ul>
+<li><a href="https://www.objc.io/issues/14-mac/xpc/" target="_blank" rel="external">https://www.objc.io/issues/14-mac/xpc/</a></li>
+<li><a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/Introduction.html#//apple_ref/doc/uid/10000172i" target="_blank" rel="external">https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/Introduction.html#//apple_ref/doc/uid/10000172i</a></li>
+<li><a href="https://www.mikeash.com/pyblog/friday-qa-2009-01-16.html" target="_blank" rel="external">https://www.mikeash.com/pyblog/friday-qa-2009-01-16.html</a></li>
+<li><a href="https://www.mikeash.com/pyblog/friday-qa-2009-02-20-the-good-and-bad-of-distributed-objects.html" target="_blank" rel="external">https://www.mikeash.com/pyblog/friday-qa-2009-02-20-the-good-and-bad-of-distributed-objects.html</a></li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/2018/06/13/xpc/#post-footer" class="postShorten-excerpt_link link">
+                                注释和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/05/20/mpv-1/">
                             mpv源码学习-1编译调试
                         </a>
@@ -1234,42 +1314,6 @@
                                 注释和共享
                             </a>
                         </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/01/04/2016end/">
-                            2016到2017
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Jan 04 2017 21:38:04 GMT+0800">
-	
-		    1月 04, 2017
-    	
-    </time>
-    
-</div>
-            </div>
-            
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>2016最后一天: 早起爬梧桐山，又从梧桐山门口骑车回家。<br>
-                    
-                        <a href="/2017/01/04/2016end/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
                     
                 </div>
             

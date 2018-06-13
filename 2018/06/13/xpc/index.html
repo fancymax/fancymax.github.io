@@ -6,21 +6,40 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Simplicity + Power = Elegance">
-    <title>标签: Cocoa - Simplicity + Power = Elegance</title>
+    <title>macOS 进程间通信方案探究 - Simplicity + Power = Elegance</title>
     <meta name="author" content="max Lin">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description">
+    <meta name="description" content="macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示
+
+
+第一种也是历史最悠久的是基于POSIX的实现，其中常见的是基于Socket (TCP/IP)的实现。同时这种方案和平台无关。
+第二种基于 底层信号机制，mac系统的内核组件就是使用mach_mag来传递消息。参考
+第三种就是Foundation库里提供的一些类库。github上有个不错的范例实现基于CFMachPort—ht">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Simplicity + Power = Elegance">
-<meta property="og:url" content="http://fancymax.github.io/tags/Cocoa/index.html">
+<meta property="og:title" content="macOS 进程间通信方案探究">
+<meta property="og:url" content="http://fancymax.github.io/2018/06/13/xpc/index.html">
 <meta property="og:site_name" content="Simplicity + Power = Elegance">
-<meta property="og:description">
+<meta property="og:description" content="macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示
+
+
+第一种也是历史最悠久的是基于POSIX的实现，其中常见的是基于Socket (TCP/IP)的实现。同时这种方案和平台无关。
+第二种基于 底层信号机制，mac系统的内核组件就是使用mach_mag来传递消息。参考
+第三种就是Foundation库里提供的一些类库。github上有个不错的范例实现基于CFMachPort—ht">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/2017120715126509008638.jpg">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888929566604.png">
+<meta property="og:image" content="http://7xpbra.com1.z0.glb.clouddn.com/20180613152888996391921.png">
+<meta property="og:updated_time" content="2018-06-13T12:01:43.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simplicity + Power = Elegance">
-<meta name="twitter:description">
+<meta name="twitter:title" content="macOS 进程间通信方案探究">
+<meta name="twitter:description" content="macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示
+
+
+第一种也是历史最悠久的是基于POSIX的实现，其中常见的是基于Socket (TCP/IP)的实现。同时这种方案和平台无关。
+第二种基于 底层信号机制，mac系统的内核组件就是使用mach_mag来传递消息。参考
+第三种就是Foundation库里提供的一些类库。github上有个不错的范例实现基于CFMachPort—ht">
     
     
     
@@ -57,7 +76,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="3">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/ ">Simplicity + Power = Elegance</a>
@@ -81,7 +100,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="3">
     
         <div class="sidebar-profile">
             <a href="/#about">
@@ -184,27 +203,21 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="3"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    
-
-<section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/06/13/xpc/">
-                            macOS 进程间通信方案探究
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            macOS 进程间通信方案探究
+        </h1>
+    
+    <div class="post-meta">
     <time itemprop="datePublished" content="Wed Jun 13 2018 20:00:23 GMT+0800">
 	
 		    6月 13, 2018
@@ -212,11 +225,11 @@
     </time>
     
 </div>
-            </div>
-            
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示</p>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>macOS上的进程间通信的方案很多，总的来说分为以下三种，如下图所示</p>
 <p><img src="http://7xpbra.com1.z0.glb.clouddn.com/2017120715126509008638.jpg" alt="IPC"></p>
 <ul>
 <li>第一种也是历史最悠久的是基于POSIX的实现，其中常见的是基于Socket (TCP/IP)的实现。同时这种方案和平台无关。</li>
@@ -256,68 +269,91 @@
 <li><a href="https://www.mikeash.com/pyblog/friday-qa-2009-02-20-the-good-and-bad-of-distributed-objects.html" target="_blank" rel="external">https://www.mikeash.com/pyblog/friday-qa-2009-02-20-the-good-and-bad-of-distributed-objects.html</a></li>
 </ul>
 
-                    
-                        
+            
+                
 
-                    
-                    
-                        <p>
-                            <a href="/2018/06/13/xpc/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2015/12/31/OS-X-learning/">
-                            OS X编程资料总结
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Thu Dec 31 2015 21:10:45 GMT+0800">
-	
-		    12月 31, 2015
-    	
-    </time>
-    
-</div>
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Cocoa/">Cocoa</a>
+
             </div>
-            
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>iOS的开发特别火爆，OS X的却很冷淡。新手常常觉得OS X的开发难以入门，原因是资料特别少，包括当初的我在内。所以我整理了一些入门必备的工具 或 资源，希望对大家有所帮助。<br>
-                    
-                        <a href="/2015/12/31/OS-X-learning/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/20/mpv-1/" data-tooltip="mpv源码学习-1编译调试">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
         
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
 
 
                 <footer id="footer" class="main-content-wrap">
@@ -327,6 +363,89 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/20/mpv-1/" data-tooltip="mpv源码学习-1编译调试">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://fancymax.github.io/2018/06/13/xpc/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
         
@@ -373,6 +492,23 @@
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://fancymax.github.io/2018/06/13/xpc/';
+                 this.page.identifier = '2018/06/13/xpc/';
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'fancywt';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
 
 
 
